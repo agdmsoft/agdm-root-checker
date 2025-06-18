@@ -37,21 +37,14 @@ header {
     padding-bottom: 40px;
 }
 
+/* ИЗМЕНЕНО: Стили для .logo обновлены для работы с изображением */
 .logo {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: #1E1F25;
-    font-weight: 700;
-    font-size: 36px;
-    
-    /* УДАЛЕНО: width, height и line-height, чтобы размер контейнера был гибким */
-    
-    /* ДОБАВЛЕНО: Внутренние отступы. 15px сверху/снизу и 25px слева/справа */
-    padding: 15px 25px; 
-    
-    border-radius: 20px;
+    width: 100px;           /* Вы можете настроить размер логотипа, например, 100px */
+    height: auto;           /* Высота подстроится автоматически для сохранения пропорций */
+    border-radius: 22px;    /* Скругление углов для изображения */
     margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(240, 185, 11, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    /* Свойства для текста, такие как color, font-size, padding, больше не нужны */
 }
 
 h1 {

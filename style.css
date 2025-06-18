@@ -37,9 +37,9 @@ header {
     padding-bottom: 40px;
 }
 
-.logo {
+logo {
     display: inline-block;
-    background: linear-gradient(45deg, var(--accent-color), #f9dc68);
+    background-color: var(--accent-color); /* Используем основной акцентный цвет */
     color: #1E1F25;
     font-weight: 700;
     font-size: 28px;

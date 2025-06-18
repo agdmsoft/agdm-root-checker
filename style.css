@@ -42,11 +42,14 @@ header {
     background-color: var(--accent-color);
     color: #1E1F25;
     font-weight: 700;
-    font-size: 36px;      /* <--- Увеличено (было 28px) */
-    width: 80px;          /* <--- Увеличено (было 60px) */
-    height: 80px;         /* <--- Увеличено (было 60px) */
-    line-height: 80px;    /* <--- Увеличено (было 60px) */
-    border-radius: 20px;  /* <--- Немного увеличено для пропорциональности */
+    font-size: 36px;
+    
+    /* УДАЛЕНО: width, height и line-height, чтобы размер контейнера был гибким */
+    
+    /* ДОБАВЛЕНО: Внутренние отступы. 15px сверху/снизу и 25px слева/справа */
+    padding: 15px 25px; 
+    
+    border-radius: 20px;
     margin-bottom: 20px;
     box-shadow: 0 4px 15px rgba(240, 185, 11, 0.2);
 }

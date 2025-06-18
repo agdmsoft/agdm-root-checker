@@ -1,0 +1,186 @@
+/* Общие сбросы и настройки */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Шапка сайта */
+header {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    display: inline-block;
+    background-color: #28a745;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Кнопка призыва к действию */
+.call-to-action {
+    margin-bottom: 60px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #28a745;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #218c3a;
+    transform: translateY(-2px);
+}
+
+/* Секция с ключевыми проверками */
+.features {
+    margin-bottom: 60px;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #28a745;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    text-align: left;
+}
+
+.feature-item {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.feature-item h3 {
+    font-size: 1.2rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    color: #b0b0b0;
+}
+
+/* Юридические секции */
+.legal-links {
+    margin-bottom: 20px;
+}
+.legal-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+.legal-links a:hover {
+    color: #28a745;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background-color: #333;
+    margin: 40px 0;
+}
+
+.legal-section {
+    text-align: left;
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.legal-section h2 {
+    text-align: center;
+    border: none;
+}
+
+.legal-section p, .legal-section ul {
+    margin-bottom: 15px;
+    color: #b0b0b0;
+}
+
+.legal-section ul {
+    padding-left: 20px;
+}
+
+.legal-section a {
+    color: #28a745;
+    text-decoration: none;
+}
+.legal-section a:hover {
+    text-decoration: underline;
+}
+
+/* Подвал */
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}

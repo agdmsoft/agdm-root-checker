@@ -37,16 +37,16 @@ header {
     padding-bottom: 40px;
 }
 
-logo {
+.logo {
     display: inline-block;
-    background-color: var(--accent-color); /* Используем основной акцентный цвет */
+    background-color: var(--accent-color);
     color: #1E1F25;
     font-weight: 700;
-    font-size: 28px;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 16px;
+    font-size: 36px;      /* <--- Увеличено (было 28px) */
+    width: 80px;          /* <--- Увеличено (было 60px) */
+    height: 80px;         /* <--- Увеличено (было 60px) */
+    line-height: 80px;    /* <--- Увеличено (было 60px) */
+    border-radius: 20px;  /* <--- Немного увеличено для пропорциональности */
     margin-bottom: 20px;
     box-shadow: 0 4px 15px rgba(240, 185, 11, 0.2);
 }

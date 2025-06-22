@@ -1,4 +1,4 @@
-/* Глобальные переменные и сбросы */
+/* ================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И СБРОСЫ ================== */
 :root {
     --background-color: #0B0E11;
     --surface-color: #1E1F25;
@@ -13,6 +13,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -25,33 +30,39 @@ body {
     padding: 20px;
 }
 
+/* ================== КОНТЕЙНЕР ================== */
 .container {
     width: 100%;
     max-width: 900px;
     text-align: center;
 }
 
-/* Шапка */
+/* ================== ШАПКА ================== */
 header {
     margin: 40px 0;
     padding-bottom: 40px;
 }
 
-/* ИЗМЕНЕНО: Стили для .logo обновлены для работы с изображением */
 .logo {
-    width: 100px;           /* Вы можете настроить размер логотипа, например, 100px */
-    height: auto;           /* Высота подстроится автоматически для сохранения пропорций */
-    border-radius: 22px;    /* Скругление углов для изображения */
+    width: 100px;
+    height: auto;
+    border-radius: 22px;
     margin-bottom: 20px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    /* Свойства для текста, такие как color, font-size, padding, больше не нужны */
+    animation: bounceIn 0.6s ease; /* Анимация появления логотипа */
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.5); }
+    80% { transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 h1 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 15px;
-    color: #28a745; /* <--- ДОБАВЛЕНА ЭТА СТРОКА */
+    color: #28a745;
 }
 
 .tagline {
@@ -61,10 +72,10 @@ h1 {
     margin: 0 auto;
 }
 
-/* Стили для шкалы безопасности */
+/* ================== ШКАЛА БЕЗОПАСНОСТИ ================== */
 .security-scale {
-    margin: 45px auto; /* Отступы сверху и снизу */
-    max-width: 600px;  /* Максимальная ширина шкалы */
+    margin: 45px auto;
+    max-width: 600px;
 }
 
 .scale-title {
@@ -78,7 +89,6 @@ h1 {
     height: 12px;
     width: 100%;
     border-radius: 6px;
-    /* Градиент от красного к зеленому */
     background: linear-gradient(90deg, #dc3545 0%, #F0B90B 50%, #28a745 100%);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
@@ -96,7 +106,7 @@ h1 {
 .label-yellow { color: #F0B90B; }
 .label-green { color: #81c784; }
 
-/* Кнопка призыва к действию */
+/* ================== КНОПКА CTA ================== */
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
@@ -108,7 +118,7 @@ h1 {
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(240, 185, 11, 0.2);
-    margin-top: 30px; /* Отступ от шкалы */
+    margin-top: 30px;
 }
 
 .cta-button:hover {
@@ -117,7 +127,7 @@ h1 {
     box-shadow: 0 4px 20px rgba(240, 185, 11, 0.3);
 }
 
-/* Общий стиль для секций */
+/* ================== СЕКЦИИ И ЗАГОЛОВКИ ================== */
 main > section {
     margin-bottom: 80px;
 }
@@ -127,7 +137,7 @@ h2 {
     margin-bottom: 40px;
 }
 
-/* Карточки с преимуществами */
+/* ================== КАРТОЧКИ ПРЕИМУЩЕСТВ ================== */
 .info-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -144,8 +154,8 @@ h2 {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
 
 .card h3 {
@@ -158,7 +168,7 @@ h2 {
     color: var(--text-secondary);
 }
 
-/* Сетка с ключевыми проверками */
+/* ================== СЕТКА ОСНОВНЫХ ПРОВЕРОК ================== */
 .features-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -171,7 +181,14 @@ h2 {
     padding: 25px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.feature-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
 .feature-icon {
     font-size: 2rem;
     display: block;
@@ -186,7 +203,7 @@ h2 {
     color: var(--text-secondary);
 }
 
-/* Секция "Как это работает" */
+/* ================== СЕКЦИЯ "КАК ЭТО РАБОТАЕТ" ================== */
 .how-it-works .steps {
     display: flex;
     justify-content: center;
@@ -217,7 +234,7 @@ h2 {
     color: var(--accent-color);
 }
 
-/* Юридическая документация */
+/* ================== ЮРИДИЧЕСКАЯ СЕКЦИЯ ================== */
 .legal-section {
     max-width: 700px;
     margin-left: auto;
@@ -271,7 +288,7 @@ h2 {
     text-decoration: underline;
 }
 
-/* Подвал */
+/* ================== ПОДВАЛ ================== */
 footer {
     margin-top: 40px;
     padding-top: 20px;
@@ -279,7 +296,19 @@ footer {
     color: var(--text-secondary);
 }
 
-/* Адаптивность */
+/* ================== СКРОЛЛБАР ================== */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+}
+body::-webkit-scrollbar-track {
+    background-color: var(--background-color);
+}
+
+/* ================== АДАПТИВНОСТЬ ================== */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.2rem;
@@ -294,5 +323,21 @@ footer {
     .step-arrow {
         transform: rotate(90deg);
         margin: 15px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
     }
 }

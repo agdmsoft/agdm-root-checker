@@ -94,14 +94,27 @@ h1 {
 
 /* ================== ШКАЛА БЕЗОПАСНОСТИ ================== */
 .security-scale {
-    margin: 45px auto 0;
+    position: relative; /* Необходимо для позиционирования заголовка и маркеров */
+    margin-top: 180px; /* Большой отступ сверху, чтобы вместить заголовок и иконки */
 }
 
-/* Новый контейнер для визуальных элементов (шкалы и рисок) */
+/* Контейнер для визуальных элементов (шкалы и рисок) */
 .scale-visual {
-    position: relative; /* Необходимо для позиционирования рисок */
-    margin-top: 150px; /* Оставляем МНОГО места сверху для больших иконок */
+    position: relative; 
     margin-bottom: 10px;
+}
+
+/* Заголовок над шкалой */
+.scale-title {
+    font-size: 2.2rem; /* Размер шрифта как у заголовков H2 */
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 40px; 
+    /* Абсолютное позиционирование, чтобы поднять его НАД всем */
+    position: absolute;
+    top: -190px; /* Точное положение над иконками */
+    left: 0;
+    right: 0;
 }
 
 /* Контейнер для всех маркеров (иконки + риски) */
@@ -128,23 +141,15 @@ h1 {
 .marker img {
     width: 120px;  /* Размер как у логотипа */
     height: auto;
-    margin-bottom: 5px; /* Отступ между картинкой и риской */
+    margin-bottom: 5px; 
 }
 
 /* Сама риска (черточка) */
 .tick {
     width: 4px; /* Толщина */
     height: 48px; /* Длина увеличена, чтобы пересекать шкалу */
-    background-color: var(--text-secondary); /* Серый цвет */
+    background-color: var(--text-secondary);
     border-radius: 2px;
-}
-
-/* Заголовок над шкалой */
-.scale-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 15px;
 }
 
 /* Полоса шкалы */
@@ -202,7 +207,7 @@ h2 {
 /* ================== КАРТОЧКИ С ПРЕИМУЩЕСТВАМИ ================== */
 .info-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Немного увеличена мин. ширина */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     text-align: left;
 }
@@ -335,7 +340,7 @@ body::-webkit-scrollbar-track {
     h1 {
         font-size: 2.2rem;
     }
-    h2 {
+    h2, .scale-title { /* Применяем и к заголовку шкалы */
         font-size: 1.8rem;
     }
     .info-cards {
@@ -352,12 +357,19 @@ body::-webkit-scrollbar-track {
     .step:last-of-type ~ .step-arrow {
         display: none;
     }
-    /* На мобильных устройствах большие иконки на шкале могут выглядеть плохо, можно их скрыть или уменьшить */
+    /* На мобильных устройствах сложная шкала будет выглядеть плохо, поэтому упрощаем ее */
+    .security-scale {
+        margin-top: 45px; /* Возвращаем стандартный отступ */
+    }
+    .scale-title {
+        position: static; /* Возвращаем заголовок в поток документа */
+        margin-bottom: 15px;
+    }
     .scale-visual {
-        margin-top: 15px; /* Уменьшаем отступ, если иконки скрыты */
+        margin-top: 15px; /* Уменьшаем отступ */
     }
     .scale-markers {
-        display: none; /* Скрываем маркеры на мобильных для чистоты вида */
+        display: none; /* Полностью скрываем маркеры на мобильных для чистоты вида */
     }
     .scale-labels {
         margin-top: 10px; /* Возвращаем стандартный отступ */

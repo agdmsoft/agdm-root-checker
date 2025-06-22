@@ -3,72 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGDM Root Checker - Android Security Analysis</title>
-    <meta name="description" content="AGDM Root Checker is a powerful tool for a deep security analysis of your Android device. Check root status, bootloader, SELinux, and much more.">
+    <title>AGDM Root Checker - Deep Android Security Analysis</title>
+    <meta name="description" content="AGDM Root Checker - a powerful tool for a detailed security analysis of your Android device. Checks for Root, bootloader state, SELinux, and much more.">
+    
     <link rel="stylesheet" href="style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <div class="logo">AGDM</div>
+            <img src="logo.png" alt="AGDM Logo" class="logo">
             <h1>AGDM Root Checker</h1>
             <p class="tagline">A powerful tool for a deep and detailed security analysis of your Android device.</p>
         </header>
 
         <main>
-            <section class="call-to-action">
-                <a href="#" class="cta-button">Get it on Google Play</a>
+            <section class="security-scale-section">
+                <div class="security-scale">
+                    <p class="scale-title">Overall Device Security Level</p>
+                    <div class="scale-bar"></div>
+                    <div class="scale-labels">
+                        <span class="label-red">Low</span>
+                        <span class="label-yellow">Medium</span>
+                        <span class="label-green">High</span>
+                    </div>
+                </div>
+                <a href="https://play.google.com/store/apps" class="cta-button" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
             </section>
 
-            <section class="features">
-                <h2>Key Checks</h2>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <h3>Root Access</h3>
-                        <p>Detects su/busybox binaries and common root management applications.</p>
+            <section class="info-cards-section">
+                <h2>Why Choose Us?</h2>
+                <div class="info-cards">
+                    <div class="card">
+                        <h3>Comprehensive Analysis</h3>
+                        <p>We check not only for root access, but also the bootloader state, system integrity, and SELinux mode for a complete security picture.</p>
                     </div>
-                    <div class="feature-item">
-                        <h3>System Integrity</h3>
-                        <p>Analyzes firmware signature (test-keys), Verified Boot status, and the debuggable flag.</p>
+                    <div class="card">
+                        <h3>Simplicity and Clarity</h3>
+                        <p>Complex technical data is presented in an easy-to-understand security scale and detailed reports. You don't need to be an expert.</p>
                     </div>
-                    <div class="feature-item">
-                        <h3>Bootloader & SELinux</h3>
-                        <p>Checks the bootloader lock state and the operational mode of SELinux (Enforcing/Permissive).</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Environment</h3>
-                        <p>Analyzes Google Play Services status and prepares for the Play Integrity API check.</p>
+                    <div class="card">
+                        <h3>100% Privacy</h3>
+                        <p>All checks are performed locally on your device. We do not collect or transmit your personal or system data.</p>
                     </div>
                 </div>
             </section>
 
-            <section class="legal-links">
-                 <a href="#privacy">Privacy Policy</a>
-                 <a href="#eula">End-User License Agreement (EULA)</a>
+            <section class="how-it-works">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p class="step-text">Install the App</p>
+                    </div>
+                    <div class="step-arrow">&rarr;</div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p class="step-text">Run the Scan</p>
+                    </div>
+                    <div class="step-arrow">&rarr;</div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p class="step-text">Get the Result</p>
+                    </div>
+                </div>
             </section>
 
-            <hr class="separator">
+            <section id="legal" class="legal-section">
+                <h2>Legal Information</h2>
+                <details>
+                    <summary>Privacy Policy</summary>
+                    <div class="details-content">
+                        <p><strong>Effective Date:</strong> June 22, 2025</p>
+                        <p>The AGDM Root Checker application performs all analysis locally on your device. We do not collect, store, or transmit your personal or system data to any servers. Your privacy is our top priority.</p>
+                    </div>
+                </details>
 
-            <section id="privacy" class="legal-section">
-                <h2>Privacy Policy</h2>
-                <p><strong>Effective Date:</strong> June 18, 2025</p>
-                <p>The AGDM Root Checker application performs all analysis locally on your device. We do not collect, store, or transmit your personal or system data to any servers.</p>
-            </section>
-
-            <hr class="separator">
-
-            <section id="eula" class="legal-section">
-                <h2>End-User License Agreement (EULA)</h2>
-                <p>By installing and using AGDM Root Checker, you agree to the following terms:</p>
-                <ul>
-                    <li>The application is provided "AS IS," without any warranties.</li>
-                    <li>The developer is not liable for any potential damage to your device or data loss.</li>
-                    <li>You are granted a limited, non-exclusive license for personal, non-commercial use.</li>
-                </ul>
+                <details>
+                    <summary>End-User License Agreement (EULA)</summary>
+                    <div class="details-content">
+                        <p>By installing and using AGDM Root Checker, you agree to the following terms:</p>
+                        <ul>
+                            <li>The application is provided 'AS IS', without any warranties.</li>
+                            <li>The developer is not responsible for any potential damage to your device or loss of data.</li>
+                            <li>You are granted a limited, non-exclusive license for personal, non-commercial use.</li>
+                        </ul>
+                    </div>
+                </details>
             </section>
         </main>
 

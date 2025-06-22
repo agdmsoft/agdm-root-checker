@@ -92,30 +92,52 @@ h1 {
     margin: 0 auto;
 }
 
-/* ================== ШКАЛА БЕЗОПАСНОСТИ ================== */
+/* ================== SECURITY SCALE (полностью обновленный блок) ================== */
+
+/* Главный контейнер секции */
 .security-scale {
-    position: relative; /* Необходимо для позиционирования рисок */
     margin: 45px auto 0;
 }
 
-/* Стили для рисок (черточек) над шкалой */
+/* Новый контейнер для визуальных элементов (шкалы и рисок) */
+.scale-visual {
+    position: relative; /* Необходимо для позиционирования рисок */
+    margin-top: 170px; /* Оставляем МНОГО места сверху для больших иконок */
+    margin-bottom: 10px;
+}
+
+/* Контейнер для всех маркеров (иконки + риски) */
 .scale-markers {
     position: absolute;
-    bottom: 38px; /* Позиционируем точно над шкалой */
+    bottom: 0;
     left: 0;
     right: 0;
-    height: 16px; /* Высота рисок */
+    /* Устанавливаем высоту, равную высоте риски, чтобы правильно ее расположить */
+    height: 48px; 
 }
+
+/* Отдельный маркер (иконка + риска) */
 .marker {
     position: absolute;
-    top: 0;
     display: flex;
-    justify-content: center;
-    transform: translateX(-50%); /* Центрирование риски */
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(-50%); /* Центрирование маркера */
+    /* Поднимаем всю конструкцию маркера вверх */
+    bottom: -18px; /* (Высота риски - Высота шкалы) / 2 = (48px - 12px) / 2 = 18px */
 }
+
+/* Изображения над рисками */
+.marker img {
+    width: 120px;  /* РАЗМЕР КАК У ЛОГОТИПА */
+    height: auto;
+    margin-bottom: 5px; /* Отступ между картинкой и риской */
+}
+
+/* Сама риска (черточка) */
 .tick {
-    width: 4px; /* Толщина риски */
-    height: 16px; /* Высота риски */
+    width: 4px; /* Толщина */
+    height: 48px; /* ДЛИНА УВЕЛИЧЕНА В 3 РАЗА (была 16px) */
     background-color: var(--text-secondary); /* Серый цвет */
     border-radius: 2px;
 }
@@ -125,17 +147,18 @@ h1 {
     font-size: 1rem;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: 15px;
+    /* Заголовок теперь позиционируется в обычном потоке, margin не нужен */
 }
-/* Сама полоса шкалы */
+
+/* Полоса шкалы */
 .scale-bar {
     height: 12px;
     width: 100%;
     border-radius: 6px;
     background: linear-gradient(90deg, var(--color-danger) 0%, var(--accent-color) 50%, var(--color-success) 100%);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
 }
+
 /* Текстовые метки под шкалой */
 .scale-labels {
     display: flex;
@@ -143,6 +166,7 @@ h1 {
     padding: 0 5px;
     font-size: 0.9rem;
     font-weight: 600;
+    margin-top: 10px; /* Добавлен отступ сверху */
 }
 .label-red { color: var(--color-danger-light); }
 .label-yellow { color: var(--accent-color); }

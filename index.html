@@ -27,19 +27,32 @@
 
         <main>
             <section class="security-scale-section">
-                <h2 class="scale-title">Overall Device Security Level</h2>
-                <div class="scale-bar">
-                    <div class="scale-marker" style="left: 10%;">
-                        <div class="marker-icon icon-low"></div>
-                        <span class="marker-label">Low</span>
+                <div class="security-scale">
+                    
+                    <p class="scale-title">Overall Device Security Level</p>
+
+                    <div class="scale-visual">
+                        <div class="scale-bar"></div>
+                        <div class="scale-markers">
+                            <div class="marker" style="left: 0%;">
+                                <img src="1.png" alt="Low level icon">
+                                <div class="tick"></div>
+                            </div>
+                            <div class="marker" style="left: 50%;">
+                                <img src="2.png" alt="Medium level icon">
+                                <div class="tick"></div>
+                            </div>
+                            <div class="marker" style="left: 100%;">
+                                <img src="3.png" alt="High level icon">
+                                <div class="tick"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="scale-marker" style="left: 50%;">
-                        <div class="marker-icon icon-medium"></div>
-                        <span class="marker-label">Medium</span>
-                    </div>
-                    <div class="scale-marker" style="left: 90%;">
-                        <div class="marker-icon icon-high"></div>
-                        <span class="marker-label">High</span>
+
+                    <div class="scale-labels">
+                        <span class="label-red">Low</span>
+                        <span class="label-yellow">Medium</span>
+                        <span class="label-green">High</span>
                     </div>
                 </div>
                 <a href="https://play.google.com/store/apps" class="cta-button" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>

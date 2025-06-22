@@ -1,6 +1,6 @@
-/* ================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И СБРОСЫ ================== */
+/* ================== GLOBAL VARIABLES & RESETS ================== */
 :root {
-    --background-color: #0B0E11;
+    --background-color: #181A20; /* EDITED: Dark gray background */
     --surface-color: #1E1F25;
     --accent-color: #F0B90B;
     --accent-hover-color: #F8D32F;
@@ -8,7 +8,7 @@
     --text-secondary: #848E9C;
     --border-color: #2b3139;
 
-    /* Цвета для статусов */
+    /* Status Colors */
     --color-success: #28a745;
     --color-danger: #dc3545;
     --color-danger-light: #e57373;
@@ -35,32 +35,36 @@ body {
     padding: 20px;
 }
 
-/* ================== КОНТЕЙНЕР ================== */
+/* ================== CONTAINER ================== */
 .container {
     width: 100%;
     max-width: 900px;
     text-align: center;
 }
 
-/* ================== ШАПКА ================== */
+/* ================== HEADER ================== */
 header {
     margin: 40px 0;
     padding-bottom: 40px;
 }
 
 .logo {
-    width: 100px;
+    width: 120px; /* EDITED: Bigger logo */
     height: auto;
-    border-radius: 22px;
-    margin-bottom: 20px;
+    border-radius: 26px; /* EDITED: Adjusted rounding */
+    margin-bottom: 25px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
     animation: bounceIn 0.6s ease;
     transition: transform 0.3s ease;
+    
+    /* ADDED: Yellow "Binance" frame */
+    border: 4px solid var(--accent-color);
+    padding: 5px; 
+    background-color: var(--surface-color); 
 }
 .logo:hover {
     transform: scale(1.05);
 }
-
 
 @keyframes bounceIn {
     0% { opacity: 0; transform: scale(0.5); }
@@ -82,10 +86,41 @@ h1 {
     margin: 0 auto;
 }
 
-/* ================== ШКАЛА БЕЗОПАСНОСТИ ================== */
+/* ================== SECURITY SCALE ================== */
 .security-scale {
+    position: relative; /* Needed for marker positioning */
+    padding-top: 50px; /* Space for images above the scale */
     margin: 45px auto 0;
 }
+
+/* NEW: Styles for markers on the scale */
+.scale-markers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+}
+.marker {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(-50%); 
+}
+.marker img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+}
+.tick {
+    width: 4px; /* Thickness 4px */
+    height: 10px;
+    background-color: var(--text-secondary); /* Light gray color */
+    border-radius: 2px;
+}
+/* END OF NEW STYLES */
 
 .scale-title {
     font-size: 1rem;
@@ -93,7 +128,6 @@ h1 {
     color: var(--text-secondary);
     margin-bottom: 15px;
 }
-
 .scale-bar {
     height: 12px;
     width: 100%;
@@ -102,7 +136,6 @@ h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
 }
-
 .scale-labels {
     display: flex;
     justify-content: space-between;
@@ -110,12 +143,11 @@ h1 {
     font-size: 0.9rem;
     font-weight: 600;
 }
-
 .label-red { color: var(--color-danger-light); }
 .label-yellow { color: var(--accent-color); }
 .label-green { color: var(--color-success-light); }
 
-/* ================== КНОПКА CTA ================== */
+/* ================== CTA BUTTON ================== */
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
@@ -129,31 +161,28 @@ h1 {
     margin-top: 30px;
     transition: all 0.3s ease;
 }
-
 .cta-button:hover {
     background-color: var(--accent-hover-color);
     transform: translateY(-3px);
     box-shadow: 0 4px 20px rgba(240, 185, 11, 0.3);
 }
 
-/* ================== СЕКЦИИ И ЗАГОЛОВКИ ================== */
+/* ================== SECTIONS & HEADINGS ================== */
 main > section {
     margin-top: 80px;
 }
-
 h2 {
     font-size: 2.2rem;
     margin-bottom: 40px;
 }
 
-/* ================== КАРТОЧКИ ================== */
+/* ================== CARDS ================== */
 .info-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     text-align: left;
 }
-
 .card {
     background-color: var(--surface-color);
     padding: 25px;
@@ -161,23 +190,20 @@ h2 {
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
-
 .card h3 {
     font-size: 1.3rem;
     color: var(--text-primary);
     margin-bottom: 10px;
 }
-
 .card p {
     color: var(--text-secondary);
 }
 
-/* ================== СЕКЦИЯ "КАК ЭТО РАБОТАЕТ" ================== */
+/* ================== HOW IT WORKS ================== */
 .how-it-works .steps {
     display: flex;
     justify-content: center;
@@ -208,13 +234,12 @@ h2 {
     color: var(--accent-color);
 }
 
-/* ================== ЮРИДИЧЕСКАЯ СЕКЦИЯ ================== */
+/* ================== LEGAL SECTION ================== */
 .legal-section {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
-
 .legal-section details {
     background-color: var(--surface-color);
     border-radius: 8px;
@@ -262,7 +287,7 @@ h2 {
     text-decoration: underline;
 }
 
-/* ================== ПОДВАЛ ================== */
+/* ================== FOOTER ================== */
 footer {
     margin-top: 80px;
     padding-top: 40px;
@@ -270,7 +295,7 @@ footer {
     color: var(--text-secondary);
 }
 
-/* ================== СКРОЛЛБАР ================== */
+/* ================== SCROLLBAR ================== */
 body::-webkit-scrollbar {
     width: 10px;
 }
@@ -282,7 +307,7 @@ body::-webkit-scrollbar-track {
     background-color: var(--background-color);
 }
 
-/* ================== АДАПТИВНОСТЬ ================== */
+/* ================== RESPONSIVENESS ================== */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.2rem;
@@ -290,7 +315,7 @@ body::-webkit-scrollbar-track {
     h2 {
         font-size: 1.8rem;
     }
-    .info-cards { /* Добавлено для консистентности */
+    .info-cards {
         grid-template-columns: 1fr;
     }
     .how-it-works .steps {

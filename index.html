@@ -13,7 +13,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease;
 }
 
 html {
@@ -49,7 +48,7 @@ header {
     border-radius: 22px;
     margin-bottom: 20px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    animation: bounceIn 0.6s ease; /* Анимация появления логотипа */
+    animation: bounceIn 0.6s ease;
 }
 
 @keyframes bounceIn {
@@ -62,6 +61,7 @@ h1 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 15px;
+    /* Примечание: Цвет задан явно, а не через переменную. Это может быть осознанным решением. */
     color: #28a745;
 }
 
@@ -116,7 +116,8 @@ h1 {
     border-radius: 8px;
     font-size: 1.1rem;
     font-weight: 600;
-    transition: all 0.3s ease;
+    /* ИСПРАВЛЕНИЕ 1: Анимация конкретных свойств вместо 'all' для лучшей производительности */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 10px rgba(240, 185, 11, 0.2);
     margin-top: 30px;
 }
@@ -137,35 +138,39 @@ h2 {
     margin-bottom: 40px;
 }
 
+/* ================== ОБЩИЙ СТИЛЬ ДЛЯ КАРТОЧЕК И ПАНЕЛЕЙ (DRY) ================== */
+/* УЛУЧШЕНИЕ 2: Объединение повторяющихся стилей для .card и .feature-item */
+.panel {
+    background-color: var(--surface-color);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s ease;
+}
+
+.panel:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.panel h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
+}
+
+.panel p {
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+}
+
 /* ================== КАРТОЧКИ ПРЕИМУЩЕСТВ ================== */
 .info-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    text-align: left;
-}
-
-.card {
-    background-color: var(--surface-color);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-}
-
-.card h3 {
-    font-size: 1.3rem;
-    color: var(--text-primary);
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: var(--text-secondary);
 }
 
 /* ================== СЕТКА ОСНОВНЫХ ПРОВЕРОК ================== */
@@ -173,20 +178,6 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
-    text-align: left;
-}
-
-.feature-item {
-    background-color: var(--surface-color);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
 
 .feature-icon {
@@ -194,14 +185,11 @@ h2 {
     display: block;
     margin-bottom: 15px;
 }
-.feature-item h3 {
+/* Специфичный для .feature-item заголовок, если нужно */
+.features-grid .panel h3 {
     font-size: 1.2rem;
-    color: var(--text-primary);
-    margin-bottom: 10px;
 }
-.feature-item p {
-    color: var(--text-secondary);
-}
+
 
 /* ================== СЕКЦИЯ "КАК ЭТО РАБОТАЕТ" ================== */
 .how-it-works .steps {
@@ -228,13 +216,15 @@ h2 {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 10px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .step-arrow {
     font-size: 2rem;
     color: var(--accent-color);
+    transition: color 0.2s ease;
 }
 
-/* ================== ЮРИДИЧЕСКАЯ СЕКЦИЯ ================== */
+/* ================== ЮРИДИЧЕСКАЯ СЕКЦИЯ (FAQ) ================== */
 .legal-section {
     max-width: 700px;
     margin-left: auto;
@@ -246,6 +236,7 @@ h2 {
     border-radius: 8px;
     border: 1px solid var(--border-color);
     margin-bottom: 10px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .legal-section summary {
     padding: 20px;
@@ -256,6 +247,11 @@ h2 {
     position: relative;
     text-align: left;
     transition: background-color 0.2s ease;
+    /* Убираем маркер списка по умолчанию */
+    list-style: none;
+}
+.legal-section summary::-webkit-details-marker {
+    display: none; /* Для Chrome/Safari */
 }
 .legal-section summary:hover {
     background-color: rgba(255,255,255,0.05);
@@ -276,6 +272,7 @@ h2 {
     color: var(--text-secondary);
     border-top: 1px solid var(--border-color);
     margin-top: 10px;
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 .details-content p, .details-content ul {
     margin-top: 15px;
@@ -294,19 +291,29 @@ footer {
     padding-top: 20px;
     border-top: 1px solid var(--border-color);
     color: var(--text-secondary);
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 /* ================== СКРОЛЛБАР ================== */
+/* УЛУЧШЕНИЕ 3: Добавлены стандартные свойства для Firefox */
+/* Для Webkit-браузеров (Chrome, Safari, Edge) */
 body::-webkit-scrollbar {
     width: 10px;
+}
+body::-webkit-scrollbar-track {
+    background-color: var(--background-color);
 }
 body::-webkit-scrollbar-thumb {
     background-color: var(--accent-color);
     border-radius: 10px;
 }
-body::-webkit-scrollbar-track {
-    background-color: var(--background-color);
+
+/* Стандартные свойства для Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--background-color);
 }
+
 
 /* ================== АДАПТИВНОСТЬ ================== */
 @media (max-width: 768px) {

@@ -231,11 +231,11 @@ h2 {
     color: var(--text-secondary);
 }
 
-/* ================== СЕКЦИЯ "КАК ЭТО РАБОТАЕТ" ================== */
+/* ================== СЕКЦИЯ "КАК ЭТО РАБОТАЕТ" (ИСПРАВЛЕННАЯ ВЕРСИЯ) ================== */
 .how-it-works .steps {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Эта строка выравнивает элементы по вертикали */
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -260,8 +260,10 @@ h2 {
 .step-arrow {
     font-size: 2rem;
     color: var(--accent-color);
+    /* ДОБАВЛЕНЫ ЭТИ ДВЕ СТРОКИ ДЛЯ КОРРЕКЦИИ ПОЛОЖЕНИЯ */
+    position: relative;
+    top: -15px; /* Сдвигаем стрелку вверх, чтобы она стала по центру кружка */
 }
-
 /* ================== ЮРИДИЧЕСКАЯ СЕКЦИЯ ================== */
 .legal-section {
     max-width: 700px;

@@ -1,28 +1,14 @@
-/* Глобальные переменные и сбросы */
-:root {
-    --background-color: #0B0E11;
-    --surface-color: #1E1F25;
-    --accent-color: #F0B90B;
-    --accent-hover-color: #F8D32F;
-    --text-primary: #EAECEF;
-    --text-secondary: #848E9C;
-    --border-color: #2b3139;
-}
-
+/* Общие сбросы и настройки */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth; /* Плавный скроллинг для якорей */
-}
-
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-primary);
+    background-color: #121212;
+    color: #e0e0e0;
     line-height: 1.6;
     display: flex;
     justify-content: center;
@@ -31,252 +17,170 @@ body {
 
 .container {
     width: 100%;
-    max-width: 900px;
+    max-width: 800px;
     text-align: center;
 }
 
-/* Шапка */
+/* Шапка сайта */
 header {
-    margin: 40px 0;
-    padding-bottom: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
 }
 
 .logo {
-    width: 100px;
-    height: auto;
-    border-radius: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    display: inline-block;
+    background-color: #28a745;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 15px;
-    color: var(--text-primary); /* ИСПРАВЛЕНО: используется переменная вместо #28a745 */
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .tagline {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
+    font-size: 1.1rem;
+    color: #a0a0a0;
     max-width: 600px;
     margin: 0 auto;
 }
 
-/* Стили для шкалы безопасности */
-.security-scale {
-    margin: 45px auto;
-    max-width: 600px;
-}
-
-.scale-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 15px;
-}
-
-.scale-bar {
-    height: 12px;
-    width: 100%;
-    border-radius: 6px;
-    background: linear-gradient(90deg, #dc3545 0%, #F0B90B 50%, #28a745 100%);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
-}
-
-.scale-labels {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 5px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.label-red { color: #e57373; }
-.label-yellow { color: #F0B90B; }
-.label-green { color: #81c784; }
-
 /* Кнопка призыва к действию */
+.call-to-action {
+    margin-bottom: 60px;
+}
+
 .cta-button {
     display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--background-color);
+    background-color: #28a745;
+    color: #ffffff;
     text-decoration: none;
-    padding: 16px 32px;
+    padding: 15px 30px;
     border-radius: 8px;
     font-size: 1.1rem;
     font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(240, 185, 11, 0.2);
-    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.cta-button:hover, .cta-button:focus-visible {
-    background-color: var(--accent-hover-color);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 20px rgba(240, 185, 11, 0.3);
-    outline: none;
+.cta-button:hover {
+    background-color: #218c3a;
+    transform: translateY(-2px);
 }
 
-/* Общий стиль для секций */
-main > section {
-    margin-bottom: 80px;
+/* Секция с ключевыми проверками */
+.features {
+    margin-bottom: 60px;
 }
 
 h2 {
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-    color: var(--text-primary);
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #28a745;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-/* Карточки с преимуществами */
-.info-cards {
+.features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
     text-align: left;
 }
 
-.card {
-    background-color: var(--surface-color);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-}
-
-.card h3 {
-    font-size: 1.3rem;
-    color: var(--accent-color);
-    margin-bottom: 15px;
-}
-
-.card p {
-    color: var(--text-secondary);
-}
-
-/* Секция "Как это работает" */
-.how-it-works .steps {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 150px;
-}
-.step span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: var(--surface-color);
-    border: 2px solid var(--accent-color);
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: var(--accent-color);
-}
-.step-arrow {
-    font-size: 2.5rem;
-    color: var(--accent-color);
-    margin-top: 30px; /* Для вертикального выравнивания */
-}
-
-/* Юридическая документация */
-.legal-section {
-    max-width: 800px;
-    margin: 40px auto 0;
-    text-align: left;
-}
-
-.legal-section details {
-    background-color: var(--surface-color);
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    margin-bottom: 10px;
-    transition: background-color 0.2s ease;
-}
-.legal-section details:hover {
-    border-color: var(--accent-color);
-}
-.legal-section summary {
+.feature-item {
+    background-color: #1e1e1e;
     padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.feature-item h3 {
     font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    position: relative;
-    transition: background-color 0.2s ease;
-    color: var(--text-primary);
+    color: #28a745;
+    margin-bottom: 10px;
 }
-.legal-section summary:hover {
-    color: var(--accent-color);
+
+.feature-item p {
+    color: #b0b0b0;
 }
-.legal-section summary::after {
-    content: '+';
-    position: absolute;
-    right: 20px;
-    font-size: 1.8rem;
-    transition: transform 0.3s ease;
-    font-weight: 300;
+
+/* Юридические секции */
+.legal-links {
+    margin-bottom: 20px;
 }
-.legal-section details[open] summary::after {
-    transform: rotate(45deg);
+.legal-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
 }
-.details-content {
-    padding: 0 20px 20px;
-    color: var(--text-secondary);
-    border-top: 1px solid var(--border-color);
+.legal-links a:hover {
+    color: #28a745;
 }
-.details-content p, .details-content ul {
-    margin-top: 15px;
+
+.separator {
+    border: 0;
+    height: 1px;
+    background-color: #333;
+    margin: 40px 0;
 }
-.details-content a {
-    color: var(--accent-color);
+
+.legal-section {
+    text-align: left;
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.legal-section h2 {
+    text-align: center;
+    border: none;
+}
+
+.legal-section p, .legal-section ul {
+    margin-bottom: 15px;
+    color: #b0b0b0;
+}
+
+.legal-section ul {
+    padding-left: 20px;
+}
+
+.legal-section a {
+    color: #28a745;
     text-decoration: none;
 }
-.details-content a:hover {
+.legal-section a:hover {
     text-decoration: underline;
 }
 
 /* Подвал */
 footer {
-    margin-top: 80px;
-    padding: 30px 0;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-secondary);
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: #777;
+    font-size: 0.9rem;
 }
 
-/* Адаптивность */
+/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
-    .how-it-works .steps {
-        flex-direction: column;
-        gap: 0;
-    }
-    .step {
-        margin-bottom: 20px;
-    }
-    .step-arrow {
-        transform: rotate(90deg);
-        margin: 5px 0 25px 0;
-    }
-    .step-arrow:last-of-type {
-        display: none;
+    .features-grid {
+        grid-template-columns: 1fr;
     }
 }

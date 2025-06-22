@@ -1,4 +1,4 @@
-/* Глобальные переменные и сбросы */
+/* ================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И СБРОСЫ ================== */
 :root {
     --background-color: #0B0E11;
     --surface-color: #1E1F25;
@@ -7,12 +7,22 @@
     --text-primary: #EAECEF;
     --text-secondary: #848E9C;
     --border-color: #2b3139;
+
+    /* Цвета для статусов */
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-danger-light: #e57373;
+    --color-success-light: #81c784;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -25,33 +35,44 @@ body {
     padding: 20px;
 }
 
+/* ================== КОНТЕЙНЕР ================== */
 .container {
     width: 100%;
     max-width: 900px;
     text-align: center;
 }
 
-/* Шапка */
+/* ================== ШАПКА ================== */
 header {
     margin: 40px 0;
     padding-bottom: 40px;
 }
 
-/* ИЗМЕНЕНО: Стили для .logo обновлены для работы с изображением */
 .logo {
-    width: 100px;           /* Вы можете настроить размер логотипа, например, 100px */
-    height: auto;           /* Высота подстроится автоматически для сохранения пропорций */
-    border-radius: 22px;    /* Скругление углов для изображения */
+    width: 100px;
+    height: auto;
+    border-radius: 22px;
     margin-bottom: 20px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    /* Свойства для текста, такие как color, font-size, padding, больше не нужны */
+    animation: bounceIn 0.6s ease;
+    transition: transform 0.3s ease;
+}
+.logo:hover {
+    transform: scale(1.05);
+}
+
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.5); }
+    80% { transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 h1 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 15px;
-    color: #28a745; /* <--- ДОБАВЛЕНА ЭТА СТРОКА */
+    color: var(--color-success);
 }
 
 .tagline {
@@ -61,10 +82,9 @@ h1 {
     margin: 0 auto;
 }
 
-/* Стили для шкалы безопасности */
+/* ================== ШКАЛА БЕЗОПАСНОСТИ ================== */
 .security-scale {
-    margin: 45px auto; /* Отступы сверху и снизу */
-    max-width: 600px;  /* Максимальная ширина шкалы */
+    margin: 45px auto 0;
 }
 
 .scale-title {
@@ -78,8 +98,7 @@ h1 {
     height: 12px;
     width: 100%;
     border-radius: 6px;
-    /* Градиент от красного к зеленому */
-    background: linear-gradient(90deg, #dc3545 0%, #F0B90B 50%, #28a745 100%);
+    background: linear-gradient(90deg, var(--color-danger) 0%, var(--accent-color) 50%, var(--color-success) 100%);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
 }
@@ -92,11 +111,11 @@ h1 {
     font-weight: 600;
 }
 
-.label-red { color: #e57373; }
-.label-yellow { color: #F0B90B; }
-.label-green { color: #81c784; }
+.label-red { color: var(--color-danger-light); }
+.label-yellow { color: var(--accent-color); }
+.label-green { color: var(--color-success-light); }
 
-/* Кнопка призыва к действию */
+/* ================== КНОПКА CTA ================== */
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
@@ -106,9 +125,9 @@ h1 {
     border-radius: 8px;
     font-size: 1.1rem;
     font-weight: 600;
-    transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(240, 185, 11, 0.2);
-    margin-top: 30px; /* Отступ от шкалы */
+    margin-top: 30px;
+    transition: all 0.3s ease;
 }
 
 .cta-button:hover {
@@ -117,9 +136,9 @@ h1 {
     box-shadow: 0 4px 20px rgba(240, 185, 11, 0.3);
 }
 
-/* Общий стиль для секций */
+/* ================== СЕКЦИИ И ЗАГОЛОВКИ ================== */
 main > section {
-    margin-bottom: 80px;
+    margin-top: 80px;
 }
 
 h2 {
@@ -127,7 +146,7 @@ h2 {
     margin-bottom: 40px;
 }
 
-/* Карточки с преимуществами */
+/* ================== КАРТОЧКИ ================== */
 .info-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -144,8 +163,8 @@ h2 {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
 
 .card h3 {
@@ -158,35 +177,7 @@ h2 {
     color: var(--text-secondary);
 }
 
-/* Сетка с ключевыми проверками */
-.features-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    text-align: left;
-}
-
-.feature-item {
-    background-color: var(--surface-color);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-}
-.feature-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 15px;
-}
-.feature-item h3 {
-    font-size: 1.2rem;
-    color: var(--text-primary);
-    margin-bottom: 10px;
-}
-.feature-item p {
-    color: var(--text-secondary);
-}
-
-/* Секция "Как это работает" */
+/* ================== СЕКЦИЯ "КАК ЭТО РАБОТАЕТ" ================== */
 .how-it-works .steps {
     display: flex;
     justify-content: center;
@@ -199,7 +190,7 @@ h2 {
     flex-direction: column;
     align-items: center;
 }
-.step span {
+.step-number {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -217,7 +208,7 @@ h2 {
     color: var(--accent-color);
 }
 
-/* Юридическая документация */
+/* ================== ЮРИДИЧЕСКАЯ СЕКЦИЯ ================== */
 .legal-section {
     max-width: 700px;
     margin-left: auto;
@@ -271,20 +262,35 @@ h2 {
     text-decoration: underline;
 }
 
-/* Подвал */
+/* ================== ПОДВАЛ ================== */
 footer {
-    margin-top: 40px;
-    padding-top: 20px;
+    margin-top: 80px;
+    padding-top: 40px;
     border-top: 1px solid var(--border-color);
     color: var(--text-secondary);
 }
 
-/* Адаптивность */
+/* ================== СКРОЛЛБАР ================== */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+}
+body::-webkit-scrollbar-track {
+    background-color: var(--background-color);
+}
+
+/* ================== АДАПТИВНОСТЬ ================== */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.2rem;
     }
-    .features-grid, .info-cards {
+    h2 {
+        font-size: 1.8rem;
+    }
+    .info-cards { /* Добавлено для консистентности */
         grid-template-columns: 1fr;
     }
     .how-it-works .steps {
@@ -294,5 +300,22 @@ footer {
     .step-arrow {
         transform: rotate(90deg);
         margin: 15px 0;
+    }
+    .step:last-of-type ~ .step-arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    .tagline {
+        font-size: 1rem;
+    }
+    .cta-button {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
     }
 }

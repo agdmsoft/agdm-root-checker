@@ -1,298 +1,106 @@
- /* Глобальные переменные и сбросы */
-:root {
-    --background-color: #0B0E11;
-    --surface-color: #1E1F25;
-    --accent-color: #F0B90B;
-    --accent-hover-color: #F8D32F;
-    --text-primary: #EAECEF;
-    --text-secondary: #848E9C;
-    --border-color: #2b3139;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGDM Root Checker - Глубокий анализ безопасности Android</title>
+    <meta name="description" content="AGDM Root Checker - мощный инструмент для детального анализа безопасности вашего Android устройства. Проверка Root, загрузчика, SELinux и многого другого.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Логотип AGDM" class="logo">
+            <h1>AGDM Root Checker</h1>
+            <p class="tagline">Мощный инструмент для глубокого и детального анализа безопасности вашего Android устройства.</p>
+        </header>
 
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-primary);
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
+        <main>
+            <section class="security-scale-section">
+                <div class="security-scale">
+                    <p class="scale-title">Общий уровень безопасности устройства</p>
+                    <div class="scale-bar"></div>
+                    <div class="scale-labels">
+                        <span class="label-red">Низкий</span>
+                        <span class="label-yellow">Средний</span>
+                        <span class="label-green">Высокий</span>
+                    </div>
+                </div>
+                <a href="https://play.google.com/store/apps" class="cta-button" target="_blank" rel="noopener noreferrer">Загрузить на Google Play</a>
+            </section>
 
-.container {
-    width: 100%;
-    max-width: 900px;
-    text-align: center;
-}
+            <section class="info-cards-section">
+                <h2>Почему выбирают нас?</h2>
+                <div class="info-cards">
+                    <div class="card">
+                        <h3>Комплексный анализ</h3>
+                        <p>Мы проверяем не только Root-доступ, но и состояние загрузчика, целостность системы и режим SELinux для полной картины безопасности.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Простота и ясность</h3>
+                        <p>Сложные технические данные представлены в виде понятной шкалы безопасности и подробных отчетов. Вам не нужно быть экспертом.</p>
+                    </div>
+                    <div class="card">
+                        <h3>100% Конфиденциальность</h3>
+                        <p>Все проверки выполняются локально на вашем устройстве. Мы не собираем и не передаем ваши личные или системные данные.</p>
+                    </div>
+                </div>
+            </section>
 
-/* Шапка */
-header {
-    margin: 40px 0;
-    padding-bottom: 40px;
-}
+            <section class="how-it-works">
+                <h2>Как это работает</h2>
+                <div class="steps">
+                    <div class="step">
+                        <span>1</span>
+                        <p>Установите приложение</p>
+                    </div>
+                    <div class="step-arrow">&rarr;</div>
+                    <div class="step">
+                        <span>2</span>
+                        <p>Запустите сканирование</p>
+                    </div>
+                    <div class="step-arrow">&rarr;</div>
+                    <div class="step">
+                        <span>3</span>
+                        <p>Получите результат</p>
+                    </div>
+                </div>
+            </section>
 
-/* ИЗМЕНЕНО: Стили для .logo обновлены для работы с изображением */
-.logo {
-    width: 100px;           /* Вы можете настроить размер логотипа, например, 100px */
-    height: auto;           /* Высота подстроится автоматически для сохранения пропорций */
-    border-radius: 22px;    /* Скругление углов для изображения */
-    margin-bottom: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    /* Свойства для текста, такие как color, font-size, padding, больше не нужны */
-}
+            <section id="legal" class="legal-section">
+                <h2>Правовая информация</h2>
+                <details>
+                    <summary>Политика конфиденциальности</summary>
+                    <div class="details-content">
+                        <p><strong>Дата вступления в силу:</strong> 22 июня 2025 г.</p>
+                        <p>Приложение AGDM Root Checker выполняет весь анализ локально на вашем устройстве. Мы не собираем, не храним и не передаем ваши личные или системные данные на какие-либо серверы. Ваша конфиденциальность является нашим главным приоритетом.</p>
+                    </div>
+                </details>
 
-h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #28a745; /* <--- ДОБАВЛЕНА ЭТА СТРОКА */
-}
+                <details>
+                    <summary>Лицензионное соглашение (EULA)</summary>
+                    <div class="details-content">
+                        <p>Устанавливая и используя AGDM Root Checker, вы соглашаетесь со следующими условиями:</p>
+                        <ul>
+                            <li>Приложение предоставляется «КАК ЕСТЬ», без каких-либо гарантий.</li>
+                            <li>Разработчик не несет ответственности за любой потенциальный ущерб вашему устройству или потерю данных.</li>
+                            <li>Вам предоставляется ограниченная, неисключительная лицензия для личного некоммерческого использования.</li>
+                        </ul>
+                    </div>
+                </details>
+            </section>
+        </main>
 
-.tagline {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto;
-}
+        <footer>
+            <p>&copy; 2025 AGDM Soft. Все права защищены.</p>
+            <p>Свяжитесь с нами: agdmsoft@gmail.com</p>
+        </footer>
+    </div>
 
-/* Стили для шкалы безопасности */
-.security-scale {
-    margin: 45px auto; /* Отступы сверху и снизу */
-    max-width: 600px;  /* Максимальная ширина шкалы */
-}
-
-.scale-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 15px;
-}
-
-.scale-bar {
-    height: 12px;
-    width: 100%;
-    border-radius: 6px;
-    /* Градиент от красного к зеленому */
-    background: linear-gradient(90deg, #dc3545 0%, #F0B90B 50%, #28a745 100%);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
-}
-
-.scale-labels {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 5px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.label-red { color: #e57373; }
-.label-yellow { color: #F0B90B; }
-.label-green { color: #81c784; }
-
-/* Кнопка призыва к действию */
-.cta-button {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--background-color);
-    text-decoration: none;
-    padding: 16px 32px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(240, 185, 11, 0.2);
-    margin-top: 30px; /* Отступ от шкалы */
-}
-
-.cta-button:hover {
-    background-color: var(--accent-hover-color);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 20px rgba(240, 185, 11, 0.3);
-}
-
-/* Общий стиль для секций */
-main > section {
-    margin-bottom: 80px;
-}
-
-h2 {
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-}
-
-/* Карточки с преимуществами */
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    text-align: left;
-}
-
-.card {
-    background-color: var(--surface-color);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-}
-
-.card h3 {
-    font-size: 1.3rem;
-    color: var(--text-primary);
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: var(--text-secondary);
-}
-
-/* Сетка с ключевыми проверками */
-.features-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    text-align: left;
-}
-
-.feature-item {
-    background-color: var(--surface-color);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-}
-.feature-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 15px;
-}
-.feature-item h3 {
-    font-size: 1.2rem;
-    color: var(--text-primary);
-    margin-bottom: 10px;
-}
-.feature-item p {
-    color: var(--text-secondary);
-}
-
-/* Секция "Как это работает" */
-.how-it-works .steps {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.step span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--surface-color);
-    border: 2px solid var(--accent-color);
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-.step-arrow {
-    font-size: 2rem;
-    color: var(--accent-color);
-}
-
-/* Юридическая документация */
-.legal-section {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.legal-section details {
-    background-color: var(--surface-color);
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    margin-bottom: 10px;
-}
-.legal-section summary {
-    padding: 20px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    position: relative;
-    text-align: left;
-    transition: background-color 0.2s ease;
-}
-.legal-section summary:hover {
-    background-color: rgba(255,255,255,0.05);
-}
-.legal-section summary::after {
-    content: '+';
-    position: absolute;
-    right: 20px;
-    font-size: 1.5rem;
-    transition: transform 0.2s ease;
-}
-.legal-section details[open] summary::after {
-    transform: rotate(45deg);
-}
-.details-content {
-    padding: 0 20px 20px;
-    text-align: left;
-    color: var(--text-secondary);
-    border-top: 1px solid var(--border-color);
-    margin-top: 10px;
-}
-.details-content p, .details-content ul {
-    margin-top: 15px;
-}
-.details-content a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-.details-content a:hover {
-    text-decoration: underline;
-}
-
-/* Подвал */
-footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-secondary);
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-    .features-grid, .info-cards {
-        grid-template-columns: 1fr;
-    }
-    .how-it-works .steps {
-        flex-direction: column;
-        gap: 0;
-    }
-    .step-arrow {
-        transform: rotate(90deg);
-        margin: 15px 0;
-    }
-}
+</body>
+</html>

@@ -1,104 +1,80 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGDM Root Checker - Глубокий анализ безопасности Android</title>
-    <meta name="description" content="AGDM Root Checker - мощный инструмент для детального анализа безопасности вашего Android устройства. Проверка Root, загрузчика, SELinux и многого другого.">
+    <title>AGDM Root Checker - Android Security Analysis</title>
+    <meta name="description" content="AGDM Root Checker is a powerful tool for a deep security analysis of your Android device. Check root status, bootloader, SELinux, and much more.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <img src="logo.png" alt="Логотип AGDM" class="logo">
+            <div class="logo">AGDM</div>
             <h1>AGDM Root Checker</h1>
-            <p class="tagline">Мощный инструмент для глубокого и детального анализа безопасности вашего Android устройства.</p>
+            <p class="tagline">A powerful tool for a deep and detailed security analysis of your Android device.</p>
         </header>
 
         <main>
-            <section class="security-scale-section">
-                <div class="security-scale">
-                    <p class="scale-title">Общий уровень безопасности устройства</p>
-                    <div class="scale-bar"></div>
-                    <div class="scale-labels">
-                        <span class="label-red">Низкий</span>
-                        <span class="label-yellow">Средний</span>
-                        <span class="label-green">Высокий</span>
-                    </div>
-                </div>
-                <a href="https://play.google.com/store/apps" class="cta-button" target="_blank" rel="noopener noreferrer">Загрузить на Google Play</a>
+            <section class="call-to-action">
+                <a href="#" class="cta-button">Get it on Google Play</a>
             </section>
 
-            <section class="info-cards-section">
-                <h2>Почему выбирают нас?</h2>
-                <div class="info-cards">
-                    <div class="card">
-                        <h3>Комплексный анализ</h3>
-                        <p>Мы проверяем не только Root-доступ, но и состояние загрузчика, целостность системы и режим SELinux для полной картины безопасности.</p>
+            <section class="features">
+                <h2>Key Checks</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Root Access</h3>
+                        <p>Detects su/busybox binaries and common root management applications.</p>
                     </div>
-                    <div class="card">
-                        <h3>Простота и ясность</h3>
-                        <p>Сложные технические данные представлены в виде понятной шкалы безопасности и подробных отчетов. Вам не нужно быть экспертом.</p>
+                    <div class="feature-item">
+                        <h3>System Integrity</h3>
+                        <p>Analyzes firmware signature (test-keys), Verified Boot status, and the debuggable flag.</p>
                     </div>
-                    <div class="card">
-                        <h3>100% Конфиденциальность</h3>
-                        <p>Все проверки выполняются локально на вашем устройстве. Мы не собираем и не передаем ваши личные или системные данные.</p>
+                    <div class="feature-item">
+                        <h3>Bootloader & SELinux</h3>
+                        <p>Checks the bootloader lock state and the operational mode of SELinux (Enforcing/Permissive).</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Environment</h3>
+                        <p>Analyzes Google Play Services status and prepares for the Play Integrity API check.</p>
                     </div>
                 </div>
             </section>
 
-            <section class="how-it-works">
-                <h2>Как это работает</h2>
-                <div class="steps">
-                    <div class="step">
-                        <span>1</span>
-                        <p>Установите приложение</p>
-                    </div>
-                    <div class="step-arrow">&rarr;</div>
-                    <div class="step">
-                        <span>2</span>
-                        <p>Запустите сканирование</p>
-                    </div>
-                    <div class="step-arrow">&rarr;</div>
-                    <div class="step">
-                        <span>3</span>
-                        <p>Получите результат</p>
-                    </div>
-                </div>
+            <section class="legal-links">
+                 <a href="#privacy">Privacy Policy</a>
+                 <a href="#eula">End-User License Agreement (EULA)</a>
             </section>
 
-            <section id="legal" class="legal-section">
-                <h2>Правовая информация</h2>
-                <details>
-                    <summary>Политика конфиденциальности</summary>
-                    <div class="details-content">
-                        <p><strong>Дата вступления в силу:</strong> 22 июня 2025 г.</p>
-                        <p>Приложение AGDM Root Checker выполняет весь анализ локально на вашем устройстве. Мы не собираем, не храним и не передаем ваши личные или системные данные на какие-либо серверы. Ваша конфиденциальность является нашим главным приоритетом.</p>
-                    </div>
-                </details>
+            <hr class="separator">
 
-                <details>
-                    <summary>Лицензионное соглашение (EULA)</summary>
-                    <div class="details-content">
-                        <p>Устанавливая и используя AGDM Root Checker, вы соглашаетесь со следующими условиями:</p>
-                        <ul>
-                            <li>Приложение предоставляется «КАК ЕСТЬ», без каких-либо гарантий.</li>
-                            <li>Разработчик не несет ответственности за любой потенциальный ущерб вашему устройству или потерю данных.</li>
-                            <li>Вам предоставляется ограниченная, неисключительная лицензия для личного некоммерческого использования.</li>
-                        </ul>
-                    </div>
-                </details>
+            <section id="privacy" class="legal-section">
+                <h2>Privacy Policy</h2>
+                <p><strong>Effective Date:</strong> June 18, 2025</p>
+                <p>The AGDM Root Checker application performs all analysis locally on your device. We do not collect, store, or transmit your personal or system data to any servers.</p>
+            </section>
+
+            <hr class="separator">
+
+            <section id="eula" class="legal-section">
+                <h2>End-User License Agreement (EULA)</h2>
+                <p>By installing and using AGDM Root Checker, you agree to the following terms:</p>
+                <ul>
+                    <li>The application is provided "AS IS," without any warranties.</li>
+                    <li>The developer is not liable for any potential damage to your device or data loss.</li>
+                    <li>You are granted a limited, non-exclusive license for personal, non-commercial use.</li>
+                </ul>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2025 AGDM Soft. Все права защищены.</p>
-            <p>Свяжитесь с нами: agdmsoft@gmail.com</p>
+            <p>&copy; 2025 AGDM Soft. All rights reserved.</p>
+            <p>Contact us: agdmsoft@gmail.com</p>
         </footer>
     </div>
 

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGDM Root Checker — تحليل أمني معمّق لأجهزة Android</title>
+    <meta name="description" content="AGDM Root Checker — أداة قوية لتحليل تفصيلي لأمان جهاز Android الخاص بك. الروت، برنامج الإقلاع، SELinux، خصوصية الكاميرا/الميكروفون، شذوذ الشبكة، حركة بيانات التطبيقات، والمزيد.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="../logo.png" type="image/png">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <details class="lang-switcher">
+                <summary>🌐 العربية</summary>
+                <div class="lang-menu">
+                        <a href="../index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','en')}catch(e){}">English</a>
+                        <a href="../ru/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ru')}catch(e){}">Русский</a>
+                        <a href="../de/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','de')}catch(e){}">Deutsch</a>
+                        <a href="../es/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','es')}catch(e){}">Español</a>
+                        <a href="../fr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fr')}catch(e){}">Français</a>
+                        <a href="../pt/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','pt')}catch(e){}">Português</a>
+                        <a href="../tr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','tr')}catch(e){}">Türkçe</a>
+                        <a href="../vi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','vi')}catch(e){}">Tiếng Việt</a>
+                        <a href="../id/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','id')}catch(e){}">Bahasa Indonesia</a>
+                        <a href="../zh/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','zh')}catch(e){}">中文</a>
+                        <a href="index.html" class="lang-item active" onclick="try{localStorage.setItem('agdm_lang','ar')}catch(e){}">العربية</a>
+                        <a href="../fa/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fa')}catch(e){}">فارسی</a>
+                        <a href="../hi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','hi')}catch(e){}">हिन्दी</a>
+                </div>
+            </details>
+            <img src="../logo.png" alt="AGDM Logo" class="logo">
+            <h1>AGDM <span>Root Checker</span></h1>
+            <p class="tagline">أداة قوية لتحليل عميق ومفصّل لأمان جهاز Android الخاص بك.</p>
+        </header>
+
+        <main>
+            <section class="security-scale-section">
+                <div class="security-scale">
+
+                    <p class="scale-title">المستوى العام لأمان الجهاز</p>
+
+                    <div class="scale-visual">
+                        <div class="scale-bar"></div>
+                        <div class="scale-markers">
+                            <div class="marker marker-red" style="left: 0%;">
+                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+                                <div class="tick"></div>
+                            </div>
+                            <div class="marker marker-yellow" style="left: 50%;">
+                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span>
+                                <div class="tick"></div>
+                            </div>
+                            <div class="marker marker-green" style="left: 100%;">
+                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                                <div class="tick"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scale-labels">
+                        <span class="label-red">منخفض</span>
+                        <span class="label-yellow">متوسط</span>
+                        <span class="label-green">مرتفع</span>
+                    </div>
+                </div>
+
+                <div class="cta-row">
+                    <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer">احصل عليه من Google Play</a>
+                    <div class="qr-card">
+                        <img src="../qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
+                        <div>
+                            <div class="qr-label">امسح للتثبيت</div>
+                            <div class="qr-sub">يفتح صفحة التطبيق على Google Play في هاتفك</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="availability-note">التطبيق حاليًا في اختبار مغلق على Google Play — سيصبح الرابط أعلاه نشطًا عند الإطلاق.</p>
+            </section>
+
+            <section class="info-cards-section">
+                <h2>لماذا تختارنا؟</h2>
+                <div class="info-cards">
+                    <div class="card">
+                        <h3>تحليل شامل</h3>
+                        <p>نتحقق ليس فقط من صلاحية الروت، بل أيضًا من حالة برنامج الإقلاع، وسلامة النظام، ووضع SELinux، لصورة أمنية كاملة.</p>
+                    </div>
+                    <div class="card">
+                        <h3>بساطة ووضوح</h3>
+                        <p>تُعرض البيانات التقنية المعقدة على شكل مقياس أمان سهل الفهم وتقارير مفصّلة. لست بحاجة لأن تكون خبيرًا.</p>
+                    </div>
+                    <div class="card">
+                        <h3>خصوصية 100%</h3>
+                        <p>تتم جميع الفحوصات محليًا على جهازك. نحن لا نجمع أو ننقل بياناتك الشخصية أو بيانات النظام.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-cards-section new-toolkit-section">
+                <h2>أدوات غير معتادة لتطبيق من هذه الفئة</h2>
+                <p class="section-subtitle">فحوصات اختيارية ويدوية يتم تفعيلها بإرادتك — لا شيء يعمل في الخلفية، ولا شيء يغادر جهازك.</p>
+                <div class="info-cards">
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>📶 مؤشر الانخفاض المفاجئ للشبكة</h3>
+                        <p>يقارن اتصالك الحالي بآخر فحص يدوي ويُنبّهك عند انخفاض الشبكة فجأة (مثلاً من LTE إلى 2G) خلال فترة قصيرة. هذا ليس كاشفًا وهميًا لمحطات القواعد المزيفة — فذلك يتطلب وصولًا منخفض المستوى لا يمكن لأي تطبيق عادي الحصول عليه على Android — إنه فقط إشارة "تستحق نظرة ثانية".</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>🌡️ فحص الحرارة أثناء الخمول</h3>
+                        <p>لمسة واحدة تقارن درجة حرارة البطارية بحدود ثابتة وبدرجة الحرارة المعتادة لجهازك أثناء الخمول — سياق مفيد، وليس تشخيصًا.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>🔒 خصوصية الكاميرا والميكروفون</h3>
+                        <p>اطّلع على التطبيقات المثبتة التي تملك حاليًا إذن الكاميرا/الميكروفون، بالإضافة إلى رابط مباشر إلى لوحة خصوصية Android الحقيقية لعرض سجل الاستخدام الفعلي. كما يتضمن شرحًا صادقًا ومبنيًا على أبحاث لأسطورة "ظهور الإعلانات مباشرة بعد المحادثة".</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>📊 حركة بيانات التطبيقات</h3>
+                        <p>اطّلع على مقدار بيانات Wi-Fi والبيانات الخلوية التي استخدمتها التطبيقات المثبتة الأخرى، مقسّمة حسب التطبيق واليوم/الأسبوع/الشهر. فقط إجمالي حجم البيانات لكل تطبيق — لا محتوى ولا عناوين ولا سجل تصفح أبدًا.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="usecases-section">
+                <h2>فيمَ يستخدمه الناس</h2>
+                <p class="section-subtitle">أمثلة توضيحية لكيفية استخدام مجموعة الأدوات — وليست شهادات من عملاء. يُبلغ AGDM Root Checker فقط بما يمكنه قياسه فعليًا، ولا يحدد المسؤول عمّا يرصده.</p>
+                <div class="usecases">
+                    <div class="usecase-card">
+                        <span class="usecase-icon">🛒</span>
+                        <p><strong>قبل شراء هاتف مستعمل:</strong> فحص سريع للروت/برنامج الإقلاع/SELinux يُظهر ما إذا كان الجهاز قد تم العبث به قبل أن تدفع ثمنه.</p>
+                    </div>
+                    <div class="usecase-card">
+                        <span class="usecase-icon">📶</span>
+                        <p><strong>مناطق ضعف إشارة غير مألوفة:</strong> عندما ينخفض الاتصال فجأة من LTE إلى 2G في مكان جديد، يمنحك فحص الشبكة إشارة صادقة "تستحق نظرة ثانية" بدلاً من التخمين.</p>
+                    </div>
+                    <div class="usecase-card">
+                        <span class="usecase-icon">🔒</span>
+                        <p><strong>الأجهزة المستعملة أو المشتركة:</strong> قائمة أذونات الكاميرا/الميكروفون طريقة سريعة لمعرفة أي التطبيقات لديها هذا الوصول حاليًا قبل تسليم الهاتف لشخص آخر.</p>
+                    </div>
+                    <div class="usecase-card">
+                        <span class="usecase-icon">📊</span>
+                        <p><strong>مفاجآت في حد البيانات:</strong> تُظهر شاشة حركة بيانات التطبيقات أي تطبيق استهلك فعليًا بيانات الهاتف هذا الشهر — دون تخمين.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="journey-section">
+                <h2>من عدم اليقين إلى الثقة</h2>
+                <p class="section-subtitle">عادة تستغرق 60 ثانية تستبدل التخمين باليقين.</p>
+                <div class="journey-steps">
+                    <div class="journey-step">
+                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
+                        <h3>لست متأكدًا مما يحدث فعليًا</h3>
+                        <p>استنزاف غريب للبطارية، تطبيق لا تتذكر أنك ثبّته، إذن لم تلاحظ أنك منحته من قبل.</p>
+                    </div>
+                    <div class="journey-arrow">&rarr;</div>
+                    <div class="journey-step">
+                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+                        <h3>شغّل الفحص</h3>
+                        <p>لمسة واحدة تبدأ فحصًا محليًا كاملاً — الروت، برنامج الإقلاع، SELinux، الأذونات، الشبكة، حركة البيانات. لا شيء يغادر جهازك.</p>
+                    </div>
+                    <div class="journey-arrow">&rarr;</div>
+                    <div class="journey-step step-outcome">
+                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                        <h3>اعرف موقفك بوضوح</h3>
+                        <p>نتيجة واضحة بدلاً من تخمين — وراحة البال التي تأتي مع المعرفة الحقيقية.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="legal" class="legal-section">
+                <h2>معلومات قانونية</h2>
+                <details>
+                    <summary>سياسة الخصوصية</summary>
+                    <div class="details-content">
+                        <p><strong>تاريخ السريان:</strong> 22 يونيو 2025 &middot; <strong>آخر تحديث:</strong> 4 أغسطس 2026</p>
+                        <p>يقوم تطبيق AGDM Root Checker بإجراء كل التحليل الأساسي محليًا على جهازك. نحن لا نجمع أو نخزّن أو ننقل بياناتك الشخصية أو بيانات النظام إلى أي خوادم. مجموعة صغيرة من الفحوصات الاختيارية واليدوية (تدقيق أذونات الكاميرا/الميكروفون، الموقع التقريبي، إشارة الشبكة، حركة بيانات التطبيقات) تقرأ بيانات جهاز محددة فقط عند اختيارك استخدامها — راجع السياسة الكاملة للتفاصيل.</p>
+                        <p><a href="privacy-policy.html">اقرأ سياسة الخصوصية الكاملة ←</a></p>
+                    </div>
+                </details>
+                <details>
+                    <summary>اتفاقية ترخيص المستخدم النهائي (EULA)</summary>
+                    <div class="details-content">
+                        <p>بتثبيت واستخدام AGDM Root Checker، فإنك توافق على الشروط التالية:</p>
+                        <ul>
+                            <li>يُقدَّم التطبيق "كما هو"، دون أي ضمانات.</li>
+                            <li>المطوّر غير مسؤول عن أي ضرر محتمل يلحق بجهازك أو فقدان للبيانات.</li>
+                            <li>تُمنح ترخيصًا محدودًا وغير حصري للاستخدام الشخصي غير التجاري.</li>
+                        </ul>
+                        <p><a href="eula.html">اقرأ اتفاقية EULA الكاملة ←</a></p>
+                    </div>
+                </details>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025–2026 AGDM Soft. جميع الحقوق محفوظة.</p>
+            <p>تواصل معنا: agdmsoft@gmail.com</p>
+        </footer>
+    </div>
+
+    <script>
+    (function(){
+        try {
+            var current = "ar";
+            var targets = {"en":"../index.html","ru":"../ru/index.html","de":"../de/index.html","es":"../es/index.html","fr":"../fr/index.html","pt":"../pt/index.html","tr":"../tr/index.html","vi":"../vi/index.html","id":"../id/index.html","zh":"../zh/index.html","fa":"../fa/index.html","hi":"../hi/index.html"};
+            var stored = localStorage.getItem('agdm_lang');
+            if (stored) { return; }
+            var nav = ((navigator.language || navigator.userLanguage || 'en') + '').toLowerCase();
+            var supported = {"en":1,"ru":1,"de":1,"es":1,"fr":1,"pt":1,"tr":1,"vi":1,"id":1,"zh":1,"ar":1,"fa":1,"hi":1};
+            var short = nav.split('-')[0];
+            if (short === 'zh') { short = 'zh'; }
+            var detected = supported[short] ? short : 'en';
+            if (detected !== current && targets[detected]) {
+                window.location.replace(targets[detected]);
+            }
+        } catch (e) {}
+    })();
+    </script>
+</body>
+</html>

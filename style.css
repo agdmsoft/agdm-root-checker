@@ -1,90 +1,172 @@
-/* ================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И СБРОСЫ ================== */
+/* ================== AGDM ROOT CHECKER -- BRAND TOKENS (synced with the
+   Android app's real theme, ui/RootCheckerCarbonUi.kt + ui/theme/Color.kt,
+   04.08.2026) ================== */
 :root {
-    /* Основная цветовая палитра */
-    --background-color: #181A20; 
-    --surface-color: #1E1F25;
-    --accent-color: #F0B90B;
-    --accent-hover-color: #F8D32F;
+    --background-color: #050706;
+    --background-color-2: #09100C;
+    --surface-color: #14171B;
+    --card-color: #1A1E23;
+    --accent-color: #FFC400;
+    --accent-hover-color: #FFD84D;
     --text-primary: #EAECEF;
-    --text-secondary: #848E9C;
+    --text-secondary: #9AA0A6;
     --border-color: #2b3139;
 
-    /* Цвета для статусов (шкала, заголовки) */
-    --color-success: #28a745;
-    --color-danger: #dc3545;
-    --color-danger-light: #e57373;
-    --color-success-light: #81c784;
+    --color-success: #22C55E;
+    --color-danger: #FF4D4F;
+    --color-danger-light: #FF8A8B;
+    --color-success-light: #6EE7A0;
 }
 
-/* Сброс стилей для всех элементов */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Плавный скролл по якорям */
 html {
     scroll-behavior: smooth;
 }
 
-/* Основные стили для всего документа */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--background-color);
     color: var(--text-primary);
     line-height: 1.6;
     display: flex;
     justify-content: center;
     padding: 20px;
+    position: relative;
+    background-color: var(--background-color);
 }
 
-/* ================== КОНТЕЙНЕР ================== */
+/* Carbon-fiber texture, pinned behind all content -- same source image as the
+   Android app's dark theme (agdm_dark_carbon_background.webp), same idea as
+   RootCheckerBrandBackground(): texture at low alpha + a near-black vertical
+   vignette on top so text stays readable while the weave is still visible. */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("carbon-bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.30;
+    z-index: -2;
+}
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(3,7,5,0.85) 0%, rgba(7,16,11,0.62) 50%, rgba(3,7,5,0.9) 100%);
+    z-index: -1;
+}
+
 .container {
     width: 100%;
-    max-width: 1100px; /* Увеличена ширина для десктопа */
+    max-width: 1100px;
     text-align: center;
 }
 
-/* ================== ШАПКА ================== */
 header {
     margin: 40px 0;
     padding-bottom: 40px;
+    position: relative;
 }
 
-/* Стили логотипа */
+/* ================== LANGUAGE SWITCHER ================== */
+.lang-switcher {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: left;
+}
+[dir="rtl"] .lang-switcher {
+    right: auto;
+    left: 0;
+    text-align: right;
+}
+.lang-switcher summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    user-select: none;
+}
+.lang-switcher summary::-webkit-details-marker { display: none; }
+.lang-switcher summary::after { content: '▾'; color: var(--text-secondary); font-size: 0.7rem; }
+.lang-switcher[open] summary::after { content: '▴'; }
+.lang-switcher .lang-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 6px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 2px;
+    z-index: 5;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+[dir="rtl"] .lang-switcher .lang-menu { right: auto; left: 0; }
+.lang-switcher .lang-menu a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    white-space: nowrap;
+}
+.lang-switcher .lang-menu a:hover { background-color: rgba(255,196,0,0.1); color: var(--text-primary); }
+.lang-switcher .lang-menu a.active { color: var(--accent-color); font-weight: 700; }
+@media (max-width: 480px) {
+    .lang-switcher { position: static; margin-bottom: 20px; display: inline-block; }
+}
+
 .logo {
-    width: 120px; 
+    width: 120px;
     height: auto;
     border-radius: 26px;
     margin-bottom: 25px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
     animation: bounceIn 0.6s ease;
     transition: transform 0.3s ease;
     border: 4px solid var(--accent-color);
-    padding: 5px; 
-    background-color: var(--surface-color); 
+    padding: 5px;
+    background-color: var(--surface-color);
 }
 .logo:hover {
     transform: scale(1.05);
 }
 
-/* Анимация появления логотипа */
 @keyframes bounceIn {
     0% { opacity: 0; transform: scale(0.5); }
     80% { transform: scale(1.05); }
     100% { opacity: 1; transform: scale(1); }
 }
 
-/* Главный заголовок */
 h1 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 15px;
-    color: var(--color-success);
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+h1 span {
+    color: var(--accent-color);
 }
 
-/* Подзаголовок */
 .tagline {
     font-size: 1.2rem;
     color: var(--text-secondary);
@@ -92,32 +174,17 @@ h1 {
     margin: 0 auto;
 }
 
-/* ================== ШКАЛА БЕЗОПАСНОСТИ (ИСПРАВЛЕННАЯ ВЕРСИЯ) ================== */
-
-/* Главный контейнер секции */
-.security-scale {
-    /* Убраны position: relative и большой margin-top, они больше не нужны */
-}
-
-/* Контейнер для визуальных элементов (шкалы и рисок) */
+/* ================== ШКАЛА БЕЗОПАСНОСТИ ================== */
 .scale-visual {
-    position: relative; 
+    position: relative;
     margin-bottom: 10px;
 }
-
-/* Заголовок над шкалой */
 .scale-title {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-secondary);
-    /* ИЗМЕНЕНО: ЭТО ГЛАВНЫЙ ПАРАМЕТР ДЛЯ УПРАВЛЕНИЯ ОТСТУПОМ!
-      Увеличьте это значение, чтобы отодвинуть шкалу дальше вниз от заголовка.
-      Уменьшите, чтобы подвинуть ближе.
-    */
-    margin-bottom: 290px; 
+    margin-bottom: 130px;
 }
-
-/* Контейнер для всех маркеров (иконки + риски) */
 .scale-markers {
     position: absolute;
     bottom: 0;
@@ -125,34 +192,40 @@ h1 {
     right: 0;
     height: 100%;
 }
-
-/* Отдельный маркер (иконка + риска) */
 .marker {
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     transform: translateX(-50%);
-    /* Позиционируем маркер так, чтобы риска пересекала шкалу по центру */
-    bottom: -18px; 
+    bottom: -18px;
 }
-
-/* Изображения над рисками */
-.marker img {
-    width: 120px;
-    height: auto;
-    margin-bottom: 5px; 
+.marker .marker-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--surface-color);
+    border: 2px solid currentColor;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
 }
-
-/* Сама риска (черточка) */
+.marker .marker-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+}
+.marker.marker-red { color: var(--color-danger-light); }
+.marker.marker-yellow { color: var(--accent-color); }
+.marker.marker-green { color: var(--color-success-light); }
 .tick {
     width: 4px;
     height: 48px;
     background-color: var(--text-secondary);
     border-radius: 2px;
 }
-
-/* Полоса шкалы */
 .scale-bar {
     height: 15px;
     width: 100%;
@@ -160,8 +233,6 @@ h1 {
     background: linear-gradient(90deg, var(--color-danger) 0%, var(--accent-color) 50%, var(--color-success) 100%);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
-/* Текстовые метки под шкалой */
 .scale-labels {
     display: flex;
     justify-content: space-between;
@@ -174,37 +245,80 @@ h1 {
 .label-yellow { color: var(--accent-color); }
 .label-green { color: var(--color-success-light); }
 
-
-/* ================== КНОПКА CTA (ПРИЗЫВ К ДЕЙСТВИЮ) ================== */
+/* ================== CTA + QR ================== */
+.cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+}
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
-    color: var(--background-color);
+    color: #14100a;
     text-decoration: none;
     padding: 16px 32px;
     border-radius: 8px;
-    font-size: 2.1rem;
-    font-weight: 600;
-    box-shadow: 0 2px 10px rgba(240, 185, 11, 0.2);
-    margin-top: 30px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    box-shadow: 0 2px 10px rgba(255, 196, 0, 0.22);
     transition: all 0.3s ease;
 }
 .cta-button:hover {
     background-color: var(--accent-hover-color);
     transform: translateY(-3px);
-    box-shadow: 0 4px 20px rgba(240, 185, 11, 0.3);
+    box-shadow: 0 4px 20px rgba(255, 196, 0, 0.35);
+}
+.qr-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 20px 12px 12px;
+    text-align: left;
+}
+.qr-card img {
+    width: 84px;
+    height: 84px;
+    border-radius: 8px;
+    background: #fff;
+    padding: 4px;
+}
+.qr-card .qr-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.qr-card .qr-sub {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+.availability-note {
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
 }
 
-/* ================== СЕКЦИИ И ЗАГОЛОВКИ ================== */
+/* ================== SECTIONS ================== */
 main > section {
     margin-top: 80px;
 }
 h2 {
     font-size: 2.2rem;
-    margin-bottom: 40px;
+    margin-bottom: 12px;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 1rem;
 }
 
-/* ================== КАРТОЧКИ С ПРЕИМУЩЕСТВАМИ ================== */
 .info-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -212,7 +326,8 @@ h2 {
     text-align: left;
 }
 .card {
-    background-color: var(--surface-color);
+    position: relative;
+    background-color: var(--card-color);
     padding: 25px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
@@ -220,7 +335,7 @@ h2 {
 }
 .card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
 }
 .card h3 {
     font-size: 1.3rem;
@@ -230,40 +345,112 @@ h2 {
 .card p {
     color: var(--text-secondary);
 }
+.card-badge {
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    background-color: var(--accent-color);
+    color: #14100a;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
 
-/* ================== СЕКЦИЯ "КАК ЭТО РАБОТАЕТ" (ИСПРАВЛЕННАЯ ВЕРСИЯ) ================== */
-.how-it-works .steps {
+/* ================== USE CASES (honest, not review quotes -- see site
+   README for why) ================== */
+.usecases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    text-align: left;
+}
+.usecase-card {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 20px 22px;
+}
+.usecase-card .usecase-icon {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    display: block;
+}
+.usecase-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ================== JOURNEY INFOGRAPHIC (replaces the old hand-drawn
+   character illustrations -- clean icon + gradient-card treatment) ========== */
+.journey-steps {
     display: flex;
     justify-content: center;
-    align-items: center; /* Эта строка выравнивает элементы по вертикали */
-    gap: 20px;
+    align-items: stretch;
+    gap: 0;
     flex-wrap: wrap;
 }
-.step {
+.journey-step {
+    flex: 1 1 220px;
+    max-width: 260px;
+    background: linear-gradient(160deg, var(--card-color) 0%, var(--surface-color) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 28px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.step-number {
+.journey-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+}
+.journey-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--surface-color);
+    margin-bottom: 16px;
+    background: rgba(255,196,0,0.10);
     border: 2px solid var(--accent-color);
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 10px;
 }
-.step-arrow {
-    font-size: 2rem;
+.journey-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: var(--accent-color);
+}
+.journey-step.step-outcome .journey-icon {
+    background: rgba(34,197,94,0.12);
+    border-color: var(--color-success);
+}
+.journey-step.step-outcome .journey-icon svg { stroke: var(--color-success-light); }
+.journey-step h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+.journey-step p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+.journey-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 14px;
     color: var(--accent-color);
-    /* ДОБАВЛЕНЫ ЭТИ ДВЕ СТРОКИ ДЛЯ КОРРЕКЦИИ ПОЛОЖЕНИЯ */
-    position: relative;
-    top: -15px; /* Сдвигаем стрелку вверх, чтобы она стала по центру кружка */
+    font-size: 1.6rem;
+    flex: 0 0 auto;
 }
+[dir="rtl"] .journey-arrow { transform: scaleX(-1); }
+
 /* ================== ЮРИДИЧЕСКАЯ СЕКЦИЯ ================== */
 .legal-section {
     max-width: 700px;
@@ -271,7 +458,7 @@ h2 {
     margin-right: auto;
 }
 .legal-section details {
-    background-color: var(--surface-color);
+    background-color: var(--card-color);
     border-radius: 8px;
     border: 1px solid var(--border-color);
     margin-bottom: 10px;
@@ -325,7 +512,6 @@ footer {
     color: var(--text-secondary);
 }
 
-/* ================== СТИЛИ ДЛЯ СКРОЛЛБАРА ================== */
 body::-webkit-scrollbar {
     width: 10px;
 }
@@ -337,57 +523,25 @@ body::-webkit-scrollbar-track {
     background-color: var(--background-color);
 }
 
-/* ================== АДАПТИВНОСТЬ (ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ) ================== */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-    h2, .scale-title { /* Применяем и к заголовку шкалы */
-        font-size: 1.8rem;
-    }
-    .info-cards {
-        grid-template-columns: 1fr;
-    }
-    .how-it-works .steps {
-        flex-direction: column;
-        gap: 0;
-    }
-    .step-arrow {
-        transform: rotate(90deg);
-        margin: 15px 0;
-    }
-    .step:last-of-type ~ .step-arrow {
-        display: none;
-    }
-    /* На мобильных устройствах сложная шкала будет выглядеть плохо, поэтому упрощаем ее */
-    .security-scale {
-        margin-top: 45px; /* Возвращаем стандартный отступ */
-    }
-    .scale-title {
-        position: static; /* Возвращаем заголовок в поток документа */
-        margin-bottom: 15px;
-    }
-    .scale-visual {
-        margin-top: 15px; /* Уменьшаем отступ */
-    }
-    .scale-markers {
-        display: none; /* Полностью скрываем маркеры на мобильных для чистоты вида */
-    }
-    .scale-labels {
-        margin-top: 10px; /* Возвращаем стандартный отступ */
-    }
+    h1 { font-size: 2.2rem; }
+    h2, .scale-title { font-size: 1.8rem; }
+    .info-cards { grid-template-columns: 1fr; }
+    .usecases { grid-template-columns: 1fr; }
+    .how-it-works .steps { flex-direction: column; gap: 0; }
+    .step-arrow { transform: rotate(90deg); margin: 15px 0; }
+    .step:last-of-type ~ .step-arrow { display: none; }
+    .security-scale { margin-top: 45px; }
+    .scale-title { position: static; margin-bottom: 15px; }
+    .scale-visual { margin-top: 15px; }
+    .scale-markers { display: none; }
+    .scale-labels { margin-top: 10px; }
+    .cta-row { flex-direction: column; }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 15px;
-    }
-    .tagline {
-        font-size: 1rem;
-    }
-    .cta-button {
-        width: 100%;
-        padding: 14px;
-        font-size: 1rem;
-    }
+    body { padding: 15px; }
+    .tagline { font-size: 1rem; }
+    .cta-button { width: 100%; padding: 14px; font-size: 1rem; text-align: center; }
+    .qr-card { width: 100%; justify-content: center; }
 }

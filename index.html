@@ -1,49 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>AGDM Root Checker - Deep Android Security Analysis</title>
-    <meta name="description" content="AGDM Root Checker - a powerful tool for a detailed security analysis of your Android device. Checks for Root, bootloader state, SELinux, and much more.">
-    
+    <meta name="description" content="AGDM Root Checker - a powerful tool for a detailed security analysis of your Android device. Root, bootloader, SELinux, camera/mic privacy, network anomalies, app traffic, and more.">
+
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
+
     <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
 
     <div class="container">
-        
+
         <header>
+            <details class="lang-switcher">
+                <summary>🌐 English</summary>
+                <div class="lang-menu">
+                        <a href="index.html" class="lang-item active" onclick="try{localStorage.setItem('agdm_lang','en')}catch(e){}">English</a>
+                        <a href="ru/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ru')}catch(e){}">Русский</a>
+                        <a href="de/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','de')}catch(e){}">Deutsch</a>
+                        <a href="es/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','es')}catch(e){}">Español</a>
+                        <a href="fr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fr')}catch(e){}">Français</a>
+                        <a href="pt/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','pt')}catch(e){}">Português</a>
+                        <a href="tr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','tr')}catch(e){}">Türkçe</a>
+                        <a href="vi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','vi')}catch(e){}">Tiếng Việt</a>
+                        <a href="id/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','id')}catch(e){}">Bahasa Indonesia</a>
+                        <a href="zh/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','zh')}catch(e){}">中文</a>
+                        <a href="ar/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ar')}catch(e){}">العربية</a>
+                        <a href="fa/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fa')}catch(e){}">فارسی</a>
+                        <a href="hi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','hi')}catch(e){}">हिन्दी</a>
+                </div>
+            </details>
             <img src="logo.png" alt="AGDM Logo" class="logo">
-            <h1>AGDM Root Checker</h1>
+            <h1>AGDM <span>Root Checker</span></h1>
             <p class="tagline">A powerful tool for a deep and detailed security analysis of your Android device.</p>
         </header>
 
         <main>
             <section class="security-scale-section">
                 <div class="security-scale">
-                    
+
                     <p class="scale-title">Overall Device Security Level</p>
 
                     <div class="scale-visual">
                         <div class="scale-bar"></div>
                         <div class="scale-markers">
-                            <div class="marker" style="left: 0%;">
-                                <img src="1.png" alt="Low level icon">
+                            <div class="marker marker-red" style="left: 0%;">
+                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
                                 <div class="tick"></div>
                             </div>
-                            <div class="marker" style="left: 50%;">
-                                <img src="2.png" alt="Medium level icon">
+                            <div class="marker marker-yellow" style="left: 50%;">
+                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span>
                                 <div class="tick"></div>
                             </div>
-                            <div class="marker" style="left: 100%;">
-                                <img src="3.png" alt="High level icon">
+                            <div class="marker marker-green" style="left: 100%;">
+                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
                                 <div class="tick"></div>
                             </div>
                         </div>
@@ -55,7 +73,18 @@
                         <span class="label-green">High</span>
                     </div>
                 </div>
-                <a href="https://play.google.com/store/apps" class="cta-button" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+
+                <div class="cta-row">
+                    <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+                    <div class="qr-card">
+                        <img src="qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
+                        <div>
+                            <div class="qr-label">Scan to install</div>
+                            <div class="qr-sub">Opens the Google Play listing on your phone</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="availability-note">Currently in closed testing on Google Play — the listing above goes live at launch.</p>
             </section>
 
             <section class="info-cards-section">
@@ -76,22 +105,76 @@
                 </div>
             </section>
 
-            <section class="how-it-works">
-                <h2>How It Works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <p class="step-text">Install the App</p>
+            <section class="info-cards-section new-toolkit-section">
+                <h2>Uncommon Tools for an App in This Category</h2>
+                <p class="section-subtitle">Optional, manual, opt-in checks — nothing runs in the background, nothing leaves your device.</p>
+                <div class="info-cards">
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>📶 Sudden Network-Downgrade Indicator</h3>
+                        <p>Compares your current connection to your last manual check and flags it when the network suddenly drops (e.g. LTE to 2G) in a short window. Not a fake base-station detector — that needs low-level access no regular app can get on Android — just a "worth a second look" signal.</p>
                     </div>
-                    <div class="step-arrow">&rarr;</div>
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <p class="step-text">Run the Scan</p>
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>🌡️ Idle Heat Check</h3>
+                        <p>One tap compares your battery temperature against fixed thresholds and your own device's usual idle temperature — helpful context, not a diagnosis.</p>
                     </div>
-                    <div class="step-arrow">&rarr;</div>
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <p class="step-text">Get the Result</p>
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>🔒 Camera & Microphone Privacy</h3>
+                        <p>See which installed apps currently hold camera/microphone permission, plus a direct link to Android's own Privacy Dashboard for the real usage history. Also included: an honest, research-backed breakdown of the "ads right after a conversation" myth.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>📊 App Traffic</h3>
+                        <p>See how much Wi-Fi and mobile data other installed apps have used, broken down by app and by day/week/month. Just data-volume totals per app — never content, addresses, or browsing history.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="usecases-section">
+                <h2>What People Use It For</h2>
+                <p class="section-subtitle">Illustrative examples of how the toolkit gets used — not customer quotes. AGDM Root Checker reports what it can actually measure; it doesn't identify who is responsible for anything it flags.</p>
+                <div class="usecases">
+                    <div class="usecase-card">
+                        <span class="usecase-icon">🛒</span>
+                        <p><strong>Before buying a used phone:</strong> a quick root/bootloader/SELinux check shows whether the device has been tampered with before you hand over cash.</p>
+                    </div>
+                    <div class="usecase-card">
+                        <span class="usecase-icon">📶</span>
+                        <p><strong>Unfamiliar dead zones:</strong> when a connection suddenly drops from LTE to 2G somewhere new, the network check gives a quick, honest "worth a second look" instead of a guess.</p>
+                    </div>
+                    <div class="usecase-card">
+                        <span class="usecase-icon">🔒</span>
+                        <p><strong>Second-hand or shared devices:</strong> the camera/microphone permission list is a fast way to see which apps currently have that access before handing a phone to someone else.</p>
+                    </div>
+                    <div class="usecase-card">
+                        <span class="usecase-icon">📊</span>
+                        <p><strong>Data cap surprises:</strong> the app traffic screen shows which app actually burned through this month's mobile data — no guessing.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="journey-section">
+                <h2>From Uncertainty to Confidence</h2>
+                <p class="section-subtitle">A 60-second habit that replaces guessing with knowing.</p>
+                <div class="journey-steps">
+                    <div class="journey-step">
+                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
+                        <h3>Not sure what's really going on</h3>
+                        <p>Strange battery drain, an app you don't remember installing, a permission you never noticed you granted.</p>
+                    </div>
+                    <div class="journey-arrow">&rarr;</div>
+                    <div class="journey-step">
+                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+                        <h3>Run the check</h3>
+                        <p>One tap starts a full local scan — root, bootloader, SELinux, permissions, network, traffic. Nothing leaves your device.</p>
+                    </div>
+                    <div class="journey-arrow">&rarr;</div>
+                    <div class="journey-step step-outcome">
+                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                        <h3>Know where you stand</h3>
+                        <p>A clear result instead of a guess — and the peace of mind that comes with actually knowing.</p>
                     </div>
                 </div>
             </section>
@@ -101,8 +184,9 @@
                 <details>
                     <summary>Privacy Policy</summary>
                     <div class="details-content">
-                        <p><strong>Effective Date:</strong> June 22, 2025</p>
-                        <p>The AGDM Root Checker application performs all analysis locally on your device. We do not collect, store, or transmit your personal or system data to any servers. Your privacy is our top priority.</p>
+                        <p><strong>Effective Date:</strong> June 22, 2025 &middot; <strong>Last Updated:</strong> August 4, 2026</p>
+                        <p>The AGDM Root Checker application performs all core analysis locally on your device. We do not collect, store, or transmit your personal or system data to any servers. A small set of optional, manual checks (camera/mic permission audit, approximate location, network signal, app traffic) read specific device data only when you choose to use them — see the full policy for details.</p>
+                        <p><a href="privacy-policy.html">Read the full Privacy Policy →</a></p>
                     </div>
                 </details>
                 <details>
@@ -114,16 +198,35 @@
                             <li>The developer is not responsible for any potential damage to your device or loss of data.</li>
                             <li>You are granted a limited, non-exclusive license for personal, non-commercial use.</li>
                         </ul>
+                        <p><a href="eula.html">Read the full EULA →</a></p>
                     </div>
                 </details>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2025 AGDM Soft. All rights reserved.</p>
+            <p>© 2025–2026 AGDM Soft. All rights reserved.</p>
             <p>Contact us: agdmsoft@gmail.com</p>
         </footer>
     </div>
 
+    <script>
+    (function(){
+        try {
+            var current = "en";
+            var targets = {"ru":"ru/index.html","de":"de/index.html","es":"es/index.html","fr":"fr/index.html","pt":"pt/index.html","tr":"tr/index.html","vi":"vi/index.html","id":"id/index.html","zh":"zh/index.html","ar":"ar/index.html","fa":"fa/index.html","hi":"hi/index.html"};
+            var stored = localStorage.getItem('agdm_lang');
+            if (stored) { return; }
+            var nav = ((navigator.language || navigator.userLanguage || 'en') + '').toLowerCase();
+            var supported = {"en":1,"ru":1,"de":1,"es":1,"fr":1,"pt":1,"tr":1,"vi":1,"id":1,"zh":1,"ar":1,"fa":1,"hi":1};
+            var short = nav.split('-')[0];
+            if (short === 'zh') { short = 'zh'; }
+            var detected = supported[short] ? short : 'en';
+            if (detected !== current && targets[detected]) {
+                window.location.replace(targets[detected]);
+            }
+        } catch (e) {}
+    })();
+    </script>
 </body>
 </html>

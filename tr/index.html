@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGDM Root Checker – Derinlemesine Android Güvenlik Analizi</title>
+    <meta name="description" content="AGDM Root Checker – Android cihazınızın güvenliğini ayrıntılı analiz etmek için güçlü bir araç. Root, önyükleyici, SELinux, kamera/mikrofon gizliliği, ağ anormallikleri, uygulama trafiği ve daha fazlası.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="../logo.png" type="image/png">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <details class="lang-switcher">
+                <summary>🌐 Türkçe</summary>
+                <div class="lang-menu">
+                        <a href="../index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','en')}catch(e){}">English</a>
+                        <a href="../ru/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ru')}catch(e){}">Русский</a>
+                        <a href="../de/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','de')}catch(e){}">Deutsch</a>
+                        <a href="../es/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','es')}catch(e){}">Español</a>
+                        <a href="../fr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fr')}catch(e){}">Français</a>
+                        <a href="../pt/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','pt')}catch(e){}">Português</a>
+                        <a href="index.html" class="lang-item active" onclick="try{localStorage.setItem('agdm_lang','tr')}catch(e){}">Türkçe</a>
+                        <a href="../vi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','vi')}catch(e){}">Tiếng Việt</a>
+                        <a href="../id/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','id')}catch(e){}">Bahasa Indonesia</a>
+                        <a href="../zh/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','zh')}catch(e){}">中文</a>
+                        <a href="../ar/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ar')}catch(e){}">العربية</a>
+                        <a href="../fa/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fa')}catch(e){}">فارسی</a>
+                        <a href="../hi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','hi')}catch(e){}">हिन्दी</a>
+                </div>
+            </details>
+            <img src="../logo.png" alt="AGDM Logo" class="logo">
+            <h1>AGDM <span>Root Checker</span></h1>
+            <p class="tagline">Android cihazınızın derin ve ayrıntılı bir güvenlik analizi için güçlü bir araç.</p>
+        </header>
+
+        <main>
+            <section class="security-scale-section">
+                <div class="security-scale">
+
+                    <p class="scale-title">Genel Cihaz Güvenlik Düzeyi</p>
+
+                    <div class="scale-visual">
+                        <div class="scale-bar"></div>
+                        <div class="scale-markers">
+                            <div class="marker marker-red" style="left: 0%;">
+                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+                                <div class="tick"></div>
+                            </div>
+                            <div class="marker marker-yellow" style="left: 50%;">
+                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span>
+                                <div class="tick"></div>
+                            </div>
+                            <div class="marker marker-green" style="left: 100%;">
+                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                                <div class="tick"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scale-labels">
+                        <span class="label-red">Düşük</span>
+                        <span class="label-yellow">Orta</span>
+                        <span class="label-green">Yüksek</span>
+                    </div>
+                </div>
+
+                <div class="cta-row">
+                    <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer">Google Play'de İndirin</a>
+                    <div class="qr-card">
+                        <img src="../qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
+                        <div>
+                            <div class="qr-label">Yüklemek için tarayın</div>
+                            <div class="qr-sub">Telefonunuzda Google Play sayfasını açar</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="availability-note">Şu anda Google Play'de kapalı test aşamasında — yukarıdaki bağlantı lansmanla birlikte aktif olacak.</p>
+            </section>
+
+            <section class="info-cards-section">
+                <h2>Neden Bizi Seçmelisiniz?</h2>
+                <div class="info-cards">
+                    <div class="card">
+                        <h3>Kapsamlı Analiz</h3>
+                        <p>Yalnızca root erişimini değil, önyükleyici durumunu, sistem bütünlüğünü ve SELinux modunu da kontrol ederek eksiksiz bir güvenlik tablosu sunuyoruz.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Basitlik ve Netlik</h3>
+                        <p>Karmaşık teknik veriler, anlaşılması kolay bir güvenlik ölçeği ve ayrıntılı raporlarla sunulur. Uzman olmanıza gerek yok.</p>
+                    </div>
+                    <div class="card">
+                        <h3>%100 Gizlilik</h3>
+                        <p>Tüm kontroller cihazınızda yerel olarak yapılır. Kişisel veya sistem verilerinizi toplamayız ya da iletmeyiz.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-cards-section new-toolkit-section">
+                <h2>Bu Kategorideki Bir Uygulama İçin Sıra Dışı Araçlar</h2>
+                <p class="section-subtitle">İsteğe bağlı, manuel, açılıp kapatılabilir kontroller — hiçbiri arka planda çalışmaz, hiçbir veri cihazınızdan çıkmaz.</p>
+                <div class="info-cards">
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>📶 Ani Ağ Düşüşü Göstergesi</h3>
+                        <p>Mevcut bağlantınızı son manuel kontrolünüzle karşılaştırır ve ağın kısa sürede aniden düştüğünü (örneğin LTE'den 2G'ye) fark ederse uyarır. Bu sahte baz istasyonu dedektörü değildir — bunun için normal bir uygulamanın Android'de erişemeyeceği düşük seviyeli erişim gerekir — sadece "bir kez daha bakmaya değer" bir sinyaldir.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>🌡️ Boşta Isınma Kontrolü</h3>
+                        <p>Tek dokunuşla pil sıcaklığınız sabit eşiklerle ve cihazınızın olağan boşta sıcaklığıyla karşılaştırılır — yararlı bir bağlam, tanı değil.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>🔒 Kamera ve Mikrofon Gizliliği</h3>
+                        <p>Hangi yüklü uygulamaların şu anda kamera/mikrofon izni olduğunu görün, ayrıca gerçek kullanım geçmişi için Android'in kendi Gizlilik Panosuna doğrudan bağlantı bulunur. Ayrıca "konuşmadan hemen sonra reklam" efsanesinin araştırmaya dayalı, dürüst bir açıklaması da dahildir.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-badge">NEW</span>
+                        <h3>📊 Uygulama Trafiği</h3>
+                        <p>Yüklü diğer uygulamaların ne kadar Wi-Fi ve mobil veri kullandığını, uygulama ve gün/hafta/ay bazında görün. Yalnızca uygulama başına veri hacmi toplamları — içerik, adresler veya tarama geçmişi asla değil.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="usecases-section">
+                <h2>İnsanlar Bunu Ne İçin Kullanıyor</h2>
+                <p class="section-subtitle">Araç setinin nasıl kullanıldığına dair açıklayıcı örnekler — müşteri alıntıları değildir. AGDM Root Checker yalnızca gerçekten ölçebildiğini bildirir; işaretlediği bir şeyden kimin sorumlu olduğunu belirlemez.</p>
+                <div class="usecases">
+                    <div class="usecase-card">
+                        <span class="usecase-icon">🛒</span>
+                        <p><strong>İkinci el telefon almadan önce:</strong> hızlı bir root/önyükleyici/SELinux kontrolü, para ödemeden önce cihazın üzerinde oynanıp oynanmadığını gösterir.</p>
+                    </div>
+                    <div class="usecase-card">
+                        <span class="usecase-icon">📶</span>
+                        <p><strong>Tanıdık olmayan çekmeyen bölgeler:</strong> yeni bir yerde bağlantı aniden LTE'den 2G'ye düştüğünde, ağ kontrolü bir tahmin yerine dürüst bir "bir kez daha bakmaya değer" sinyali verir.</p>
+                    </div>
+                    <div class="usecase-card">
+                        <span class="usecase-icon">🔒</span>
+                        <p><strong>İkinci el veya paylaşılan cihazlar:</strong> kamera/mikrofon izin listesi, telefonu birine vermeden önce hangi uygulamaların şu anda bu erişime sahip olduğunu hızlıca görmenin bir yoludur.</p>
+                    </div>
+                    <div class="usecase-card">
+                        <span class="usecase-icon">📊</span>
+                        <p><strong>Veri limiti sürprizleri:</strong> uygulama trafiği ekranı, bu ay mobil verinizi gerçekte hangi uygulamanın tükettiğini gösterir — tahmin yürütmeden.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="journey-section">
+                <h2>Belirsizlikten Güvene</h2>
+                <p class="section-subtitle">Tahmin etmeyi bilmekle değiştiren 60 saniyelik bir alışkanlık.</p>
+                <div class="journey-steps">
+                    <div class="journey-step">
+                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
+                        <h3>Gerçekte neler olduğundan emin değilsiniz</h3>
+                        <p>Garip pil tüketimi, ne zaman yüklediğinizi hatırlamadığınız bir uygulama, verdiğinizi fark etmediğiniz bir izin.</p>
+                    </div>
+                    <div class="journey-arrow">&rarr;</div>
+                    <div class="journey-step">
+                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+                        <h3>Kontrolü çalıştırın</h3>
+                        <p>Tek dokunuş tam bir yerel taramayı başlatır — root, önyükleyici, SELinux, izinler, ağ, trafik. Hiçbir şey cihazınızdan çıkmaz.</p>
+                    </div>
+                    <div class="journey-arrow">&rarr;</div>
+                    <div class="journey-step step-outcome">
+                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                        <h3>Durumunuzu bilin</h3>
+                        <p>Bir tahmin yerine net bir sonuç — ve gerçekten bilmenin getirdiği iç huzur.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="legal" class="legal-section">
+                <h2>Yasal Bilgiler</h2>
+                <details>
+                    <summary>Gizlilik Politikası</summary>
+                    <div class="details-content">
+                        <p><strong>Yürürlük Tarihi:</strong> 22 Haziran 2025 &middot; <strong>Son Güncelleme:</strong> 4 Ağustos 2026</p>
+                        <p>AGDM Root Checker uygulaması tüm temel analizi cihazınızda yerel olarak gerçekleştirir. Kişisel veya sistem verilerinizi herhangi bir sunucuya toplamıyor, saklamıyor veya iletmiyoruz. Küçük bir isteğe bağlı, manuel kontrol seti (kamera/mikrofon izin denetimi, yaklaşık konum, ağ sinyali, uygulama trafiği) belirli cihaz verilerini yalnızca siz kullanmayı seçtiğinizde okur — ayrıntılar için tam politikaya bakın.</p>
+                        <p><a href="privacy-policy.html">Tam Gizlilik Politikasını Okuyun →</a></p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Son Kullanıcı Lisans Sözleşmesi (EULA)</summary>
+                    <div class="details-content">
+                        <p>AGDM Root Checker'ı yükleyerek ve kullanarak aşağıdaki koşulları kabul etmiş olursunuz:</p>
+                        <ul>
+                            <li>Uygulama, hiçbir garanti verilmeksizin "OLDUĞU GİBİ" sunulur.</li>
+                            <li>Geliştirici, cihazınızda oluşabilecek herhangi bir hasardan veya veri kaybından sorumlu değildir.</li>
+                            <li>Kişisel, ticari olmayan kullanım için size sınırlı, münhasır olmayan bir lisans verilir.</li>
+                        </ul>
+                        <p><a href="eula.html">Tam EULA'yı Okuyun →</a></p>
+                    </div>
+                </details>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025–2026 AGDM Soft. Tüm hakları saklıdır.</p>
+            <p>Bizimle iletişime geçin: agdmsoft@gmail.com</p>
+        </footer>
+    </div>
+
+    <script>
+    (function(){
+        try {
+            var current = "tr";
+            var targets = {"en":"../index.html","ru":"../ru/index.html","de":"../de/index.html","es":"../es/index.html","fr":"../fr/index.html","pt":"../pt/index.html","vi":"../vi/index.html","id":"../id/index.html","zh":"../zh/index.html","ar":"../ar/index.html","fa":"../fa/index.html","hi":"../hi/index.html"};
+            var stored = localStorage.getItem('agdm_lang');
+            if (stored) { return; }
+            var nav = ((navigator.language || navigator.userLanguage || 'en') + '').toLowerCase();
+            var supported = {"en":1,"ru":1,"de":1,"es":1,"fr":1,"pt":1,"tr":1,"vi":1,"id":1,"zh":1,"ar":1,"fa":1,"hi":1};
+            var short = nav.split('-')[0];
+            if (short === 'zh') { short = 'zh'; }
+            var detected = supported[short] ? short : 'en';
+            if (detected !== current && targets[detected]) {
+                window.location.replace(targets[detected]);
+            }
+        } catch (e) {}
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050706">
+<meta name="color-scheme" content="dark">
+<title>AGDM Root Checker - Phân tích bảo mật Android chuyên sâu</title>
+<meta name="description" content="AGDM Root Checker - công cụ mạnh mẽ để phân tích bảo mật chi tiết cho thiết bị Android của bạn. Root, bootloader, SELinux, quyền riêng tư camera/micro, bất thường mạng, lưu lượng ứng dụng và hơn thế nữa.">
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="../logo.png" type="image/png">
+</head>
+<body>
+<div class="container">
+<header class="hero">
+    <details class="lang-switcher">
+        <summary>🌐 Tiếng Việt</summary>
+        <div class="lang-menu"><a href="../index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','en')}catch(e){}">English</a>
+<a href="../ru/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ru')}catch(e){}">Русский</a>
+<a href="../de/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','de')}catch(e){}">Deutsch</a>
+<a href="../es/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','es')}catch(e){}">Español</a>
+<a href="../fr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fr')}catch(e){}">Français</a>
+<a href="../pt/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','pt')}catch(e){}">Português</a>
+<a href="../tr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','tr')}catch(e){}">Türkçe</a>
+<a href="index.html" class="lang-item active" onclick="try{localStorage.setItem('agdm_lang','vi')}catch(e){}">Tiếng Việt</a>
+<a href="../id/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','id')}catch(e){}">Bahasa Indonesia</a>
+<a href="../zh/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','zh')}catch(e){}">中文</a>
+<a href="../ar/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ar')}catch(e){}">العربية</a>
+<a href="../fa/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fa')}catch(e){}">فارسی</a>
+<a href="../hi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','hi')}catch(e){}">हिन्दी</a></div>
+    </details>
+
+    <div class="hero-grid">
+        <div class="hero-copy">
+            <div class="brand-lockup">
+                <img src="../logo.png" alt="AGDM Logo" class="logo">
+                <div class="brand-meta">
+                    <span class="brand-kicker">ANDROID SECURITY</span>
+                    <span class="brand-version">AGDM SOFT · 2026</span>
+                </div>
+            </div>
+
+            <h1>AGDM <span>Root Checker</span></h1>
+            <p class="tagline">Công cụ mạnh mẽ để phân tích bảo mật sâu và chi tiết cho thiết bị Android của bạn.</p>
+
+            <div class="hero-proof" aria-label="Product advantages">
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>100% riêng tư</span>
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 16 4-5 4 3 4-7"/></svg>Phân tích toàn diện</span>
+            </div>
+
+            <div class="cta-row">
+                <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.3 2.7a2 2 0 0 1 2.2.2l11.8 6.8-3.4 3.4L3.3 2.7Zm-.8 1.8v15l9.8-7.5-9.8-7.5Zm1 17 10.4-10.4 3.6 3.6-12 6.9a2 2 0 0 1-2 .1l.5-.2Zm15.2-7.7 2-1.1a1.5 1.5 0 0 0 0-2.6l-2-1.1-3.8 3.8 3.8 1Z"/></svg><span>Tải trên Google Play</span></a>
+                <div class="qr-card">
+                    <img src="../qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
+                    <div><div class="qr-label">Quét để cài đặt</div><div class="qr-sub">Mở trang Google Play trên điện thoại của bạn</div></div>
+                </div>
+            </div>
+            <p class="availability-note">Hiện đang trong giai đoạn thử nghiệm kín trên Google Play — liên kết trên sẽ hoạt động khi ra mắt.</p>
+        </div>
+
+        <div class="security-visual-wrap">
+            <div class="security-console" role="img" aria-label="Mức độ bảo mật tổng thể của thiết bị">
+                <div class="console-topbar">
+                    <div class="console-brand"><span class="status-dot"></span> AGDM SECURITY CORE</div>
+                    <div class="console-code">LOCAL / PRIVATE</div>
+                </div>
+
+                <div class="security-stage">
+                    <div class="stage-grid"></div>
+                    <div class="stage-glow"></div>
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="orbit orbit-three"></div>
+                    <div class="scan-sweep"></div>
+                    <div class="scan-line"></div>
+
+                    <div class="metric-node node-root" style="--delay: .1s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v6"/><path d="M8 7h8"/><path d="M7 11h10v9H7z"/><path d="M10 15h4"/></svg></span><span>ROOT</span><i></i></div>
+                    <div class="metric-node node-boot" style="--delay: .45s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v8"/><path d="M7 5a8 8 0 1 0 10 0"/></svg></span><span>BOOT</span><i></i></div>
+                    <div class="metric-node node-selinux" style="--delay: .8s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z"/><path d="m8 10 2 2-2 2"/><path d="M13 15h3"/></svg></span><span>SELINUX</span><i></i></div>
+                    <div class="metric-node node-privacy" style="--delay: 1.15s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span>PRIVACY</span><i></i></div>
+                    <div class="metric-node node-network" style="--delay: 1.5s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.5 16a6 6 0 0 1 7 0"/><path d="M12 20h.01"/></svg></span><span>NETWORK</span><i></i></div>
+                    <div class="metric-node node-traffic" style="--delay: 1.85s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17V9"/><path d="M12 17V5"/><path d="M17 17v-6"/></svg></span><span>TRAFFIC</span><i></i></div>
+
+                    <div class="security-core">
+                        <div class="core-halo"></div>
+                        <div class="core-shield"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                        <span class="core-eyebrow">AGDM ENGINE</span>
+                        <strong>DEVICE</strong>
+                        <small>SECURITY ANALYSIS</small>
+                    </div>
+
+                    <div class="telemetry telemetry-left"><span>SCAN PIPELINE</span><div class="telemetry-bars"><b></b><b></b><b></b><b></b><b></b></div></div>
+                    <div class="telemetry telemetry-right"><span>ON-DEVICE</span><strong>100%</strong></div>
+                </div>
+
+                <div class="console-footer">
+                    <div><span></span><b>ROOT</b><small>MODULE</small></div>
+                    <div><span></span><b>INTEGRITY</b><small>MODULE</small></div>
+                    <div><span></span><b>PRIVACY</b><small>MODULE</small></div>
+                </div>
+            </div>
+            <p class="visual-caption">Mức độ bảo mật tổng thể của thiết bị</p>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="usecases-section">
+        <h2>Mọi người dùng nó để làm gì</h2>
+        <div class="usecases">
+            <div class="usecase-card"><span class="usecase-icon">🛒</span><p><strong>Trước khi mua điện thoại cũ:</strong> kiểm tra nhanh root/bootloader/SELinux cho biết liệu thiết bị có bị can thiệp trước khi bạn trả tiền hay không.</p></div>
+            <div class="usecase-card"><span class="usecase-icon">📶</span><p><strong>Vùng sóng yếu lạ:</strong> khi kết nối đột ngột giảm từ LTE xuống 2G ở một nơi mới, kiểm tra mạng đưa ra cảnh báo trung thực “đáng để xem lại” thay vì phỏng đoán.</p></div>
+            <div class="usecase-card"><span class="usecase-icon">🔒</span><p><strong>Thiết bị cũ hoặc dùng chung:</strong> danh sách quyền camera/micro là cách nhanh để xem ứng dụng nào hiện có quyền truy cập đó trước khi đưa điện thoại cho người khác.</p></div>
+            <div class="usecase-card"><span class="usecase-icon">📊</span><p><strong>Bất ngờ về giới hạn dữ liệu:</strong> màn hình lưu lượng ứng dụng cho biết ứng dụng nào thực sự ngốn dữ liệu di động trong tháng này — không cần đoán.</p></div>
+        </div>
+    </section>
+
+    <section class="scan-cards-section">
+        <h2>Tất cả các quét và kiểm tra</h2>
+        <div class="scan-grid"><article class="scan-card">
+    <div class="scan-card__anim anim-root"><div class="shield"></div><div class="key"></div><div class="pulse-ring"></div></div>
+    <h3>Kiểm tra quyền Root</h3>
+    <p>Phát hiện xem quyền root có tồn tại, bị lộ hay có khả năng đang hoạt động để người dùng nhanh chóng đánh giá thiết bị có đặc quyền nâng cao hay không.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-boot"><div class="lock-body"></div><div class="lock-arch"></div><div class="unlock-spark"></div></div>
+    <h3>Trạng thái Bootloader</h3>
+    <p>Cho biết bootloader có vẻ đã khóa hay mở khóa — một chỉ báo quan trọng khi kiểm tra thiết bị có thể đã bị chỉnh sửa hay không.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-integrity"><div class="grid-cells"></div><div class="check-line"></div></div>
+    <h3>Tính toàn vẹn & thuộc tính hệ thống</h3>
+    <p>Xem xét các thuộc tính Android quan trọng và tín hiệu hệ thống để giúp cho biết cấu hình thiết bị có vẻ bình thường hay đáng ngờ.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-selinux"><div class="terminal"></div><div class="cursor"></div><div class="status-bars"></div></div>
+    <h3>Trạng thái SELinux</h3>
+    <p>Cho biết SELinux đang ở chế độ enforcing, permissive hay bị tắt để người dùng hiểu mức độ bảo mật của môi trường vận hành.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-privacy"><div class="cam"></div><div class="mic"></div><div class="privacy-wave"></div></div>
+    <h3>Quyền riêng tư Camera & Micro</h3>
+    <p>Liệt kê các ứng dụng có quyền camera và micro, giúp người dùng xem xét rõ ràng hơn các quyền truy cập nhạy cảm.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-network"><div class="signal-bars"></div><div class="down-arrow"></div><div class="net-dot"></div></div>
+    <h3>Tín hiệu mạng & Suy giảm đột ngột</h3>
+    <p>Làm nổi bật các đợt suy giảm tín hiệu đột ngột và các dấu hiệu cảnh báo mạng nhanh khác có thể đáng để xem xét kỹ hơn.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-traffic"><div class="traffic-bars"></div><div class="traffic-line"></div></div>
+    <h3>Phân tích lưu lượng ứng dụng</h3>
+    <p>Cho biết ứng dụng nào đã sử dụng dữ liệu Wi-Fi hoặc di động, giúp hiểu mức tiêu thụ lưu lượng theo ứng dụng và theo khoảng thời gian.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-heat"><div class="battery"></div><div class="thermo"></div><div class="heat-wave"></div></div>
+    <h3>Kiểm tra nhiệt độ khi rảnh</h3>
+    <p>So sánh nhiệt độ pin với các ngưỡng thực tế và hành vi rảnh bình thường của thiết bị để phát hiện hiện tượng nóng bất thường.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-developer"><div class="gear"></div><div class="switch-panel"></div><div class="dev-dot"></div></div>
+    <h3>Phát hiện chế độ nhà phát triển</h3>
+    <p>Kiểm tra xem các tùy chọn nhà phát triển Android có vẻ đang bật hay không để người dùng chú ý đến trạng thái cấu hình quan trọng của thiết bị.</p>
+</article></div>
+    </section>
+
+    <section class="journey-section">
+        <h2>Từ Băn Khoăn Đến Tự Tin</h2>
+        <p class="section-subtitle">Thói quen 60 giây thay thế phỏng đoán bằng sự chắc chắn.</p>
+        <div class="journey-steps">
+            <div class="journey-step"><span class="journey-icon">🧩</span><h3>Không chắc chuyện gì đang thực sự xảy ra</h3><p>Pin hao lạ, một ứng dụng bạn không nhớ đã cài, một quyền bạn chưa từng để ý là mình đã cấp.</p></div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step"><span class="journey-icon">🛰️</span><h3>Chạy kiểm tra</h3><p>Một chạm bắt đầu quét cục bộ toàn diện — root, bootloader, SELinux, quyền, mạng, lưu lượng. Không có gì rời khỏi thiết bị của bạn.</p></div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step step-outcome"><span class="journey-icon">✅</span><h3>Biết rõ tình trạng của mình</h3><p>Một kết quả rõ ràng thay vì phỏng đoán — và sự an tâm đến từ việc thực sự biết.</p></div>
+        </div>
+    </section>
+
+    <section id="legal" class="legal-section">
+        <h2>Thông tin pháp lý</h2>
+        <details>
+            <summary>Chính sách quyền riêng tư</summary>
+            <div class="details-content">
+                <p><strong>Ngày có hiệu lực:</strong> 22 tháng 6, 2025 &middot; <strong>Cập nhật lần cuối:</strong> 4 tháng 8, 2026</p>
+                <p>Ứng dụng AGDM Root Checker thực hiện toàn bộ phân tích cốt lõi cục bộ trên thiết bị của bạn. Chúng tôi không thu thập, lưu trữ hoặc truyền dữ liệu cá nhân hoặc hệ thống của bạn tới bất kỳ máy chủ nào. Một số ít các kiểm tra tùy chọn, thủ công (kiểm tra quyền camera/micro, vị trí gần đúng, tín hiệu mạng, lưu lượng ứng dụng) chỉ đọc dữ liệu thiết bị cụ thể khi bạn chọn sử dụng — xem chính sách đầy đủ để biết chi tiết.</p>
+                <p><a href="privacy-policy.html">Đọc Chính sách quyền riêng tư đầy đủ →</a></p>
+            </div>
+        </details>
+        <details>
+            <summary>Thỏa thuận cấp phép người dùng cuối (EULA)</summary>
+            <div class="details-content">
+                <p>Khi cài đặt và sử dụng AGDM Root Checker, bạn đồng ý với các điều khoản sau:</p>
+                <ul><li>Ứng dụng được cung cấp "NGUYÊN TRẠNG", không có bất kỳ bảo đảm nào.</li><li>Nhà phát triển không chịu trách nhiệm về bất kỳ thiệt hại tiềm ẩn nào đối với thiết bị của bạn hoặc mất dữ liệu.</li><li>Bạn được cấp giấy phép giới hạn, không độc quyền cho mục đích sử dụng cá nhân, phi thương mại.</li></ul>
+                <p><a href="eula.html" target="_blank" rel="noopener noreferrer">Đọc EULA đầy đủ →</a></p>
+            </div>
+        </details>
+    </section>
+</main>
+<footer><p>© 2025–2026 AGDM Soft. Bảo lưu mọi quyền.</p><p>Liên hệ: agdmsoft@gmail.com</p></footer>
+</div>
+<script>
+(function() {
+  try {
+    var current = "vi";
+    var targets = {"en": "../index.html", "ru": "../ru/index.html", "de": "../de/index.html", "es": "../es/index.html", "fr": "../fr/index.html", "pt": "../pt/index.html", "tr": "../tr/index.html", "id": "../id/index.html", "zh": "../zh/index.html", "ar": "../ar/index.html", "fa": "../fa/index.html", "hi": "../hi/index.html"};
+    var stored = localStorage.getItem('agdm_lang');
+    if (!stored) {
+      var browser = (navigator.language || '').slice(0,2).toLowerCase();
+      if (browser && browser !== current && targets[browser]) { window.location.replace(targets[browser]); return; }
+    }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>

@@ -1,232 +1,218 @@
 <!DOCTYPE html>
 <html lang="hi" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AGDM Root Checker — गहन Android सुरक्षा विश्लेषण</title>
-    <meta name="description" content="AGDM Root Checker — आपके Android डिवाइस की विस्तृत सुरक्षा जांच के लिए एक शक्तिशाली टूल। रूट, बूटलोडर, SELinux, कैमरा/माइक्रोफ़ोन गोपनीयता, नेटवर्क विसंगतियाँ, ऐप ट्रैफ़िक और भी बहुत कुछ।">
-
-    <link rel="stylesheet" href="../style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="icon" href="../logo.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050706">
+<meta name="color-scheme" content="dark">
+<title>AGDM Root Checker - गहन Android सुरक्षा विश्लेषण</title>
+<meta name="description" content="AGDM Root Checker - आपके Android डिवाइस के विस्तृत सुरक्षा विश्लेषण के लिए एक शक्तिशाली टूल। रूट, बूटलोडर, SELinux, कैमरा/माइक्रोफ़ोन गोपनीयता, नेटवर्क विसंगतियाँ, ऐप ट्रैफ़िक और भी बहुत कुछ।">
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="../logo.png" type="image/png">
 </head>
 <body>
+<div class="container">
+<header class="hero">
+    <details class="lang-switcher">
+        <summary>🌐 हिन्दी</summary>
+        <div class="lang-menu"><a href="../index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','en')}catch(e){}">English</a>
+<a href="../ru/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ru')}catch(e){}">Русский</a>
+<a href="../de/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','de')}catch(e){}">Deutsch</a>
+<a href="../es/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','es')}catch(e){}">Español</a>
+<a href="../fr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fr')}catch(e){}">Français</a>
+<a href="../pt/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','pt')}catch(e){}">Português</a>
+<a href="../tr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','tr')}catch(e){}">Türkçe</a>
+<a href="../vi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','vi')}catch(e){}">Tiếng Việt</a>
+<a href="../id/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','id')}catch(e){}">Bahasa Indonesia</a>
+<a href="../zh/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','zh')}catch(e){}">中文</a>
+<a href="../ar/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ar')}catch(e){}">العربية</a>
+<a href="../fa/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fa')}catch(e){}">فارسی</a>
+<a href="index.html" class="lang-item active" onclick="try{localStorage.setItem('agdm_lang','hi')}catch(e){}">हिन्दी</a></div>
+    </details>
 
-    <div class="container">
-
-        <header>
-            <details class="lang-switcher">
-                <summary>🌐 हिन्दी</summary>
-                <div class="lang-menu">
-                        <a href="../index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','en')}catch(e){}">English</a>
-                        <a href="../ru/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ru')}catch(e){}">Русский</a>
-                        <a href="../de/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','de')}catch(e){}">Deutsch</a>
-                        <a href="../es/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','es')}catch(e){}">Español</a>
-                        <a href="../fr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fr')}catch(e){}">Français</a>
-                        <a href="../pt/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','pt')}catch(e){}">Português</a>
-                        <a href="../tr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','tr')}catch(e){}">Türkçe</a>
-                        <a href="../vi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','vi')}catch(e){}">Tiếng Việt</a>
-                        <a href="../id/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','id')}catch(e){}">Bahasa Indonesia</a>
-                        <a href="../zh/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','zh')}catch(e){}">中文</a>
-                        <a href="../ar/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ar')}catch(e){}">العربية</a>
-                        <a href="../fa/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fa')}catch(e){}">فارسی</a>
-                        <a href="index.html" class="lang-item active" onclick="try{localStorage.setItem('agdm_lang','hi')}catch(e){}">हिन्दी</a>
+    <div class="hero-grid">
+        <div class="hero-copy">
+            <div class="brand-lockup">
+                <img src="../logo.png" alt="AGDM Logo" class="logo">
+                <div class="brand-meta">
+                    <span class="brand-kicker">ANDROID SECURITY</span>
+                    <span class="brand-version">AGDM SOFT · 2026</span>
                 </div>
-            </details>
-            <img src="../logo.png" alt="AGDM Logo" class="logo">
+            </div>
+
             <h1>AGDM <span>Root Checker</span></h1>
-            <p class="tagline">आपके Android डिवाइस की गहन और विस्तृत सुरक्षा जांच के लिए एक शक्तिशाली टूल।</p>
-        </header>
+            <p class="tagline">आपके Android डिवाइस के गहन और विस्तृत सुरक्षा विश्लेषण के लिए एक शक्तिशाली टूल।</p>
 
-        <main>
-            <section class="security-scale-section">
-                <div class="security-scale">
+            <div class="hero-proof" aria-label="Product advantages">
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>100% गोपनीयता</span>
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 16 4-5 4 3 4-7"/></svg>व्यापक विश्लेषण</span>
+            </div>
 
-                    <p class="scale-title">डिवाइस का समग्र सुरक्षा स्तर</p>
+            <div class="cta-row">
+                <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.3 2.7a2 2 0 0 1 2.2.2l11.8 6.8-3.4 3.4L3.3 2.7Zm-.8 1.8v15l9.8-7.5-9.8-7.5Zm1 17 10.4-10.4 3.6 3.6-12 6.9a2 2 0 0 1-2 .1l.5-.2Zm15.2-7.7 2-1.1a1.5 1.5 0 0 0 0-2.6l-2-1.1-3.8 3.8 3.8 1Z"/></svg><span>Google Play पर प्राप्त करें</span></a>
+                <div class="qr-card">
+                    <img src="../qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
+                    <div><div class="qr-label">इंस्टॉल करने के लिए स्कैन करें</div><div class="qr-sub">आपके फ़ोन पर Google Play लिस्टिंग खोलता है</div></div>
+                </div>
+            </div>
+            <p class="availability-note">फ़िलहाल Google Play पर क्लोज़्ड टेस्टिंग में — लॉन्च होते ही ऊपर दी गई लिस्टिंग लाइव हो जाएगी।</p>
+        </div>
 
-                    <div class="scale-visual">
-                        <div class="scale-bar"></div>
-                        <div class="scale-markers">
-                            <div class="marker marker-red" style="left: 0%;">
-                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
-                                <div class="tick"></div>
-                            </div>
-                            <div class="marker marker-yellow" style="left: 50%;">
-                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span>
-                                <div class="tick"></div>
-                            </div>
-                            <div class="marker marker-green" style="left: 100%;">
-                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-                                <div class="tick"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="scale-labels">
-                        <span class="label-red">कम</span>
-                        <span class="label-yellow">मध्यम</span>
-                        <span class="label-green">उच्च</span>
-                    </div>
+        <div class="security-visual-wrap">
+            <div class="security-console" role="img" aria-label="डिवाइस का समग्र सुरक्षा स्तर">
+                <div class="console-topbar">
+                    <div class="console-brand"><span class="status-dot"></span> AGDM SECURITY CORE</div>
+                    <div class="console-code">LOCAL / PRIVATE</div>
                 </div>
 
-                <div class="cta-row">
-                    <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer">Google Play पर पाएं</a>
-                    <div class="qr-card">
-                        <img src="../qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
-                        <div>
-                            <div class="qr-label">इंस्टॉल करने के लिए स्कैन करें</div>
-                            <div class="qr-sub">आपके फ़ोन पर Google Play लिस्टिंग खोलता है</div>
-                        </div>
+                <div class="security-stage">
+                    <div class="stage-grid"></div>
+                    <div class="stage-glow"></div>
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="orbit orbit-three"></div>
+                    <div class="scan-sweep"></div>
+                    <div class="scan-line"></div>
+
+                    <div class="metric-node node-root" style="--delay: .1s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v6"/><path d="M8 7h8"/><path d="M7 11h10v9H7z"/><path d="M10 15h4"/></svg></span><span>ROOT</span><i></i></div>
+                    <div class="metric-node node-boot" style="--delay: .45s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v8"/><path d="M7 5a8 8 0 1 0 10 0"/></svg></span><span>BOOT</span><i></i></div>
+                    <div class="metric-node node-selinux" style="--delay: .8s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z"/><path d="m8 10 2 2-2 2"/><path d="M13 15h3"/></svg></span><span>SELINUX</span><i></i></div>
+                    <div class="metric-node node-privacy" style="--delay: 1.15s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span>PRIVACY</span><i></i></div>
+                    <div class="metric-node node-network" style="--delay: 1.5s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.5 16a6 6 0 0 1 7 0"/><path d="M12 20h.01"/></svg></span><span>NETWORK</span><i></i></div>
+                    <div class="metric-node node-traffic" style="--delay: 1.85s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17V9"/><path d="M12 17V5"/><path d="M17 17v-6"/></svg></span><span>TRAFFIC</span><i></i></div>
+
+                    <div class="security-core">
+                        <div class="core-halo"></div>
+                        <div class="core-shield"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                        <span class="core-eyebrow">AGDM ENGINE</span>
+                        <strong>DEVICE</strong>
+                        <small>SECURITY ANALYSIS</small>
                     </div>
+
+                    <div class="telemetry telemetry-left"><span>SCAN PIPELINE</span><div class="telemetry-bars"><b></b><b></b><b></b><b></b><b></b></div></div>
+                    <div class="telemetry telemetry-right"><span>ON-DEVICE</span><strong>100%</strong></div>
                 </div>
-                <p class="availability-note">फिलहाल Google Play पर क्लोज्ड टेस्टिंग में है — लॉन्च होते ही ऊपर दिया गया लिंक सक्रिय हो जाएगा।</p>
-            </section>
 
-            <section class="info-cards-section">
-                <h2>हमें ही क्यों चुनें?</h2>
-                <div class="info-cards">
-                    <div class="card">
-                        <h3>व्यापक विश्लेषण</h3>
-                        <p>हम केवल रूट एक्सेस ही नहीं, बल्कि बूटलोडर की स्थिति, सिस्टम की अखंडता और SELinux मोड की भी जांच करते हैं ताकि सुरक्षा की पूरी तस्वीर मिल सके।</p>
-                    </div>
-                    <div class="card">
-                        <h3>सरलता और स्पष्टता</h3>
-                        <p>जटिल तकनीकी डेटा को समझने में आसान सुरक्षा स्केल और विस्तृत रिपोर्ट के रूप में प्रस्तुत किया जाता है। आपको विशेषज्ञ होने की ज़रूरत नहीं है।</p>
-                    </div>
-                    <div class="card">
-                        <h3>100% गोपनीयता</h3>
-                        <p>सभी जांच आपके डिवाइस पर स्थानीय रूप से की जाती हैं। हम आपका व्यक्तिगत या सिस्टम डेटा एकत्र या प्रसारित नहीं करते।</p>
-                    </div>
+                <div class="console-footer">
+                    <div><span></span><b>ROOT</b><small>MODULE</small></div>
+                    <div><span></span><b>INTEGRITY</b><small>MODULE</small></div>
+                    <div><span></span><b>PRIVACY</b><small>MODULE</small></div>
                 </div>
-            </section>
-
-            <section class="info-cards-section new-toolkit-section">
-                <h2>इस श्रेणी के ऐप के लिए असामान्य टूल</h2>
-                <p class="section-subtitle">वैकल्पिक, मैन्युअल, स्वयं चालू करने वाली जांचें — कुछ भी बैकग्राउंड में नहीं चलता, कुछ भी आपके डिवाइस से बाहर नहीं जाता।</p>
-                <div class="info-cards">
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>📶 अचानक नेटवर्क गिरावट संकेतक</h3>
-                        <p>आपके वर्तमान कनेक्शन की तुलना आपकी पिछली मैन्युअल जांच से करता है और थोड़े समय में नेटवर्क में अचानक गिरावट (जैसे LTE से 2G) होने पर संकेत देता है। यह कोई नकली बेस-स्टेशन डिटेक्टर नहीं है — उसके लिए ऐसी लो-लेवल एक्सेस चाहिए जो Android पर किसी सामान्य ऐप को नहीं मिल सकती — बस एक "दोबारा देखने लायक" संकेत है।</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>🌡️ आइडल हीट जांच</h3>
-                        <p>एक टैप से आपकी बैटरी का तापमान तय सीमाओं और आपके डिवाइस के सामान्य आइडल तापमान से तुलना होती है — यह उपयोगी संदर्भ है, निदान नहीं।</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>🔒 कैमरा और माइक्रोफ़ोन गोपनीयता</h3>
-                        <p>देखें कि किन इंस्टॉल किए गए ऐप्स के पास फिलहाल कैमरा/माइक्रोफ़ोन की अनुमति है, साथ ही असली उपयोग इतिहास के लिए Android के स्वयं के Privacy Dashboard का सीधा लिंक भी। इसमें "बातचीत के तुरंत बाद विज्ञापन" वाली मिथक की एक ईमानदार, शोध-आधारित व्याख्या भी शामिल है।</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>📊 ऐप ट्रैफ़िक</h3>
-                        <p>देखें कि अन्य इंस्टॉल किए गए ऐप्स ने कितना Wi-Fi और मोबाइल डेटा इस्तेमाल किया है, ऐप और दिन/सप्ताह/महीने के अनुसार विभाजित। सिर्फ प्रत्येक ऐप का कुल डेटा वॉल्यूम — कभी भी कंटेंट, पता या ब्राउज़िंग इतिहास नहीं।</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="usecases-section">
-                <h2>लोग इसका उपयोग किसलिए करते हैं</h2>
-                <p class="section-subtitle">टूलकिट के उपयोग के उदाहरण मात्र — ग्राहकों के उद्धरण नहीं। AGDM Root Checker सिर्फ वही बताता है जो वह वास्तव में माप सकता है; यह यह नहीं बताता कि जो कुछ फ्लैग किया गया उसके लिए कौन ज़िम्मेदार है।</p>
-                <div class="usecases">
-                    <div class="usecase-card">
-                        <span class="usecase-icon">🛒</span>
-                        <p><strong>इस्तेमाल किया हुआ फ़ोन खरीदने से पहले:</strong> एक त्वरित रूट/बूटलोडर/SELinux जांच दिखाती है कि पैसे देने से पहले डिवाइस के साथ छेड़छाड़ हुई है या नहीं।</p>
-                    </div>
-                    <div class="usecase-card">
-                        <span class="usecase-icon">📶</span>
-                        <p><strong>अनजान डेड ज़ोन:</strong> जब किसी नई जगह पर कनेक्शन अचानक LTE से 2G पर गिर जाए, तो नेटवर्क जांच अंदाज़ा लगाने के बजाय एक ईमानदार "दोबारा देखने लायक" संकेत देती है।</p>
-                    </div>
-                    <div class="usecase-card">
-                        <span class="usecase-icon">🔒</span>
-                        <p><strong>सेकंड-हैंड या साझा डिवाइस:</strong> कैमरा/माइक्रोफ़ोन अनुमति सूची यह जल्दी देखने का तरीका है कि फ़ोन किसी और को देने से पहले फिलहाल किन ऐप्स के पास वह एक्सेस है।</p>
-                    </div>
-                    <div class="usecase-card">
-                        <span class="usecase-icon">📊</span>
-                        <p><strong>डेटा लिमिट से जुड़ी हैरानी:</strong> ऐप ट्रैफ़िक स्क्रीन दिखाती है कि इस महीने वास्तव में किस ऐप ने मोबाइल डेटा खत्म किया — बिना किसी अंदाज़े के।</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="journey-section">
-                <h2>अनिश्चितता से आत्मविश्वास तक</h2>
-                <p class="section-subtitle">60-सेकंड की आदत जो अंदाज़े की जगह जानकारी देती है।</p>
-                <div class="journey-steps">
-                    <div class="journey-step">
-                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
-                        <h3>पक्का नहीं कि वास्तव में क्या हो रहा है</h3>
-                        <p>अजीब बैटरी खर्च, एक ऐप जिसे आपको इंस्टॉल करना याद नहीं, एक अनुमति जो आपने कब दी, इसका पता ही नहीं चला।</p>
-                    </div>
-                    <div class="journey-arrow">&rarr;</div>
-                    <div class="journey-step">
-                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
-                        <h3>जांच चलाएं</h3>
-                        <p>एक टैप से पूरा लोकल स्कैन शुरू होता है — रूट, बूटलोडर, SELinux, अनुमतियाँ, नेटवर्क, ट्रैफ़िक। कुछ भी आपके डिवाइस से बाहर नहीं जाता।</p>
-                    </div>
-                    <div class="journey-arrow">&rarr;</div>
-                    <div class="journey-step step-outcome">
-                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-                        <h3>जानें कि आप कहाँ खड़े हैं</h3>
-                        <p>अंदाज़े की जगह एक स्पष्ट परिणाम — और असल में जानने से मिलने वाली मानसिक शांति।</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="legal" class="legal-section">
-                <h2>कानूनी जानकारी</h2>
-                <details>
-                    <summary>गोपनीयता नीति</summary>
-                    <div class="details-content">
-                        <p><strong>प्रभावी तिथि:</strong> 22 जून, 2025 &middot; <strong>अंतिम अपडेट:</strong> 4 अगस्त, 2026</p>
-                        <p>AGDM Root Checker ऐप्लिकेशन सारा मुख्य विश्लेषण आपके डिवाइस पर स्थानीय रूप से करता है। हम आपका व्यक्तिगत या सिस्टम डेटा किसी भी सर्वर पर एकत्र, संग्रहीत या प्रसारित नहीं करते। वैकल्पिक, मैन्युअल जांचों का एक छोटा सेट (कैमरा/माइक्रोफ़ोन अनुमति ऑडिट, अनुमानित स्थान, नेटवर्क सिग्नल, ऐप ट्रैफ़िक) केवल तभी विशिष्ट डिवाइस डेटा पढ़ता है जब आप स्वयं इसका उपयोग करने का चयन करते हैं — विवरण के लिए पूरी नीति देखें।</p>
-                        <p><a href="privacy-policy.html">पूरी गोपनीयता नीति पढ़ें →</a></p>
-                    </div>
-                </details>
-                <details>
-                    <summary>अंतिम उपयोगकर्ता लाइसेंस समझौता (EULA)</summary>
-                    <div class="details-content">
-                        <p>AGDM Root Checker को इंस्टॉल और उपयोग करके, आप निम्न शर्तों से सहमत होते हैं:</p>
-                        <ul>
-                            <li>ऐप्लिकेशन बिना किसी वारंटी के "जैसा है वैसा" प्रदान किया जाता है।</li>
-                            <li>डेवलपर आपके डिवाइस को होने वाले किसी भी संभावित नुकसान या डेटा हानि के लिए ज़िम्मेदार नहीं है।</li>
-                            <li>आपको व्यक्तिगत, गैर-व्यावसायिक उपयोग के लिए एक सीमित, गैर-अनन्य लाइसेंस दिया जाता है।</li>
-                        </ul>
-                        <p><a href="eula.html">पूरा EULA पढ़ें →</a></p>
-                    </div>
-                </details>
-            </section>
-        </main>
-
-        <footer>
-            <p>© 2025–2026 AGDM Soft. सर्वाधिकार सुरक्षित।</p>
-            <p>हमसे संपर्क करें: agdmsoft@gmail.com</p>
-        </footer>
+            </div>
+            <p class="visual-caption">डिवाइस का समग्र सुरक्षा स्तर</p>
+        </div>
     </div>
+</header>
 
-    <script>
-    (function(){
-        try {
-            var current = "hi";
-            var targets = {"en":"../index.html","ru":"../ru/index.html","de":"../de/index.html","es":"../es/index.html","fr":"../fr/index.html","pt":"../pt/index.html","tr":"../tr/index.html","vi":"../vi/index.html","id":"../id/index.html","zh":"../zh/index.html","ar":"../ar/index.html","fa":"../fa/index.html"};
-            var stored = localStorage.getItem('agdm_lang');
-            if (stored) { return; }
-            var nav = ((navigator.language || navigator.userLanguage || 'en') + '').toLowerCase();
-            var supported = {"en":1,"ru":1,"de":1,"es":1,"fr":1,"pt":1,"tr":1,"vi":1,"id":1,"zh":1,"ar":1,"fa":1,"hi":1};
-            var short = nav.split('-')[0];
-            if (short === 'zh') { short = 'zh'; }
-            var detected = supported[short] ? short : 'en';
-            if (detected !== current && targets[detected]) {
-                window.location.replace(targets[detected]);
-            }
-        } catch (e) {}
-    })();
-    </script>
+<main>
+    <section class="usecases-section">
+        <h2>लोग इसे किस लिए इस्तेमाल करते हैं</h2>
+        <div class="usecases">
+            <div class="usecase-card"><span class="usecase-icon">🛒</span><p><strong>सेकंड-हैंड फ़ोन खरीदने से पहले:</strong> एक त्वरित रूट/बूटलोडर/SELinux जांच दिखाती है कि पैसे देने से पहले डिवाइस के साथ छेड़छाड़ हुई है या नहीं।</p></div>
+            <div class="usecase-card"><span class="usecase-icon">📶</span><p><strong>अनजान डेड ज़ोन:</strong> जब किसी नई जगह पर कनेक्शन अचानक LTE से 2G पर गिर जाए, तो नेटवर्क जांच अंदाज़े के बजाय ईमानदार संकेत देती है कि “एक और नज़र डालने लायक है”।</p></div>
+            <div class="usecase-card"><span class="usecase-icon">🔒</span><p><strong>सेकंड-हैंड या साझा डिवाइस:</strong> कैमरा/माइक्रोफ़ोन अनुमति सूची यह देखने का तेज़ तरीका है कि फ़िलहाल किन ऐप्स के पास वह एक्सेस है, इससे पहले कि आप फ़ोन किसी और को दें।</p></div>
+            <div class="usecase-card"><span class="usecase-icon">📊</span><p><strong>डेटा सीमा की अचानक हैरानी:</strong> ऐप ट्रैफ़िक स्क्रीन दिखाती है कि इस महीने वास्तव में किस ऐप ने मोबाइल डेटा खर्च किया — बिना किसी अंदाज़े के।</p></div>
+        </div>
+    </section>
+
+    <section class="scan-cards-section">
+        <h2>सभी स्कैन और जांचें</h2>
+        <div class="scan-grid"><article class="scan-card">
+    <div class="scan-card__anim anim-root"><div class="shield"></div><div class="key"></div><div class="pulse-ring"></div></div>
+    <h3>रूट एक्सेस जांच</h3>
+    <p>पता लगाता है कि रूट एक्सेस मौजूद है, उजागर है, या सक्रिय होने की संभावना है, ताकि उपयोगकर्ता जल्दी आकलन कर सके कि डिवाइस में उन्नत विशेषाधिकार हैं या नहीं।</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-boot"><div class="lock-body"></div><div class="lock-arch"></div><div class="unlock-spark"></div></div>
+    <h3>बूटलोडर स्थिति</h3>
+    <p>दिखाता है कि बूटलोडर लॉक्ड या अनलॉक्ड दिखता है — यह जांचते समय एक महत्वपूर्ण संकेतक कि डिवाइस को संशोधित किया गया हो सकता है या नहीं।</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-integrity"><div class="grid-cells"></div><div class="check-line"></div></div>
+    <h3>सिस्टम अखंडता और गुण</h3>
+    <p>प्रमुख Android गुणों और सिस्टम संकेतों की समीक्षा करता है ताकि यह दिखाया जा सके कि डिवाइस कॉन्फ़िगरेशन सामान्य या संदिग्ध लगता है।</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-selinux"><div class="terminal"></div><div class="cursor"></div><div class="status-bars"></div></div>
+    <h3>SELinux स्थिति</h3>
+    <p>दिखाता है कि SELinux enforcing, permissive मोड में है या बंद है, ताकि उपयोगकर्ता ऑपरेटिंग वातावरण की सुरक्षा स्थिति को समझ सके।</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-privacy"><div class="cam"></div><div class="mic"></div><div class="privacy-wave"></div></div>
+    <h3>कैमरा और माइक्रोफ़ोन गोपनीयता</h3>
+    <p>उन ऐप्स को सूचीबद्ध करता है जिनके पास कैमरा और माइक्रोफ़ोन की अनुमति है और उपयोगकर्ता को संवेदनशील एक्सेस को अधिक स्पष्ट रूप से समीक्षा करने में मदद करता है।</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-network"><div class="signal-bars"></div><div class="down-arrow"></div><div class="net-dot"></div></div>
+    <h3>नेटवर्क सिग्नल और अचानक गिरावट</h3>
+    <p>अचानक सिग्नल गिरावट और अन्य त्वरित नेटवर्क चेतावनी संकेतों को उजागर करता है जो करीब से देखने लायक हो सकते हैं।</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-traffic"><div class="traffic-bars"></div><div class="traffic-line"></div></div>
+    <h3>ऐप ट्रैफ़िक विश्लेषण</h3>
+    <p>दिखाता है कि किन इंस्टॉल किए गए ऐप्स ने Wi-Fi या मोबाइल डेटा इस्तेमाल किया, और ऐप व अवधि के अनुसार ट्रैफ़िक खपत समझने में मदद करता है।</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-heat"><div class="battery"></div><div class="thermo"></div><div class="heat-wave"></div></div>
+    <h3>निष्क्रिय स्थिति में गर्मी जांच</h3>
+    <p>बैटरी तापमान की तुलना व्यावहारिक सीमाओं और डिवाइस के सामान्य निष्क्रिय व्यवहार से करता है ताकि असामान्य गर्मी को उजागर किया जा सके।</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-developer"><div class="gear"></div><div class="switch-panel"></div><div class="dev-dot"></div></div>
+    <h3>डेवलपर मोड का पता लगाना</h3>
+    <p>जांचता है कि Android डेवलपर विकल्प सक्षम दिखते हैं या नहीं, ताकि उपयोगकर्ता डिवाइस की एक महत्वपूर्ण कॉन्फ़िगरेशन स्थिति पर ध्यान दे सके।</p>
+</article></div>
+    </section>
+
+    <section class="journey-section">
+        <h2>अनिश्चितता से आत्मविश्वास तक</h2>
+        <p class="section-subtitle">60 सेकंड की आदत जो अंदाज़े की जगह जानकारी देती है।</p>
+        <div class="journey-steps">
+            <div class="journey-step"><span class="journey-icon">🧩</span><h3>पक्का नहीं कि वास्तव में क्या हो रहा है</h3><p>अजीब बैटरी खपत, एक ऐप जिसे आपको इंस्टॉल करना याद नहीं, एक अनुमति जो आपने कब दी, इसका ध्यान नहीं रहा।</p></div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step"><span class="journey-icon">🛰️</span><h3>जांच चलाएँ</h3><p>एक टैप से पूरा लोकल स्कैन शुरू होता है — रूट, बूटलोडर, SELinux, अनुमतियाँ, नेटवर्क, ट्रैफ़िक। कुछ भी आपके डिवाइस से बाहर नहीं जाता।</p></div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step step-outcome"><span class="journey-icon">✅</span><h3>जानें कि आप कहाँ खड़े हैं</h3><p>अंदाज़े की जगह एक स्पष्ट परिणाम — और वह मानसिक शांति जो वास्तव में जानने से मिलती है।</p></div>
+        </div>
+    </section>
+
+    <section id="legal" class="legal-section">
+        <h2>कानूनी जानकारी</h2>
+        <details>
+            <summary>गोपनीयता नीति</summary>
+            <div class="details-content">
+                <p><strong>प्रभावी तिथि:</strong> 22 जून, 2025 &middot; <strong>अंतिम अद्यतन:</strong> 4 अगस्त, 2026</p>
+                <p>AGDM Root Checker ऐप अपना सारा मुख्य विश्लेषण आपके डिवाइस पर स्थानीय रूप से करता है। हम आपका व्यक्तिगत या सिस्टम डेटा किसी भी सर्वर पर एकत्र, संग्रहीत या प्रसारित नहीं करते। वैकल्पिक, मैन्युअल जांचों का एक छोटा समूह (कैमरा/माइक्रोफ़ोन अनुमति ऑडिट, अनुमानित स्थान, नेटवर्क सिग्नल, ऐप ट्रैफ़िक) केवल तभी विशिष्ट डिवाइस डेटा पढ़ता है जब आप स्वयं इसका उपयोग करना चुनते हैं — विवरण के लिए पूरी नीति देखें।</p>
+                <p><a href="privacy-policy.html">पूरी गोपनीयता नीति पढ़ें →</a></p>
+            </div>
+        </details>
+        <details>
+            <summary>अंतिम उपयोगकर्ता लाइसेंस समझौता (EULA)</summary>
+            <div class="details-content">
+                <p>AGDM Root Checker इंस्टॉल और उपयोग करके, आप निम्नलिखित शर्तों से सहमत होते हैं:</p>
+                <ul><li>यह ऐप बिना किसी वारंटी के "जैसा है वैसा" प्रदान किया जाता है।</li><li>डेवलपर आपके डिवाइस को किसी भी संभावित नुकसान या डेटा हानि के लिए ज़िम्मेदार नहीं है।</li><li>आपको व्यक्तिगत, गैर-व्यावसायिक उपयोग के लिए एक सीमित, गैर-अनन्य लाइसेंस दिया जाता है।</li></ul>
+                <p><a href="eula.html" target="_blank" rel="noopener noreferrer">पूरा EULA पढ़ें →</a></p>
+            </div>
+        </details>
+    </section>
+</main>
+<footer><p>© 2025–2026 AGDM Soft. सर्वाधिकार सुरक्षित।</p><p>हमसे संपर्क करें: agdmsoft@gmail.com</p></footer>
+</div>
+<script>
+(function() {
+  try {
+    var current = "hi";
+    var targets = {"en": "../index.html", "ru": "../ru/index.html", "de": "../de/index.html", "es": "../es/index.html", "fr": "../fr/index.html", "pt": "../pt/index.html", "tr": "../tr/index.html", "vi": "../vi/index.html", "id": "../id/index.html", "zh": "../zh/index.html", "ar": "../ar/index.html", "fa": "../fa/index.html"};
+    var stored = localStorage.getItem('agdm_lang');
+    if (!stored) {
+      var browser = (navigator.language || '').slice(0,2).toLowerCase();
+      if (browser && browser !== current && targets[browser]) { window.location.replace(targets[browser]); return; }
+    }
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>

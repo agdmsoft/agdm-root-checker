@@ -1,232 +1,218 @@
 <!DOCTYPE html>
 <html lang="id" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AGDM Root Checker – Analisis Keamanan Android Mendalam</title>
-    <meta name="description" content="AGDM Root Checker – alat canggih untuk analisis keamanan perangkat Android Anda secara mendetail. Root, bootloader, SELinux, privasi kamera/mikrofon, anomali jaringan, lalu lintas aplikasi, dan lainnya.">
-
-    <link rel="stylesheet" href="../style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="icon" href="../logo.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050706">
+<meta name="color-scheme" content="dark">
+<title>AGDM Root Checker - Analisis Keamanan Android Mendalam</title>
+<meta name="description" content="AGDM Root Checker - alat canggih untuk analisis keamanan terperinci pada perangkat Android Anda. Root, bootloader, SELinux, privasi kamera/mikrofon, anomali jaringan, lalu lintas aplikasi, dan lainnya.">
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="../logo.png" type="image/png">
 </head>
 <body>
+<div class="container">
+<header class="hero">
+    <details class="lang-switcher">
+        <summary>🌐 Bahasa Indonesia</summary>
+        <div class="lang-menu"><a href="../index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','en')}catch(e){}">English</a>
+<a href="../ru/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ru')}catch(e){}">Русский</a>
+<a href="../de/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','de')}catch(e){}">Deutsch</a>
+<a href="../es/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','es')}catch(e){}">Español</a>
+<a href="../fr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fr')}catch(e){}">Français</a>
+<a href="../pt/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','pt')}catch(e){}">Português</a>
+<a href="../tr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','tr')}catch(e){}">Türkçe</a>
+<a href="../vi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','vi')}catch(e){}">Tiếng Việt</a>
+<a href="index.html" class="lang-item active" onclick="try{localStorage.setItem('agdm_lang','id')}catch(e){}">Bahasa Indonesia</a>
+<a href="../zh/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','zh')}catch(e){}">中文</a>
+<a href="../ar/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ar')}catch(e){}">العربية</a>
+<a href="../fa/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fa')}catch(e){}">فارسی</a>
+<a href="../hi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','hi')}catch(e){}">हिन्दी</a></div>
+    </details>
 
-    <div class="container">
-
-        <header>
-            <details class="lang-switcher">
-                <summary>🌐 Bahasa Indonesia</summary>
-                <div class="lang-menu">
-                        <a href="../index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','en')}catch(e){}">English</a>
-                        <a href="../ru/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ru')}catch(e){}">Русский</a>
-                        <a href="../de/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','de')}catch(e){}">Deutsch</a>
-                        <a href="../es/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','es')}catch(e){}">Español</a>
-                        <a href="../fr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fr')}catch(e){}">Français</a>
-                        <a href="../pt/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','pt')}catch(e){}">Português</a>
-                        <a href="../tr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','tr')}catch(e){}">Türkçe</a>
-                        <a href="../vi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','vi')}catch(e){}">Tiếng Việt</a>
-                        <a href="index.html" class="lang-item active" onclick="try{localStorage.setItem('agdm_lang','id')}catch(e){}">Bahasa Indonesia</a>
-                        <a href="../zh/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','zh')}catch(e){}">中文</a>
-                        <a href="../ar/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ar')}catch(e){}">العربية</a>
-                        <a href="../fa/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fa')}catch(e){}">فارسی</a>
-                        <a href="../hi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','hi')}catch(e){}">हिन्दी</a>
+    <div class="hero-grid">
+        <div class="hero-copy">
+            <div class="brand-lockup">
+                <img src="../logo.png" alt="AGDM Logo" class="logo">
+                <div class="brand-meta">
+                    <span class="brand-kicker">ANDROID SECURITY</span>
+                    <span class="brand-version">AGDM SOFT · 2026</span>
                 </div>
-            </details>
-            <img src="../logo.png" alt="AGDM Logo" class="logo">
+            </div>
+
             <h1>AGDM <span>Root Checker</span></h1>
-            <p class="tagline">Alat canggih untuk analisis keamanan perangkat Android Anda yang mendalam dan mendetail.</p>
-        </header>
+            <p class="tagline">Alat canggih untuk analisis keamanan yang mendalam dan terperinci pada perangkat Android Anda.</p>
 
-        <main>
-            <section class="security-scale-section">
-                <div class="security-scale">
+            <div class="hero-proof" aria-label="Product advantages">
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>100% privasi</span>
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 16 4-5 4 3 4-7"/></svg>Analisis menyeluruh</span>
+            </div>
 
-                    <p class="scale-title">Tingkat Keamanan Perangkat Secara Keseluruhan</p>
+            <div class="cta-row">
+                <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.3 2.7a2 2 0 0 1 2.2.2l11.8 6.8-3.4 3.4L3.3 2.7Zm-.8 1.8v15l9.8-7.5-9.8-7.5Zm1 17 10.4-10.4 3.6 3.6-12 6.9a2 2 0 0 1-2 .1l.5-.2Zm15.2-7.7 2-1.1a1.5 1.5 0 0 0 0-2.6l-2-1.1-3.8 3.8 3.8 1Z"/></svg><span>Dapatkan di Google Play</span></a>
+                <div class="qr-card">
+                    <img src="../qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
+                    <div><div class="qr-label">Pindai untuk memasang</div><div class="qr-sub">Membuka halaman Google Play di ponsel Anda</div></div>
+                </div>
+            </div>
+            <p class="availability-note">Saat ini dalam pengujian tertutup di Google Play — tautan di atas akan aktif saat peluncuran.</p>
+        </div>
 
-                    <div class="scale-visual">
-                        <div class="scale-bar"></div>
-                        <div class="scale-markers">
-                            <div class="marker marker-red" style="left: 0%;">
-                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
-                                <div class="tick"></div>
-                            </div>
-                            <div class="marker marker-yellow" style="left: 50%;">
-                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span>
-                                <div class="tick"></div>
-                            </div>
-                            <div class="marker marker-green" style="left: 100%;">
-                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-                                <div class="tick"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="scale-labels">
-                        <span class="label-red">Rendah</span>
-                        <span class="label-yellow">Sedang</span>
-                        <span class="label-green">Tinggi</span>
-                    </div>
+        <div class="security-visual-wrap">
+            <div class="security-console" role="img" aria-label="Tingkat keamanan perangkat secara keseluruhan">
+                <div class="console-topbar">
+                    <div class="console-brand"><span class="status-dot"></span> AGDM SECURITY CORE</div>
+                    <div class="console-code">LOCAL / PRIVATE</div>
                 </div>
 
-                <div class="cta-row">
-                    <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer">Dapatkan di Google Play</a>
-                    <div class="qr-card">
-                        <img src="../qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
-                        <div>
-                            <div class="qr-label">Pindai untuk memasang</div>
-                            <div class="qr-sub">Membuka halaman Google Play di ponsel Anda</div>
-                        </div>
+                <div class="security-stage">
+                    <div class="stage-grid"></div>
+                    <div class="stage-glow"></div>
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="orbit orbit-three"></div>
+                    <div class="scan-sweep"></div>
+                    <div class="scan-line"></div>
+
+                    <div class="metric-node node-root" style="--delay: .1s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v6"/><path d="M8 7h8"/><path d="M7 11h10v9H7z"/><path d="M10 15h4"/></svg></span><span>ROOT</span><i></i></div>
+                    <div class="metric-node node-boot" style="--delay: .45s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v8"/><path d="M7 5a8 8 0 1 0 10 0"/></svg></span><span>BOOT</span><i></i></div>
+                    <div class="metric-node node-selinux" style="--delay: .8s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z"/><path d="m8 10 2 2-2 2"/><path d="M13 15h3"/></svg></span><span>SELINUX</span><i></i></div>
+                    <div class="metric-node node-privacy" style="--delay: 1.15s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span>PRIVACY</span><i></i></div>
+                    <div class="metric-node node-network" style="--delay: 1.5s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.5 16a6 6 0 0 1 7 0"/><path d="M12 20h.01"/></svg></span><span>NETWORK</span><i></i></div>
+                    <div class="metric-node node-traffic" style="--delay: 1.85s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17V9"/><path d="M12 17V5"/><path d="M17 17v-6"/></svg></span><span>TRAFFIC</span><i></i></div>
+
+                    <div class="security-core">
+                        <div class="core-halo"></div>
+                        <div class="core-shield"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                        <span class="core-eyebrow">AGDM ENGINE</span>
+                        <strong>DEVICE</strong>
+                        <small>SECURITY ANALYSIS</small>
                     </div>
+
+                    <div class="telemetry telemetry-left"><span>SCAN PIPELINE</span><div class="telemetry-bars"><b></b><b></b><b></b><b></b><b></b></div></div>
+                    <div class="telemetry telemetry-right"><span>ON-DEVICE</span><strong>100%</strong></div>
                 </div>
-                <p class="availability-note">Saat ini dalam pengujian tertutup di Google Play — tautan di atas akan aktif saat peluncuran.</p>
-            </section>
 
-            <section class="info-cards-section">
-                <h2>Mengapa Memilih Kami?</h2>
-                <div class="info-cards">
-                    <div class="card">
-                        <h3>Analisis Komprehensif</h3>
-                        <p>Kami memeriksa bukan hanya akses root, tetapi juga status bootloader, integritas sistem, dan mode SELinux untuk gambaran keamanan yang lengkap.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Sederhana dan Jelas</h3>
-                        <p>Data teknis yang kompleks disajikan dalam skala keamanan yang mudah dipahami dan laporan terperinci. Anda tidak perlu menjadi ahli.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Privasi 100%</h3>
-                        <p>Semua pemeriksaan dilakukan secara lokal di perangkat Anda. Kami tidak mengumpulkan atau mengirimkan data pribadi atau sistem Anda.</p>
-                    </div>
+                <div class="console-footer">
+                    <div><span></span><b>ROOT</b><small>MODULE</small></div>
+                    <div><span></span><b>INTEGRITY</b><small>MODULE</small></div>
+                    <div><span></span><b>PRIVACY</b><small>MODULE</small></div>
                 </div>
-            </section>
-
-            <section class="info-cards-section new-toolkit-section">
-                <h2>Alat Tak Biasa untuk Aplikasi di Kategori Ini</h2>
-                <p class="section-subtitle">Pemeriksaan opsional, manual, yang bisa Anda aktifkan sendiri — tidak ada yang berjalan di latar belakang, tidak ada yang meninggalkan perangkat Anda.</p>
-                <div class="info-cards">
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>📶 Indikator Penurunan Jaringan Mendadak</h3>
-                        <p>Membandingkan koneksi Anda saat ini dengan pemeriksaan manual terakhir dan menandai bila jaringan tiba-tiba turun (misalnya dari LTE ke 2G) dalam waktu singkat. Bukan pendeteksi BTS palsu — itu membutuhkan akses tingkat rendah yang tidak bisa didapat aplikasi biasa di Android — hanya sinyal "layak dilihat lagi".</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>🌡️ Pemeriksaan Panas Saat Idle</h3>
-                        <p>Satu ketukan membandingkan suhu baterai Anda dengan ambang batas tetap dan suhu idle biasa perangkat Anda — konteks yang berguna, bukan diagnosis.</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>🔒 Privasi Kamera & Mikrofon</h3>
-                        <p>Lihat aplikasi mana yang saat ini memiliki izin kamera/mikrofon, plus tautan langsung ke Dasbor Privasi asli Android untuk riwayat penggunaan sebenarnya. Termasuk juga penjelasan jujur dan berbasis riset tentang mitos "iklan muncul tepat setelah percakapan".</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>📊 Lalu Lintas Aplikasi</h3>
-                        <p>Lihat berapa banyak data Wi-Fi dan seluler yang digunakan aplikasi terpasang lainnya, dirinci per aplikasi dan per hari/minggu/bulan. Hanya total volume data per aplikasi — tidak pernah konten, alamat, atau riwayat penjelajahan.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="usecases-section">
-                <h2>Untuk Apa Orang Menggunakannya</h2>
-                <p class="section-subtitle">Contoh ilustratif tentang cara penggunaan perangkat ini — bukan kutipan pelanggan. AGDM Root Checker hanya melaporkan apa yang benar-benar dapat diukurnya; tidak mengidentifikasi siapa yang bertanggung jawab atas apa yang ditandainya.</p>
-                <div class="usecases">
-                    <div class="usecase-card">
-                        <span class="usecase-icon">🛒</span>
-                        <p><strong>Sebelum membeli ponsel bekas:</strong> pemeriksaan cepat root/bootloader/SELinux menunjukkan apakah perangkat pernah diutak-atik sebelum Anda membayar.</p>
-                    </div>
-                    <div class="usecase-card">
-                        <span class="usecase-icon">📶</span>
-                        <p><strong>Titik lemah sinyal yang tidak dikenal:</strong> saat koneksi tiba-tiba turun dari LTE ke 2G di tempat baru, pemeriksaan jaringan memberi sinyal jujur "layak dilihat lagi" alih-alih menebak-nebak.</p>
-                    </div>
-                    <div class="usecase-card">
-                        <span class="usecase-icon">🔒</span>
-                        <p><strong>Perangkat bekas atau bersama:</strong> daftar izin kamera/mikrofon adalah cara cepat melihat aplikasi mana yang saat ini memiliki akses tersebut sebelum meminjamkan ponsel ke orang lain.</p>
-                    </div>
-                    <div class="usecase-card">
-                        <span class="usecase-icon">📊</span>
-                        <p><strong>Kejutan kuota data:</strong> layar lalu lintas aplikasi menunjukkan aplikasi mana yang sebenarnya menghabiskan data seluler bulan ini — tanpa menebak.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="journey-section">
-                <h2>Dari Ketidakpastian Menuju Keyakinan</h2>
-                <p class="section-subtitle">Kebiasaan 60 detik yang mengganti tebakan dengan kepastian.</p>
-                <div class="journey-steps">
-                    <div class="journey-step">
-                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
-                        <h3>Tidak yakin apa yang sebenarnya terjadi</h3>
-                        <p>Baterai boros aneh, aplikasi yang Anda tidak ingat pernah memasangnya, izin yang tidak pernah Anda sadari telah diberikan.</p>
-                    </div>
-                    <div class="journey-arrow">&rarr;</div>
-                    <div class="journey-step">
-                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
-                        <h3>Jalankan pemeriksaan</h3>
-                        <p>Satu ketukan memulai pemindaian lokal menyeluruh — root, bootloader, SELinux, izin, jaringan, lalu lintas. Tidak ada yang meninggalkan perangkat Anda.</p>
-                    </div>
-                    <div class="journey-arrow">&rarr;</div>
-                    <div class="journey-step step-outcome">
-                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-                        <h3>Ketahui posisi Anda</h3>
-                        <p>Hasil yang jelas, bukan tebakan — dan ketenangan yang datang dari benar-benar mengetahuinya.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="legal" class="legal-section">
-                <h2>Informasi Hukum</h2>
-                <details>
-                    <summary>Kebijakan Privasi</summary>
-                    <div class="details-content">
-                        <p><strong>Tanggal Berlaku:</strong> 22 Juni 2025 &middot; <strong>Terakhir Diperbarui:</strong> 4 Agustus 2026</p>
-                        <p>Aplikasi AGDM Root Checker melakukan seluruh analisis inti secara lokal di perangkat Anda. Kami tidak mengumpulkan, menyimpan, atau mengirimkan data pribadi atau sistem Anda ke server mana pun. Sejumlah kecil pemeriksaan opsional dan manual (audit izin kamera/mikrofon, lokasi perkiraan, sinyal jaringan, lalu lintas aplikasi) membaca data perangkat tertentu hanya saat Anda memilih untuk menggunakannya — lihat kebijakan lengkap untuk detailnya.</p>
-                        <p><a href="privacy-policy.html">Baca Kebijakan Privasi Lengkap →</a></p>
-                    </div>
-                </details>
-                <details>
-                    <summary>Perjanjian Lisensi Pengguna Akhir (EULA)</summary>
-                    <div class="details-content">
-                        <p>Dengan memasang dan menggunakan AGDM Root Checker, Anda menyetujui persyaratan berikut:</p>
-                        <ul>
-                            <li>Aplikasi disediakan "APA ADANYA", tanpa jaminan apa pun.</li>
-                            <li>Pengembang tidak bertanggung jawab atas kerusakan pada perangkat Anda atau kehilangan data.</li>
-                            <li>Anda diberikan lisensi terbatas dan tidak eksklusif untuk penggunaan pribadi, non-komersial.</li>
-                        </ul>
-                        <p><a href="eula.html">Baca EULA Lengkap →</a></p>
-                    </div>
-                </details>
-            </section>
-        </main>
-
-        <footer>
-            <p>© 2025–2026 AGDM Soft. Seluruh hak cipta dilindungi.</p>
-            <p>Hubungi kami: agdmsoft@gmail.com</p>
-        </footer>
+            </div>
+            <p class="visual-caption">Tingkat keamanan perangkat secara keseluruhan</p>
+        </div>
     </div>
+</header>
 
-    <script>
-    (function(){
-        try {
-            var current = "id";
-            var targets = {"en":"../index.html","ru":"../ru/index.html","de":"../de/index.html","es":"../es/index.html","fr":"../fr/index.html","pt":"../pt/index.html","tr":"../tr/index.html","vi":"../vi/index.html","zh":"../zh/index.html","ar":"../ar/index.html","fa":"../fa/index.html","hi":"../hi/index.html"};
-            var stored = localStorage.getItem('agdm_lang');
-            if (stored) { return; }
-            var nav = ((navigator.language || navigator.userLanguage || 'en') + '').toLowerCase();
-            var supported = {"en":1,"ru":1,"de":1,"es":1,"fr":1,"pt":1,"tr":1,"vi":1,"id":1,"zh":1,"ar":1,"fa":1,"hi":1};
-            var short = nav.split('-')[0];
-            if (short === 'zh') { short = 'zh'; }
-            var detected = supported[short] ? short : 'en';
-            if (detected !== current && targets[detected]) {
-                window.location.replace(targets[detected]);
-            }
-        } catch (e) {}
-    })();
-    </script>
+<main>
+    <section class="usecases-section">
+        <h2>Untuk Apa Orang Menggunakannya</h2>
+        <div class="usecases">
+            <div class="usecase-card"><span class="usecase-icon">🛒</span><p><strong>Sebelum membeli ponsel bekas:</strong> pemeriksaan cepat root/bootloader/SELinux menunjukkan apakah perangkat pernah diutak-atik sebelum Anda menyerahkan uang.</p></div>
+            <div class="usecase-card"><span class="usecase-icon">📶</span><p><strong>Titik lemah sinyal yang tidak dikenal:</strong> saat koneksi tiba-tiba turun dari LTE ke 2G di tempat baru, pemeriksaan jaringan memberi peringatan jujur “layak diperiksa lagi” alih-alih tebakan.</p></div>
+            <div class="usecase-card"><span class="usecase-icon">🔒</span><p><strong>Perangkat bekas atau bersama:</strong> daftar izin kamera/mikrofon adalah cara cepat melihat aplikasi mana yang saat ini memiliki akses tersebut sebelum menyerahkan ponsel ke orang lain.</p></div>
+            <div class="usecase-card"><span class="usecase-icon">📊</span><p><strong>Kejutan kuota data:</strong> layar lalu lintas aplikasi menunjukkan aplikasi mana yang sebenarnya menghabiskan data seluler bulan ini — tanpa menebak.</p></div>
+        </div>
+    </section>
+
+    <section class="scan-cards-section">
+        <h2>Semua pemindaian dan pemeriksaan</h2>
+        <div class="scan-grid"><article class="scan-card">
+    <div class="scan-card__anim anim-root"><div class="shield"></div><div class="key"></div><div class="pulse-ring"></div></div>
+    <h3>Pemeriksaan Akses Root</h3>
+    <p>Mendeteksi apakah akses root ada, terekspos, atau kemungkinan aktif sehingga pengguna dapat cepat menilai apakah perangkat memiliki hak istimewa tinggi.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-boot"><div class="lock-body"></div><div class="lock-arch"></div><div class="unlock-spark"></div></div>
+    <h3>Status Bootloader</h3>
+    <p>Menunjukkan apakah bootloader terlihat terkunci atau tidak terkunci — indikator penting saat memeriksa apakah perangkat mungkin telah dimodifikasi.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-integrity"><div class="grid-cells"></div><div class="check-line"></div></div>
+    <h3>Integritas & Properti Sistem</h3>
+    <p>Meninjau properti Android utama dan sinyal sistem untuk membantu menunjukkan apakah konfigurasi perangkat terlihat normal atau mencurigakan.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-selinux"><div class="terminal"></div><div class="cursor"></div><div class="status-bars"></div></div>
+    <h3>Status SELinux</h3>
+    <p>Menunjukkan apakah SELinux dalam mode enforcing, permissive, atau dinonaktifkan agar pengguna memahami postur keamanan lingkungan operasi.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-privacy"><div class="cam"></div><div class="mic"></div><div class="privacy-wave"></div></div>
+    <h3>Privasi Kamera & Mikrofon</h3>
+    <p>Mencantumkan aplikasi yang memiliki izin kamera dan mikrofon dan membantu pengguna meninjau akses sensitif dengan lebih jelas.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-network"><div class="signal-bars"></div><div class="down-arrow"></div><div class="net-dot"></div></div>
+    <h3>Sinyal Jaringan & Penurunan Mendadak</h3>
+    <p>Menyoroti penurunan sinyal mendadak dan tanda peringatan jaringan cepat lainnya yang mungkin layak diperiksa lebih lanjut.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-traffic"><div class="traffic-bars"></div><div class="traffic-line"></div></div>
+    <h3>Analisis Lalu Lintas Aplikasi</h3>
+    <p>Menunjukkan aplikasi terpasang mana yang menggunakan data Wi-Fi atau seluler dan membantu memahami konsumsi lalu lintas per aplikasi dan periode.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-heat"><div class="battery"></div><div class="thermo"></div><div class="heat-wave"></div></div>
+    <h3>Pemeriksaan Panas Saat Diam</h3>
+    <p>Membandingkan suhu baterai dengan ambang batas praktis dan perilaku diam normal perangkat untuk mengungkap panas yang tidak biasa.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-developer"><div class="gear"></div><div class="switch-panel"></div><div class="dev-dot"></div></div>
+    <h3>Deteksi Mode Pengembang</h3>
+    <p>Memeriksa apakah opsi pengembang Android terlihat aktif sehingga pengguna dapat memperhatikan status konfigurasi perangkat yang penting.</p>
+</article></div>
+    </section>
+
+    <section class="journey-section">
+        <h2>Dari Ketidakpastian Menuju Keyakinan</h2>
+        <p class="section-subtitle">Kebiasaan 60 detik yang menggantikan tebakan dengan kepastian.</p>
+        <div class="journey-steps">
+            <div class="journey-step"><span class="journey-icon">🧩</span><h3>Tidak yakin apa yang sebenarnya terjadi</h3><p>Baterai boros aneh, aplikasi yang tidak Anda ingat pernah dipasang, izin yang tidak Anda sadari telah Anda berikan.</p></div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step"><span class="journey-icon">🛰️</span><h3>Jalankan pemeriksaan</h3><p>Satu ketukan memulai pemindaian lokal penuh — root, bootloader, SELinux, izin, jaringan, lalu lintas. Tidak ada yang meninggalkan perangkat Anda.</p></div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step step-outcome"><span class="journey-icon">✅</span><h3>Ketahui posisi Anda</h3><p>Hasil yang jelas, bukan tebakan — dan ketenangan pikiran yang datang dari benar-benar mengetahui.</p></div>
+        </div>
+    </section>
+
+    <section id="legal" class="legal-section">
+        <h2>Informasi Hukum</h2>
+        <details>
+            <summary>Kebijakan Privasi</summary>
+            <div class="details-content">
+                <p><strong>Tanggal Berlaku:</strong> 22 Juni 2025 &middot; <strong>Terakhir Diperbarui:</strong> 4 Agustus 2026</p>
+                <p>Aplikasi AGDM Root Checker melakukan semua analisis inti secara lokal di perangkat Anda. Kami tidak mengumpulkan, menyimpan, atau mengirimkan data pribadi atau sistem Anda ke server mana pun. Sejumlah kecil pemeriksaan opsional dan manual (audit izin kamera/mikrofon, lokasi perkiraan, sinyal jaringan, lalu lintas aplikasi) membaca data perangkat tertentu hanya saat Anda memilih untuk menggunakannya — lihat kebijakan lengkap untuk detailnya.</p>
+                <p><a href="privacy-policy.html">Baca Kebijakan Privasi lengkap →</a></p>
+            </div>
+        </details>
+        <details>
+            <summary>Perjanjian Lisensi Pengguna Akhir (EULA)</summary>
+            <div class="details-content">
+                <p>Dengan memasang dan menggunakan AGDM Root Checker, Anda menyetujui ketentuan berikut:</p>
+                <ul><li>Aplikasi disediakan 'APA ADANYA', tanpa jaminan apa pun.</li><li>Pengembang tidak bertanggung jawab atas potensi kerusakan pada perangkat Anda atau kehilangan data.</li><li>Anda diberikan lisensi terbatas dan tidak eksklusif untuk penggunaan pribadi, non-komersial.</li></ul>
+                <p><a href="eula.html" target="_blank" rel="noopener noreferrer">Baca EULA lengkap →</a></p>
+            </div>
+        </details>
+    </section>
+</main>
+<footer><p>© 2025–2026 AGDM Soft. Semua hak dilindungi.</p><p>Hubungi kami: agdmsoft@gmail.com</p></footer>
+</div>
+<script>
+(function() {
+  try {
+    var current = "id";
+    var targets = {"en": "../index.html", "ru": "../ru/index.html", "de": "../de/index.html", "es": "../es/index.html", "fr": "../fr/index.html", "pt": "../pt/index.html", "tr": "../tr/index.html", "vi": "../vi/index.html", "zh": "../zh/index.html", "ar": "../ar/index.html", "fa": "../fa/index.html", "hi": "../hi/index.html"};
+    var stored = localStorage.getItem('agdm_lang');
+    if (!stored) {
+      var browser = (navigator.language || '').slice(0,2).toLowerCase();
+      if (browser && browser !== current && targets[browser]) { window.location.replace(targets[browser]); return; }
+    }
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>

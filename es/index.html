@@ -1,232 +1,218 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AGDM Root Checker: análisis profundo de seguridad para Android</title>
-    <meta name="description" content="AGDM Root Checker: una potente herramienta para un análisis detallado de la seguridad de tu dispositivo Android. Root, bootloader, SELinux, privacidad de cámara/micrófono, anomalías de red, tráfico de apps y más.">
-
-    <link rel="stylesheet" href="../style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="icon" href="../logo.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050706">
+<meta name="color-scheme" content="dark">
+<title>AGDM Root Checker: análisis de seguridad Android en profundidad</title>
+<meta name="description" content="AGDM Root Checker: una potente herramienta para un análisis de seguridad detallado de tu dispositivo Android. Root, bootloader, SELinux, privacidad de cámara/micrófono, anomalías de red, tráfico de apps y más.">
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="../logo.png" type="image/png">
 </head>
 <body>
+<div class="container">
+<header class="hero">
+    <details class="lang-switcher">
+        <summary>🌐 Español</summary>
+        <div class="lang-menu"><a href="../index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','en')}catch(e){}">English</a>
+<a href="../ru/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ru')}catch(e){}">Русский</a>
+<a href="../de/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','de')}catch(e){}">Deutsch</a>
+<a href="index.html" class="lang-item active" onclick="try{localStorage.setItem('agdm_lang','es')}catch(e){}">Español</a>
+<a href="../fr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fr')}catch(e){}">Français</a>
+<a href="../pt/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','pt')}catch(e){}">Português</a>
+<a href="../tr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','tr')}catch(e){}">Türkçe</a>
+<a href="../vi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','vi')}catch(e){}">Tiếng Việt</a>
+<a href="../id/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','id')}catch(e){}">Bahasa Indonesia</a>
+<a href="../zh/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','zh')}catch(e){}">中文</a>
+<a href="../ar/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ar')}catch(e){}">العربية</a>
+<a href="../fa/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fa')}catch(e){}">فارسی</a>
+<a href="../hi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','hi')}catch(e){}">हिन्दी</a></div>
+    </details>
 
-    <div class="container">
-
-        <header>
-            <details class="lang-switcher">
-                <summary>🌐 Español</summary>
-                <div class="lang-menu">
-                        <a href="../index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','en')}catch(e){}">English</a>
-                        <a href="../ru/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ru')}catch(e){}">Русский</a>
-                        <a href="../de/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','de')}catch(e){}">Deutsch</a>
-                        <a href="index.html" class="lang-item active" onclick="try{localStorage.setItem('agdm_lang','es')}catch(e){}">Español</a>
-                        <a href="../fr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fr')}catch(e){}">Français</a>
-                        <a href="../pt/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','pt')}catch(e){}">Português</a>
-                        <a href="../tr/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','tr')}catch(e){}">Türkçe</a>
-                        <a href="../vi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','vi')}catch(e){}">Tiếng Việt</a>
-                        <a href="../id/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','id')}catch(e){}">Bahasa Indonesia</a>
-                        <a href="../zh/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','zh')}catch(e){}">中文</a>
-                        <a href="../ar/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','ar')}catch(e){}">العربية</a>
-                        <a href="../fa/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','fa')}catch(e){}">فارسی</a>
-                        <a href="../hi/index.html" class="lang-item" onclick="try{localStorage.setItem('agdm_lang','hi')}catch(e){}">हिन्दी</a>
+    <div class="hero-grid">
+        <div class="hero-copy">
+            <div class="brand-lockup">
+                <img src="../logo.png" alt="AGDM Logo" class="logo">
+                <div class="brand-meta">
+                    <span class="brand-kicker">ANDROID SECURITY</span>
+                    <span class="brand-version">AGDM SOFT · 2026</span>
                 </div>
-            </details>
-            <img src="../logo.png" alt="AGDM Logo" class="logo">
+            </div>
+
             <h1>AGDM <span>Root Checker</span></h1>
-            <p class="tagline">Una potente herramienta para un análisis profundo y detallado de la seguridad de tu dispositivo Android.</p>
-        </header>
+            <p class="tagline">Una potente herramienta para un análisis de seguridad profundo y detallado de tu dispositivo Android.</p>
 
-        <main>
-            <section class="security-scale-section">
-                <div class="security-scale">
+            <div class="hero-proof" aria-label="Product advantages">
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>100 % privacidad</span>
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 16 4-5 4 3 4-7"/></svg>Análisis completo</span>
+            </div>
 
-                    <p class="scale-title">Nivel general de seguridad del dispositivo</p>
+            <div class="cta-row">
+                <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.3 2.7a2 2 0 0 1 2.2.2l11.8 6.8-3.4 3.4L3.3 2.7Zm-.8 1.8v15l9.8-7.5-9.8-7.5Zm1 17 10.4-10.4 3.6 3.6-12 6.9a2 2 0 0 1-2 .1l.5-.2Zm15.2-7.7 2-1.1a1.5 1.5 0 0 0 0-2.6l-2-1.1-3.8 3.8 3.8 1Z"/></svg><span>Consíguelo en Google Play</span></a>
+                <div class="qr-card">
+                    <img src="../qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
+                    <div><div class="qr-label">Escanea para instalar</div><div class="qr-sub">Abre la ficha de Google Play en tu teléfono</div></div>
+                </div>
+            </div>
+            <p class="availability-note">Actualmente en pruebas cerradas en Google Play — el enlace anterior estará activo en el lanzamiento.</p>
+        </div>
 
-                    <div class="scale-visual">
-                        <div class="scale-bar"></div>
-                        <div class="scale-markers">
-                            <div class="marker marker-red" style="left: 0%;">
-                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
-                                <div class="tick"></div>
-                            </div>
-                            <div class="marker marker-yellow" style="left: 50%;">
-                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span>
-                                <div class="tick"></div>
-                            </div>
-                            <div class="marker marker-green" style="left: 100%;">
-                                <span class="marker-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-                                <div class="tick"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="scale-labels">
-                        <span class="label-red">Bajo</span>
-                        <span class="label-yellow">Medio</span>
-                        <span class="label-green">Alto</span>
-                    </div>
+        <div class="security-visual-wrap">
+            <div class="security-console" role="img" aria-label="Nivel general de seguridad del dispositivo">
+                <div class="console-topbar">
+                    <div class="console-brand"><span class="status-dot"></span> AGDM SECURITY CORE</div>
+                    <div class="console-code">LOCAL / PRIVATE</div>
                 </div>
 
-                <div class="cta-row">
-                    <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer">Disponible en Google Play</a>
-                    <div class="qr-card">
-                        <img src="../qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
-                        <div>
-                            <div class="qr-label">Escanea para instalar</div>
-                            <div class="qr-sub">Abre la ficha de Google Play en tu teléfono</div>
-                        </div>
+                <div class="security-stage">
+                    <div class="stage-grid"></div>
+                    <div class="stage-glow"></div>
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="orbit orbit-three"></div>
+                    <div class="scan-sweep"></div>
+                    <div class="scan-line"></div>
+
+                    <div class="metric-node node-root" style="--delay: .1s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v6"/><path d="M8 7h8"/><path d="M7 11h10v9H7z"/><path d="M10 15h4"/></svg></span><span>ROOT</span><i></i></div>
+                    <div class="metric-node node-boot" style="--delay: .45s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v8"/><path d="M7 5a8 8 0 1 0 10 0"/></svg></span><span>BOOT</span><i></i></div>
+                    <div class="metric-node node-selinux" style="--delay: .8s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z"/><path d="m8 10 2 2-2 2"/><path d="M13 15h3"/></svg></span><span>SELINUX</span><i></i></div>
+                    <div class="metric-node node-privacy" style="--delay: 1.15s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span>PRIVACY</span><i></i></div>
+                    <div class="metric-node node-network" style="--delay: 1.5s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.5 16a6 6 0 0 1 7 0"/><path d="M12 20h.01"/></svg></span><span>NETWORK</span><i></i></div>
+                    <div class="metric-node node-traffic" style="--delay: 1.85s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17V9"/><path d="M12 17V5"/><path d="M17 17v-6"/></svg></span><span>TRAFFIC</span><i></i></div>
+
+                    <div class="security-core">
+                        <div class="core-halo"></div>
+                        <div class="core-shield"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                        <span class="core-eyebrow">AGDM ENGINE</span>
+                        <strong>DEVICE</strong>
+                        <small>SECURITY ANALYSIS</small>
                     </div>
+
+                    <div class="telemetry telemetry-left"><span>SCAN PIPELINE</span><div class="telemetry-bars"><b></b><b></b><b></b><b></b><b></b></div></div>
+                    <div class="telemetry telemetry-right"><span>ON-DEVICE</span><strong>100%</strong></div>
                 </div>
-                <p class="availability-note">Actualmente en pruebas cerradas en Google Play — el enlace de arriba se activará en el lanzamiento.</p>
-            </section>
 
-            <section class="info-cards-section">
-                <h2>¿Por qué elegirnos?</h2>
-                <div class="info-cards">
-                    <div class="card">
-                        <h3>Análisis integral</h3>
-                        <p>Comprobamos no solo el acceso root, sino también el estado del bootloader, la integridad del sistema y el modo SELinux para una imagen de seguridad completa.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Simplicidad y claridad</h3>
-                        <p>Los datos técnicos complejos se presentan en una escala de seguridad fácil de entender y en informes detallados. No necesitas ser un experto.</p>
-                    </div>
-                    <div class="card">
-                        <h3>100% privacidad</h3>
-                        <p>Todas las comprobaciones se realizan localmente en tu dispositivo. No recopilamos ni transmitimos tus datos personales o del sistema.</p>
-                    </div>
+                <div class="console-footer">
+                    <div><span></span><b>ROOT</b><small>MODULE</small></div>
+                    <div><span></span><b>INTEGRITY</b><small>MODULE</small></div>
+                    <div><span></span><b>PRIVACY</b><small>MODULE</small></div>
                 </div>
-            </section>
-
-            <section class="info-cards-section new-toolkit-section">
-                <h2>Herramientas poco comunes para una app de esta categoría</h2>
-                <p class="section-subtitle">Comprobaciones opcionales, manuales y activables — nada se ejecuta en segundo plano, nada sale de tu dispositivo.</p>
-                <div class="info-cards">
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>📶 Indicador de caída repentina de red</h3>
-                        <p>Compara tu conexión actual con tu última comprobación manual y avisa cuando la red cae de golpe (por ejemplo, de LTE a 2G) en poco tiempo. No es un detector falso de estaciones base — eso requiere acceso de bajo nivel que ninguna app normal puede obtener en Android —, solo una señal de "vale la pena revisarlo".</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>🌡️ Comprobación de calor en reposo</h3>
-                        <p>Un toque compara la temperatura de la batería con umbrales fijos y con la temperatura habitual en reposo de tu dispositivo — contexto útil, no un diagnóstico.</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>🔒 Privacidad de cámara y micrófono</h3>
-                        <p>Consulta qué apps instaladas tienen actualmente permiso de cámara/micrófono, además de un enlace directo al Panel de privacidad real de Android para el historial de uso real. También incluye un análisis honesto, basado en investigación, del mito de "anuncios justo después de una conversación".</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-badge">NEW</span>
-                        <h3>📊 Tráfico de apps</h3>
-                        <p>Consulta cuántos datos de Wi-Fi y móviles han usado otras apps instaladas, desglosados por app y por día/semana/mes. Solo totales de volumen de datos por app — nunca contenido, direcciones ni historial de navegación.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="usecases-section">
-                <h2>Para qué la usa la gente</h2>
-                <p class="section-subtitle">Ejemplos ilustrativos de cómo se usan las herramientas — no son testimonios de clientes. AGDM Root Checker informa solo de lo que realmente puede medir; no identifica quién es responsable de lo que detecta.</p>
-                <div class="usecases">
-                    <div class="usecase-card">
-                        <span class="usecase-icon">🛒</span>
-                        <p><strong>Antes de comprar un teléfono usado:</strong> una comprobación rápida de root/bootloader/SELinux muestra si el dispositivo ha sido manipulado antes de pagar.</p>
-                    </div>
-                    <div class="usecase-card">
-                        <span class="usecase-icon">📶</span>
-                        <p><strong>Zonas muertas desconocidas:</strong> cuando la conexión cae de golpe de LTE a 2G en un lugar nuevo, la comprobación de red da un aviso honesto de "vale la pena revisarlo" en vez de una suposición.</p>
-                    </div>
-                    <div class="usecase-card">
-                        <span class="usecase-icon">🔒</span>
-                        <p><strong>Dispositivos de segunda mano o compartidos:</strong> la lista de permisos de cámara/micrófono es una forma rápida de ver qué apps tienen ese acceso antes de entregarle el teléfono a otra persona.</p>
-                    </div>
-                    <div class="usecase-card">
-                        <span class="usecase-icon">📊</span>
-                        <p><strong>Sorpresas en el límite de datos:</strong> la pantalla de tráfico de apps muestra qué app consumió realmente los datos móviles este mes — sin suposiciones.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="journey-section">
-                <h2>De la incertidumbre a la confianza</h2>
-                <p class="section-subtitle">Un hábito de 60 segundos que cambia las suposiciones por certezas.</p>
-                <div class="journey-steps">
-                    <div class="journey-step">
-                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
-                        <h3>No estás seguro de qué pasa realmente</h3>
-                        <p>Consumo extraño de batería, una app que no recuerdas haber instalado, un permiso que nunca notaste que concediste.</p>
-                    </div>
-                    <div class="journey-arrow">&rarr;</div>
-                    <div class="journey-step">
-                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
-                        <h3>Ejecuta la comprobación</h3>
-                        <p>Un toque inicia un análisis local completo — root, bootloader, SELinux, permisos, red, tráfico. Nada sale de tu dispositivo.</p>
-                    </div>
-                    <div class="journey-arrow">&rarr;</div>
-                    <div class="journey-step step-outcome">
-                        <span class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-                        <h3>Sabe dónde estás parado</h3>
-                        <p>Un resultado claro en vez de una suposición — y la tranquilidad que da saberlo con certeza.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="legal" class="legal-section">
-                <h2>Información legal</h2>
-                <details>
-                    <summary>Política de privacidad</summary>
-                    <div class="details-content">
-                        <p><strong>Fecha de entrada en vigor:</strong> 22 de junio de 2025 &middot; <strong>Última actualización:</strong> 4 de agosto de 2026</p>
-                        <p>La aplicación AGDM Root Checker realiza todo el análisis principal localmente en tu dispositivo. No recopilamos, almacenamos ni transmitimos tus datos personales o del sistema a ningún servidor. Un pequeño conjunto de comprobaciones opcionales y manuales (auditoría de permisos de cámara/micrófono, ubicación aproximada, señal de red, tráfico de apps) lee datos específicos del dispositivo solo cuando decides usarlas — consulta la política completa para más detalles.</p>
-                        <p><a href="privacy-policy.html">Leer la Política de privacidad completa →</a></p>
-                    </div>
-                </details>
-                <details>
-                    <summary>Acuerdo de licencia de usuario final (EULA)</summary>
-                    <div class="details-content">
-                        <p>Al instalar y usar AGDM Root Checker, aceptas los siguientes términos:</p>
-                        <ul>
-                            <li>La aplicación se proporciona "TAL CUAL", sin garantías de ningún tipo.</li>
-                            <li>El desarrollador no es responsable de ningún daño potencial a tu dispositivo o pérdida de datos.</li>
-                            <li>Se te concede una licencia limitada y no exclusiva para uso personal y no comercial.</li>
-                        </ul>
-                        <p><a href="eula.html">Leer el EULA completo →</a></p>
-                    </div>
-                </details>
-            </section>
-        </main>
-
-        <footer>
-            <p>© 2025–2026 AGDM Soft. Todos los derechos reservados.</p>
-            <p>Contáctanos: agdmsoft@gmail.com</p>
-        </footer>
+            </div>
+            <p class="visual-caption">Nivel general de seguridad del dispositivo</p>
+        </div>
     </div>
+</header>
 
-    <script>
-    (function(){
-        try {
-            var current = "es";
-            var targets = {"en":"../index.html","ru":"../ru/index.html","de":"../de/index.html","fr":"../fr/index.html","pt":"../pt/index.html","tr":"../tr/index.html","vi":"../vi/index.html","id":"../id/index.html","zh":"../zh/index.html","ar":"../ar/index.html","fa":"../fa/index.html","hi":"../hi/index.html"};
-            var stored = localStorage.getItem('agdm_lang');
-            if (stored) { return; }
-            var nav = ((navigator.language || navigator.userLanguage || 'en') + '').toLowerCase();
-            var supported = {"en":1,"ru":1,"de":1,"es":1,"fr":1,"pt":1,"tr":1,"vi":1,"id":1,"zh":1,"ar":1,"fa":1,"hi":1};
-            var short = nav.split('-')[0];
-            if (short === 'zh') { short = 'zh'; }
-            var detected = supported[short] ? short : 'en';
-            if (detected !== current && targets[detected]) {
-                window.location.replace(targets[detected]);
-            }
-        } catch (e) {}
-    })();
-    </script>
+<main>
+    <section class="usecases-section">
+        <h2>Para qué la usa la gente</h2>
+        <div class="usecases">
+            <div class="usecase-card"><span class="usecase-icon">🛒</span><p><strong>Antes de comprar un teléfono usado:</strong> una comprobación rápida de root/bootloader/SELinux muestra si el dispositivo ha sido manipulado antes de que entregues el dinero.</p></div>
+            <div class="usecase-card"><span class="usecase-icon">📶</span><p><strong>Zonas muertas desconocidas:</strong> cuando una conexión cae repentinamente de LTE a 2G en un lugar nuevo, la comprobación de red da un aviso honesto de «vale la pena revisarlo» en lugar de una suposición.</p></div>
+            <div class="usecase-card"><span class="usecase-icon">🔒</span><p><strong>Dispositivos de segunda mano o compartidos:</strong> la lista de permisos de cámara/micrófono es una forma rápida de ver qué apps tienen ese acceso antes de entregarle el teléfono a otra persona.</p></div>
+            <div class="usecase-card"><span class="usecase-icon">📊</span><p><strong>Sorpresas en el límite de datos:</strong> la pantalla de tráfico de apps muestra qué app consumió realmente los datos móviles este mes, sin adivinar.</p></div>
+        </div>
+    </section>
+
+    <section class="scan-cards-section">
+        <h2>Todos los escaneos y comprobaciones</h2>
+        <div class="scan-grid"><article class="scan-card">
+    <div class="scan-card__anim anim-root"><div class="shield"></div><div class="key"></div><div class="pulse-ring"></div></div>
+    <h3>Comprobación de acceso root</h3>
+    <p>Detecta si el acceso root está presente, expuesto o probablemente activo, para que el usuario pueda evaluar rápidamente si el dispositivo tiene privilegios elevados.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-boot"><div class="lock-body"></div><div class="lock-arch"></div><div class="unlock-spark"></div></div>
+    <h3>Estado del bootloader</h3>
+    <p>Muestra si el bootloader parece bloqueado o desbloqueado, un indicador clave al comprobar si el dispositivo pudo haber sido modificado.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-integrity"><div class="grid-cells"></div><div class="check-line"></div></div>
+    <h3>Integridad y propiedades del sistema</h3>
+    <p>Revisa propiedades clave de Android y señales del sistema para ayudar a mostrar si la configuración del dispositivo parece normal o sospechosa.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-selinux"><div class="terminal"></div><div class="cursor"></div><div class="status-bars"></div></div>
+    <h3>Estado de SELinux</h3>
+    <p>Muestra si SELinux está en modo enforcing, permissive o desactivado, para que el usuario entienda la postura de seguridad del entorno operativo.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-privacy"><div class="cam"></div><div class="mic"></div><div class="privacy-wave"></div></div>
+    <h3>Privacidad de cámara y micrófono</h3>
+    <p>Enumera las apps que tienen permisos de cámara y micrófono y ayuda al usuario a revisar con más claridad los accesos sensibles.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-network"><div class="signal-bars"></div><div class="down-arrow"></div><div class="net-dot"></div></div>
+    <h3>Señal de red y caída repentina</h3>
+    <p>Destaca caídas bruscas de señal y otras señales de alerta de red rápidas que pueden justificar una revisión más detallada.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-traffic"><div class="traffic-bars"></div><div class="traffic-line"></div></div>
+    <h3>Análisis de tráfico de apps</h3>
+    <p>Muestra qué apps instaladas usaron datos Wi-Fi o móviles y ayuda a entender el consumo de tráfico por app y por período.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-heat"><div class="battery"></div><div class="thermo"></div><div class="heat-wave"></div></div>
+    <h3>Comprobación de calor en reposo</h3>
+    <p>Compara la temperatura de la batería con umbrales prácticos y el comportamiento habitual del dispositivo en reposo para detectar calentamiento inusual.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-developer"><div class="gear"></div><div class="switch-panel"></div><div class="dev-dot"></div></div>
+    <h3>Detección del modo desarrollador</h3>
+    <p>Comprueba si las opciones de desarrollador de Android parecen estar activadas, para que el usuario note un estado de configuración importante del dispositivo.</p>
+</article></div>
+    </section>
+
+    <section class="journey-section">
+        <h2>De la incertidumbre a la confianza</h2>
+        <p class="section-subtitle">Un hábito de 60 segundos que sustituye las suposiciones por certeza.</p>
+        <div class="journey-steps">
+            <div class="journey-step"><span class="journey-icon">🧩</span><h3>No estás seguro de qué está pasando realmente</h3><p>Un consumo extraño de batería, una app que no recuerdas haber instalado, un permiso que no notaste haber concedido.</p></div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step"><span class="journey-icon">🛰️</span><h3>Ejecuta la comprobación</h3><p>Un toque inicia un escaneo local completo: root, bootloader, SELinux, permisos, red, tráfico. Nada sale de tu dispositivo.</p></div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step step-outcome"><span class="journey-icon">✅</span><h3>Sabe cómo estás parado</h3><p>Un resultado claro en lugar de una suposición, y la tranquilidad que llega con saberlo realmente.</p></div>
+        </div>
+    </section>
+
+    <section id="legal" class="legal-section">
+        <h2>Información legal</h2>
+        <details>
+            <summary>Política de privacidad</summary>
+            <div class="details-content">
+                <p><strong>Fecha de entrada en vigor:</strong> 22 de junio de 2025 &middot; <strong>Última actualización:</strong> 4 de agosto de 2026</p>
+                <p>La aplicación AGDM Root Checker realiza todo el análisis principal localmente en tu dispositivo. No recopilamos, almacenamos ni transmitimos tus datos personales o del sistema a ningún servidor. Un pequeño conjunto de comprobaciones opcionales y manuales (auditoría de permisos de cámara/micrófono, ubicación aproximada, señal de red, tráfico de apps) lee datos específicos del dispositivo solo cuando decides usarlas; consulta la política completa para más detalles.</p>
+                <p><a href="privacy-policy.html">Leer la Política de privacidad completa →</a></p>
+            </div>
+        </details>
+        <details>
+            <summary>Acuerdo de licencia de usuario final (EULA)</summary>
+            <div class="details-content">
+                <p>Al instalar y usar AGDM Root Checker, aceptas los siguientes términos:</p>
+                <ul><li>La aplicación se proporciona «TAL CUAL», sin garantías de ningún tipo.</li><li>El desarrollador no es responsable de ningún daño potencial a tu dispositivo ni de la pérdida de datos.</li><li>Se te otorga una licencia limitada y no exclusiva para uso personal y no comercial.</li></ul>
+                <p><a href="eula.html" target="_blank" rel="noopener noreferrer">Leer el EULA completo →</a></p>
+            </div>
+        </details>
+    </section>
+</main>
+<footer><p>© 2025–2026 AGDM Soft. Todos los derechos reservados.</p><p>Contáctanos: agdmsoft@gmail.com</p></footer>
+</div>
+<script>
+(function() {
+  try {
+    var current = "es";
+    var targets = {"en": "../index.html", "ru": "../ru/index.html", "de": "../de/index.html", "fr": "../fr/index.html", "pt": "../pt/index.html", "tr": "../tr/index.html", "vi": "../vi/index.html", "id": "../id/index.html", "zh": "../zh/index.html", "ar": "../ar/index.html", "fa": "../fa/index.html", "hi": "../hi/index.html"};
+    var stored = localStorage.getItem('agdm_lang');
+    if (!stored) {
+      var browser = (navigator.language || '').slice(0,2).toLowerCase();
+      if (browser && browser !== current && targets[browser]) { window.location.replace(targets[browser]); return; }
+    }
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>

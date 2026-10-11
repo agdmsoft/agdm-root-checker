@@ -12,6 +12,15 @@ Full information about the app, as well as the Privacy Policy and End-User Licen
 
 _(Note: This link will become active after you enable GitHub Pages in your repository settings)._
 
+## Watch the film
+
+<video controls playsinline preload="metadata" poster="assets/video/agdm-root-checker-promo-poster.jpg" aria-label="AGDM Root Checker promotional film" style="display:block;width:100%;max-width:960px;height:auto;aspect-ratio:16/9;background:#080a09;border-radius:12px;margin:1rem 0;">
+  <source src="assets/video/agdm-root-checker-promo-1080p.mp4" type="video/mp4">
+  <a href="assets/video/agdm-root-checker-promo-1080p.mp4">Watch or download the AGDM Root Checker film</a>.
+</video>
+
+[Open the film](assets/video/agdm-root-checker-promo-1080p.mp4) · 43.7 seconds · Full HD
+
 ## ✨ Key Features
 
 AGDM Root Checker provides a comprehensive security audit of your Android system, including:

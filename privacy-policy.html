@@ -4,11 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — AGDM Root Checker</title>
-<meta name="description" content="Privacy Policy for AGDM Root Checker — what the app analyzes, what it never collects, and how the optional opt-in checks work.">
+<meta name="description" content="Privacy Policy for AGDM Root Checker, including local installed-app checks and server-side Google Play Integrity verification.">
 <link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="logo.png" type="image/png">
 <style>
 .legal-doc { max-width: 760px; margin: 0 auto; text-align: left; }
@@ -23,65 +20,89 @@
 .back-link { display: inline-block; margin-bottom: 30px; color: var(--muted); text-decoration: none; font-size: 0.9rem; }
 .back-link:hover { color: var(--accent); }
 </style>
-</head>
+<style id="r1-legal-readable">
+.legal-doc{box-sizing:border-box;max-width:800px;width:100%;margin-inline:auto;padding:24px;background:rgba(12,14,16,.96);border:1px solid #343638;border-radius:12px;text-align:start;line-height:1.7;overflow-wrap:anywhere}
+.legal-doc section{margin:0;padding:0;min-height:0}.legal-doc h1{font-size:1.8rem;line-height:1.35;text-align:start;margin-block:12px}.legal-doc h2{font-size:1.25rem;text-align:start;margin-block:24px 8px}.legal-doc p,.legal-doc li{color:#d0d5d2;font-size:1rem;line-height:1.7}.legal-doc p{margin-block:0 14px}.legal-doc ul,.legal-doc ol{margin-inline:0;padding-inline-start:24px}.legal-doc a{display:inline-block;min-height:48px;box-sizing:border-box;padding:10px 6px;color:#e3be4b}.legal-doc .languages{display:flex;flex-wrap:wrap;gap:2px;margin-block:8px 20px}.legal-doc .meta{font-size:.9rem}.legal-doc time{direction:ltr;unicode-bidi:isolate}.legal-doc .contact{direction:ltr;unicode-bidi:isolate}@media(max-width:600px){.legal-doc{padding:16px;border-radius:8px}.legal-doc h1{font-size:1.55rem}}
+</style>
+<meta name="robots" content="noindex,follow"></head>
 <body>
 <div class="container">
-<header style="margin: 30px 0;">
-<img src="logo.png" alt="AGDM Logo" class="logo" style="width:72px;">
-</header>
-<main>
-<section class="legal-doc">
+<header style="margin: 30px 0;"><img src="logo.png" alt="AGDM Logo" class="logo" style="width:72px;"></header>
+<main><section class="legal-doc">
 <a class="back-link" href="index.html">← Back to AGDM Root Checker</a>
 <h1>Privacy Policy for AGDM Root Checker</h1>
-<p class="meta"><strong>Effective Date:</strong> June 22, 2025 &middot; <strong>Last Updated:</strong> August 4, 2026 (added Section 7, "Permissions Used By This App")</p>
-<p>Welcome to AGDM Root Checker ("the App," "we," "us," or "our"). This Privacy Policy is designed to help you understand what information the App analyzes, how it is used, and how your privacy is protected. Your privacy is our highest priority. The core principle of the App is that all analysis is performed locally on your device.</p>
-<h2>1. Information We Collect</h2>
-<p>The App is designed to function with maximum privacy. The data it accesses is categorized as follows:</p>
+<nav class="languages"><a lang="en" hreflang="en" href="privacy-policy.html">English</a> <a lang="ru" hreflang="ru" href="ru/privacy-policy.html">Русский</a> <a lang="ar" hreflang="ar" href="https://agdm-rootchecker.com/ar/privacy-policy.html">العربية</a> <a lang="de" hreflang="de" href="https://agdm-rootchecker.com/de/privacy-policy.html">Deutsch</a> <a lang="es" hreflang="es" href="https://agdm-rootchecker.com/es/privacy-policy.html">Español</a> <a lang="fa" hreflang="fa" href="https://agdm-rootchecker.com/fa/privacy-policy.html">فارسی</a> <a lang="fr" hreflang="fr" href="https://agdm-rootchecker.com/fr/privacy-policy.html">Français</a> <a lang="hi" hreflang="hi" href="https://agdm-rootchecker.com/hi/privacy-policy.html">हिन्दी</a> <a lang="id" hreflang="id" href="https://agdm-rootchecker.com/id/privacy-policy.html">Bahasa Indonesia</a> <a lang="pt" hreflang="pt" href="https://agdm-rootchecker.com/pt/privacy-policy.html">Português</a> <a lang="tr" hreflang="tr" href="https://agdm-rootchecker.com/tr/privacy-policy.html">Türkçe</a> <a lang="vi" hreflang="vi" href="https://agdm-rootchecker.com/vi/privacy-policy.html">Tiếng Việt</a> <a lang="zh-CN" hreflang="zh-CN" href="https://agdm-rootchecker.com/zh/privacy-policy.html">简体中文</a></nav>
+<p class="meta">Last updated: <time datetime="2026-10-04" dir="ltr">2026-10-04</time></p>
+<p>AGDM Soft ("AGDM", "we", "us") provides the AGDM Root Checker Android application (the "App"). This Policy explains what the App processes, what leaves the device, why it is processed, how long it is retained, and how users can remove data.</p>
+
+<h2>1. Release 1 service model</h2>
+<p>Release 1 is offered through a Google Play subscription. It has no advertising, advertising SDK, advertising-ID use, or free trial. The App does not create an AGDM account and does not request a user's name, email address, phone number, contacts, photos, media, or message contents during normal operation.</p>
+
+<h2>2. On-device security checks and installed-app monitoring</h2>
+<p>Most checks run locally. Depending on Android version, device capabilities, optional access, and the feature selected, the App may examine security configuration, root indicators, boot state, installed-app metadata and signing certificates, network/VPN/proxy state, per-app traffic totals, Wi-Fi security information, battery/heat information, and APK files or folders explicitly selected by the user.</p>
+<p>Before the first device scan, the App shows a disclosure and asks for affirmative consent. If consent is declined, neither the scan nor background Integrity verification starts. After consent, a user-started scan or a scheduled scan explicitly enabled by the user may compare visible installed apps with built-in security indicators. Package names, signing certificates, installed-app lists, APK contents, traffic totals, and proxy/VPN candidate lists are not uploaded to AGDM.</p>
+<p>The App keeps only an aggregate installed-app scan metric in its private local history: scan time, number of visible apps checked, indicator-match count, acknowledged monitoring-tool match count, and local scan duration. It does not read message contents or network-traffic contents.</p>
+
+<p id="r1-usage-access-scope">With optional Usage Access enabled in Android Settings, the App queries recorded traffic totals and app-usage statistics to display Android-reported last-use times for apps matching known indicators. Android may omit these values. These usage records stay on the device unless included in a report the user explicitly exports or shares; they are not uploaded to AGDM.</p>
+<h2>3. Google Play Integrity and AGDM verification service</h2>
+<p>After consent, a scan can ask Google Play to create a Play Integrity token. Beginning with App version 1.0.26 (27), the App first sends the following over HTTPS to the AGDM primary managed service on Google Cloud Run at <code>agdm-rootchecker-backend-swzwtl5vwa-ew.a.run.app</code>. If that service has a network failure or returns HTTP 5xx, the App can retry the same request against the independent AGDM fallback at <code>api.agdm-rootchecker.com</code> on Hostinger. HTTP 4xx responses are not bypassed:</p>
 <ul>
-<li><strong>Technical Data Analyzed by the App:</strong> For its primary function, the App analyzes your device's technical configuration, including root status, system properties, bootloader state, SELinux status, and device integrity verdicts via the Google Play Integrity API. This analysis occurs <strong>exclusively on your device</strong>, and the results are shown only to you. We do not collect or store this information on any servers.</li>
-<li><strong>Data Collected by Third-Party Advertisers (Free Version Only):</strong> The free version of our App may use third-party advertising partners who might collect data to serve ads. This data is collected and managed by them according to their own privacy policies.</li>
+<li>the Play Integrity token and an opaque expected nonce;</li>
+<li>a random per-request identifier;</li>
+<li>the App package name, version name/code, and installer package name.</li>
 </ul>
-<h2>2. Information We Do Not Collect</h2>
-<p>We are committed to your privacy. The App <strong>does not</strong> collect, store, or transmit any Personally Identifiable Information (PII). This includes, but is not limited to:</p>
+<p>Closed-test versions up to 1.0.25 (26) can also contain a client timestamp, request hash, random App-install identifier, locally derived security-signal digest, and build type. These compatibility fields are not used or persisted by the production verifier. They are no longer separate outbound fields beginning with version 1.0.26 (27).</p>
+<p>The AGDM service sends the token to Google Play Integrity for decoding, validates package, nonce, app-recognition, and device-integrity results, and returns the result to the App. It does not keep request bodies or successful request/response records in a database, cache, file, or application log. In particular, it does not persist raw tokens, nonces, per-request identifiers, install identifiers, digests, package/version/installer fields, or decoded verdicts.</p>
+<p>The backend&#x27;s abuse-prevention state for the raw connection IP is held in process memory without geolocation. Request records expire after 24 hours plus approximately one minute for cleanup; the IP entry disappears when no current records remain, or earlier if the process restarts. Continued requests can keep the entry active.</p>
+<section id="r1-ip-log-scope"><h2>Technical security logs and IP addresses</h2><p>The memory-only rule above applies to the backend&#x27;s raw-IP abuse-prevention state, not to all infrastructure logs. Minimized application security logs can contain the event time and type, method, category or reason, a masked network address and a per-process HMAC fingerprint of the IP. These are pseudonymous identifiers, not a guarantee of anonymity. Hostinger application logs are limited to seven days; Google Cloud application logs to 30 days. VPS operating-system security logs can contain full source IP addresses for network events. The system journal is configured for seven-day retention with daily file rotation. UFW firewall and rsyslog text logs rotate weekly and keep the current file plus four archives. Older copies of these files can remain in provider backups until backup rotation removes them.</p></section>
+
+<p>Hostinger application logs contain no raw IP, request body, token, nonce, successful verdict, or purchase token and are limited to seven days. Minimized Google Cloud application logs can contain an event type, reason, masked network, and a short per-process HMAC fingerprint, but no raw IP, request body, token, nonce, or successful Integrity verdict; the Google Cloud <code>_Default</code> bucket retains them for 30 days. Cloud Run infrastructure request logs are excluded from the <code>_Default</code> sink so raw request IPs and URLs are not retained there.</p>
+
+<h2>4. Google Play Billing</h2>
+<p>Google Play offers and processes subscriptions, displays the localized price, and handles payment details. The App uses Google Play Billing to query purchases and acknowledge a completed purchase. To prevent a modified client from granting itself access, the App sends the subscription product ID and Google Play purchase token over HTTPS to the same Cloud Run primary or Hostinger fallback described above. The backend sends the token to the Google Android Publisher API, returns only the entitlement state, expiry time, base-plan ID, acknowledgement state, and verification time, and does not persist the token or response in an AGDM database or application log. The App stores the verified entitlement locally and can use it offline for no more than 72 hours.</p>
+<p>Google Play Real-time Developer Notifications can be delivered through Google Cloud Pub/Sub to two independent AGDM push subscriptions. An unacknowledged notification, which can contain a purchase token, is retained by Pub/Sub for no more than 24 hours. Each backend verifies the Google-signed OIDC identity, processes the notification in memory, and does not create a server-side user or entitlement database. Google processes Play and Cloud data under the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google — Privacy Policy</a>.</p>
+
+<h2>5. Local storage and retention</h2>
 <ul>
-<li>Your name, email address, or phone number.</li>
-<li>Your contacts, photos, files, or calendar entries.</li>
-<li>Your precise (GPS) location.</li>
+<li><strong>App-private data:</strong> settings, consent state, scan history, aggregate scan metrics, reports, and deferred-verification state remain until removed through available App/Android controls, App storage is cleared, or the App is uninstalled. Android backup and device transfer are disabled for this data.</li>
+<li><strong>AGDM Integrity and entitlement requests:</strong> request data is processed for the request and is not retained in AGDM application storage or successful-request logs.</li>
+<li><strong>Abuse-prevention IP state:</strong> memory only; each request record expires after 24 hours plus approximately one minute for cleanup. New requests can keep the IP entry active.</li>
+<li><strong>Hostinger minimized application logs:</strong> no more than seven days.</li>
+<li><strong>Google Cloud minimized application logs:</strong> 30 days in the <code>_Default</code> bucket; Cloud Run infrastructure request logs are excluded.</li>
+<li><strong>Google Cloud mandatory audit/system logs:</strong> the locked <code>_Required</code> bucket retains provider administration and system-event records for 400 days. These records are not AGDM request bodies and do not contain Play Integrity or purchase tokens.</li>
+<li><strong>Pub/Sub RTDN messages:</strong> acknowledged messages are removed by Google; unacknowledged messages are retained for no more than 24 hours.</li>
+<li><strong>Hosting backups:</strong> Hostinger rotates full daily and weekly VPS backups according to the provider&#x27;s schedule. These copies can contain files already deleted from the live server; that content remains until the provider removes the particular backup during rotation. A fixed calendar deadline for removal from all provider backups is not guaranteed here.</li>
+<li><strong>User exports:</strong> files explicitly exported or shared remain wherever the user saved or sent them and must be deleted there by the user.</li>
 </ul>
-<h2>3. How We Use Information</h2>
+
+<h2>6. Deletion and user choices</h2>
+<p>The App creates no AGDM account, so there is no AGDM account to delete. Users can remove local history where the App provides that action, clear App storage in Android settings, delete exported files from their destination, or uninstall the App. See the <a href="data-deletion.html">AGDM Root Checker data-deletion instructions</a>.</p>
+<p>Because successful Integrity and entitlement requests are not retained as AGDM records, AGDM cannot retrieve them later by install ID, request ID, package name, or purchase token. Temporary abuse-prevention state, minimized logs, and unacknowledged Pub/Sub messages expire automatically under the periods above. Questions or deletion requests can be sent to <strong>agdmsoft@gmail.com</strong>; AGDM will respond within 30 calendar days. Hostinger rotates full daily and weekly VPS backups according to the provider&#x27;s schedule. These copies can contain files already deleted from the live server; that content remains until the provider removes the particular backup during rotation. A fixed calendar deadline for removal from all provider backups is not guaranteed here.</p>
+
+<h2>7. Service providers and disclosures</h2>
 <ul>
-<li><strong>To Provide Core Functionality:</strong> To display a comprehensive security report about your device directly to you within the App.</li>
-<li><strong>To Display Advertisements:</strong> In the Free Version, advertising partners use collected data to serve relevant ads.</li>
+<li><strong>Google Play Integrity and Google Play Billing:</strong> token decoding, app/device recognition, subscriptions, and payments.</li>
+<li><strong>Google Cloud Run, Cloud Logging, and Pub/Sub:</strong> primary managed verification and entitlement processing, minimized operational logs, and delivery of subscription notifications in the European region selected by AGDM.</li>
+<li><strong>Hostinger:</strong> independent fallback verification and entitlement processing on a VPS in Germany; separately stored daily backups observed in Lithuania.</li>
 </ul>
-<h2>4. Advertising and User Choice</h2>
-<p>You can typically control or opt out of personalized advertising in your device settings. On most Android devices, you can do this by navigating to Settings -> Google -> Ads and enabling the "Opt out of Ads Personalization" option or resetting your advertising ID.</p>
-<h2>5. Data Storage and Transfer</h2>
-<ul>
-<li><strong>Storage:</strong> All scan results and history are stored <strong>locally</strong> in the App's private directory on your device.</li>
-<li><strong>Transfer:</strong> We <strong>do not sell, trade, or otherwise transfer</strong> any data to third parties. The only exceptions are data collected by our advertising partners as described in Section 4, and data that you explicitly decide to share using the "Export" or "Share" functionality.</li>
-</ul>
-<h2>6. Third-Party Services</h2>
-<p>In addition to advertising partners, the App uses the <strong>Google Play Integrity API</strong> to assess the device's integrity. This process is governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</p>
-<h2>7. Permissions Used By This App</h2>
-<p>Beyond the core, always-local technical scan described in Sections 1-3, the App includes a small set of optional, manual, opt-in checks that read specific device data only when you choose to use them. None of this data is transmitted off your device or stored on any server:</p>
-<ul>
-<li><strong>Approximate location (optional):</strong> Only if you explicitly enable this in Settings and tap "Show my location" on the Cyberactivity Map screen, the App reads the OS's last-known approximate (coarse, not GPS-precise) location to show a dot on that screen. It is read only at that moment, on your action, and is never transmitted or saved.</li>
-<li><strong>Camera & microphone permission audit:</strong> The "Camera & microphone" screen lists which apps installed on your device currently hold the camera and/or microphone permission (a permission-grant snapshot, not a usage history). This requires the App to see your device's list of installed apps. The App itself does not use your camera or microphone for anything. The same screen also links directly to Android's own Privacy Dashboard, the only source for an actual usage history — that data is protected by the OS and no third-party app, including this one, can read it.</li>
-<li><strong>Network signal check:</strong> The "Sudden network change" screen reads your current network generation (2G/3G/4G/5G) and signal level, only when you tap "Check network," to flag a sudden downgrade worth a second look. This requires phone-state permission. Only the single most recent reading is kept, to compare against your next manual check.</li>
-<li><strong>App traffic:</strong> The "App traffic" screen shows how much Wi-Fi and mobile data other installed apps have used, broken down by app and date range, using Android's NetworkStatsManager. This requires the special "Usage Access" permission, which you must grant manually in system Settings. The App reads only data-volume totals per app — never the content sent, the addresses/domains visited, or any browsing history.</li>
-</ul>
-<h2>8. Children's Privacy</h2>
-<p>The App is not intended for use by children under the age of 13. We do not knowingly collect any personal information from children.</p>
-<h2>9. Changes to This Privacy Policy</h2>
-<p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy within the App and updating the "Effective Date."</p>
-<h2>10. Contact Us</h2>
-<p>If you have any questions about this Privacy Policy, please contact us at: <strong>agdmsoft@gmail.com</strong></p>
-</section>
-</main>
-<footer>
-<p>© 2025–2026 AGDM Soft. All rights reserved.</p>
-<p>Contact us: agdmsoft@gmail.com</p>
-</footer>
+<p>AGDM does not sell user data, use it for advertising, or use a general analytics/advertising processor. Information may be disclosed when required by applicable law or reasonably necessary to protect users, the service, or legal rights, limited to information AGDM actually has.</p>
+
+<h2>8. Security</h2>
+<p>The App uses HTTPS and disables cleartext traffic. Release builds disable the App's HTTP body logger. The primary managed service runs on Google Cloud Run with route-level validation, per-IP rate limiting, and an operator endpoint that is not public. The independent Hostinger fallback terminates HTTPS through Caddy and forwards requests to a backend bound only to loopback. Tokens and nonces are excluded from logs, success records are not logged, persistent logs are minimized and access-controlled, and retention is limited as described above. No transmission or storage method is completely secure.</p>
+
+<h2>9. Permissions and special access</h2>
+<p>Android permissions and special access are used only for user-facing security features that require them. Denying optional access can make a related check unavailable or less complete. Granting access does not mean local installed-app or device results are uploaded: automatic off-device transmission is limited to the Integrity and subscription-entitlement flows in Sections 3 and 4 unless the user explicitly exports or shares a file.</p>
+
+<h2>10. Children</h2>
+<p>The App is a device-security utility and is not directed to children. It creates no user profile and uses no advertising.</p>
+
+<h2>11. Changes</h2>
+<p>AGDM may update this Policy when the App, backend, legal requirements, or service providers change. The effective date and published text will be updated. A material change in off-device processing requires a corresponding review of the Google Play Data Safety declaration and, where appropriate, a renewed in-App disclosure.</p>
+
+<h2>12. Contact</h2>
+<p>Privacy questions and requests: <strong>agdmsoft@gmail.com</strong></p>
+<p>Deleting data or uninstalling does not cancel your subscription. Manage or cancel it separately in Google Play.</p></section></main>
+<footer><p>© 2026 AGDM Soft. All rights reserved.</p><p>Contact us: agdmsoft@gmail.com</p></footer>
 </div>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data deletion — AGDM Root Checker</title>
+<meta name="description" content="How to delete AGDM Root Checker local data and request privacy assistance.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="logo.png" type="image/png">
+<style>
+.legal-doc { max-width: 760px; margin: 0 auto; text-align: left; }
+.legal-doc h1 { font-size: 2.2rem; margin-bottom: 6px; text-align: left; color: var(--text); }
+.legal-doc .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 30px; }
+.legal-doc h2 { font-size: 1.35rem; margin-top: 34px; margin-bottom: 10px; color: var(--accent); text-align: left; }
+.legal-doc p, .legal-doc ol, .legal-doc ul { color: var(--muted); margin-bottom: 14px; }
+.legal-doc li { margin-bottom: 8px; }
+.legal-doc strong { color: var(--text); }
+.legal-doc a { color: var(--accent); }
+.back-link { display: inline-block; margin-bottom: 30px; color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+</style>
+<style id="r1-legal-readable">
+.legal-doc{box-sizing:border-box;max-width:800px;width:100%;margin-inline:auto;padding:24px;background:rgba(12,14,16,.96);border:1px solid #343638;border-radius:12px;text-align:start;line-height:1.7;overflow-wrap:anywhere}
+.legal-doc section{margin:0;padding:0;min-height:0}.legal-doc h1{font-size:1.8rem;line-height:1.35;text-align:start;margin-block:12px}.legal-doc h2{font-size:1.25rem;text-align:start;margin-block:24px 8px}.legal-doc p,.legal-doc li{color:#d0d5d2;font-size:1rem;line-height:1.7}.legal-doc p{margin-block:0 14px}.legal-doc ul,.legal-doc ol{margin-inline:0;padding-inline-start:24px}.legal-doc a{display:inline-block;min-height:48px;box-sizing:border-box;padding:10px 6px;color:#e3be4b}.legal-doc .languages{display:flex;flex-wrap:wrap;gap:2px;margin-block:8px 20px}.legal-doc .meta{font-size:.9rem}.legal-doc time{direction:ltr;unicode-bidi:isolate}.legal-doc .contact{direction:ltr;unicode-bidi:isolate}@media(max-width:600px){.legal-doc{padding:16px;border-radius:8px}.legal-doc h1{font-size:1.55rem}}
+</style>
+<meta name="robots" content="noindex,follow"></head>
+<body><div class="container">
+<header style="margin: 30px 0;"><img src="logo.png" alt="AGDM Logo" class="logo" style="width:72px;"></header>
+<main><section class="legal-doc">
+<a class="back-link" href="index.html">← Back to AGDM Root Checker</a>
+<h1>AGDM Root Checker data deletion</h1>
+<nav class="languages"><a lang="en" hreflang="en" href="data-deletion.html">English</a> <a lang="ru" hreflang="ru" href="ru/data-deletion.html">Русский</a> <a lang="ar" hreflang="ar" href="https://agdm-rootchecker.com/ar/data-deletion.html">العربية</a> <a lang="de" hreflang="de" href="https://agdm-rootchecker.com/de/data-deletion.html">Deutsch</a> <a lang="es" hreflang="es" href="https://agdm-rootchecker.com/es/data-deletion.html">Español</a> <a lang="fa" hreflang="fa" href="https://agdm-rootchecker.com/fa/data-deletion.html">فارسی</a> <a lang="fr" hreflang="fr" href="https://agdm-rootchecker.com/fr/data-deletion.html">Français</a> <a lang="hi" hreflang="hi" href="https://agdm-rootchecker.com/hi/data-deletion.html">हिन्दी</a> <a lang="id" hreflang="id" href="https://agdm-rootchecker.com/id/data-deletion.html">Bahasa Indonesia</a> <a lang="pt" hreflang="pt" href="https://agdm-rootchecker.com/pt/data-deletion.html">Português</a> <a lang="tr" hreflang="tr" href="https://agdm-rootchecker.com/tr/data-deletion.html">Türkçe</a> <a lang="vi" hreflang="vi" href="https://agdm-rootchecker.com/vi/data-deletion.html">Tiếng Việt</a> <a lang="zh-CN" hreflang="zh-CN" href="https://agdm-rootchecker.com/zh/data-deletion.html">简体中文</a></nav>
+<p class="meta">Last updated: <time datetime="2026-10-04" dir="ltr">2026-10-04</time></p>
+<h2>No AGDM account</h2>
+<p>AGDM Root Checker does not create an AGDM user account. There is therefore no AGDM account or cloud profile to close.</p>
+<h2>Delete data stored on your device</h2>
+<ol>
+<li>Delete individual history entries through the App where that action is available.</li>
+<li>To remove all App-private settings, consent state, history, aggregate installed-app scan metrics, reports, and pending verification state, open Android <strong>Settings → Apps → AGDM Root Checker → Storage → Clear data</strong>.</li>
+<li>Uninstalling AGDM Root Checker also removes its App-private data because Android backup and device transfer are disabled for this data.</li>
+<li>Delete exported or shared reports from the folder, cloud service, email, or messaging app where you saved or sent them.</li>
+</ol>
+<h2>AGDM server data</h2>
+<p>Successful Play Integrity and subscription-entitlement request bodies and results are not retained as AGDM records by either the Google Cloud Run primary service or the independent Hostinger fallback. Raw tokens, nonces and request bodies are processed in memory and are not written to AGDM application logs or databases. The backend&#x27;s abuse-prevention state for the raw connection IP is held in process memory without geolocation. Request records expire after 24 hours plus approximately one minute for cleanup; the IP entry disappears when no current records remain, or earlier if the process restarts. Continued requests can keep the entry active.</p>
+<section id="r1-ip-log-scope"><h2>Technical security logs and IP addresses</h2><p>The memory-only rule above applies to the backend&#x27;s raw-IP abuse-prevention state, not to all infrastructure logs. Minimized application security logs can contain the event time and type, method, category or reason, a masked network address and a per-process HMAC fingerprint of the IP. These are pseudonymous identifiers, not a guarantee of anonymity. Hostinger application logs are limited to seven days; Google Cloud application logs to 30 days. VPS operating-system security logs can contain full source IP addresses for network events. The system journal is configured for seven-day retention with daily file rotation. UFW firewall and rsyslog text logs rotate weekly and keep the current file plus four archives. Older copies of these files can remain in provider backups until backup rotation removes them.</p></section>
+
+<p>Minimized Hostinger application logs expire within seven days. Minimized Google Cloud application logs expire after 30 days; Cloud Run infrastructure request logs are excluded so that raw request IPs and URLs are not retained in the <code>_Default</code> log bucket. Mandatory Google Cloud administration and system-event records are retained in the locked <code>_Required</code> bucket for 400 days and do not contain AGDM request bodies or Play tokens.</p>
+<p>An unacknowledged Google Play Real-time Developer Notification can be retained by Google Cloud Pub/Sub for no more than 24 hours. Hostinger rotates full daily and weekly VPS backups according to the provider&#x27;s schedule. These copies can contain files already deleted from the live server; that content remains until the provider removes the particular backup during rotation. A fixed calendar deadline for removal from all provider backups is not guaranteed here.</p>
+<h2>Request assistance</h2>
+<p>Email <a href="mailto:agdmsoft@gmail.com?subject=AGDM%20Root%20Checker%20data%20deletion">agdmsoft@gmail.com</a> with the subject “AGDM Root Checker data deletion”. Do not send a Play Integrity token, purchase token, password, payment data, or full device report. AGDM will respond within 30 calendar days and explain whether any data capable of being associated with the request exists. Because successful requests are not retained as AGDM records, there is normally no server record that can later be located by install ID, request ID, package name or purchase token; temporary protection state and retained provider logs expire automatically under the periods above.</p>
+<p>See the <a href="privacy-policy.html">Privacy Policy</a> for the complete processing and retention description.</p>
+<p>Deleting data or uninstalling does not cancel your subscription. Manage or cancel it separately in Google Play.</p></section></main>
+<footer><p>© 2026 AGDM Soft. All rights reserved.</p><p>Contact us: agdmsoft@gmail.com</p></footer>
+</div></body>
+</html>

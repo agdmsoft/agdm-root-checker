@@ -9,7 +9,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="logo.png" type="image/png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="site.webmanifest">
 <style>
 .legal-doc { max-width: 760px; margin: 0 auto; text-align: left; }
 .legal-doc h1 { font-size: 2.2rem; margin-bottom: 6px; text-align: left; color: var(--text); }
@@ -22,32 +26,42 @@
 .back-link { display: inline-block; margin-bottom: 30px; color: var(--muted); text-decoration: none; font-size: 0.9rem; }
 .back-link:hover { color: var(--accent); }
 </style>
-</head>
+<style id="r1-legal-readable">
+.legal-doc{box-sizing:border-box;max-width:800px;width:100%;margin-inline:auto;padding:24px;background:rgba(12,14,16,.96);border:1px solid #343638;border-radius:12px;text-align:start;line-height:1.7;overflow-wrap:anywhere}
+.legal-doc section{margin:0;padding:0;min-height:0}.legal-doc h1{font-size:1.8rem;line-height:1.35;text-align:start;margin-block:12px}.legal-doc h2{font-size:1.25rem;text-align:start;margin-block:24px 8px}.legal-doc p,.legal-doc li{color:#d0d5d2;font-size:1rem;line-height:1.7}.legal-doc p{margin-block:0 14px}.legal-doc ul,.legal-doc ol{margin-inline:0;padding-inline-start:24px}.legal-doc a{display:inline-block;min-height:48px;box-sizing:border-box;padding:10px 6px;color:#e3be4b}.legal-doc .languages{display:flex;flex-wrap:wrap;gap:2px;margin-block:8px 20px}.legal-doc .meta{font-size:.9rem}.legal-doc time{direction:ltr;unicode-bidi:isolate}.legal-doc .contact{direction:ltr;unicode-bidi:isolate}@media(max-width:600px){.legal-doc{padding:16px;border-radius:8px}.legal-doc h1{font-size:1.55rem}}
+</style>
+<meta name="robots" content="noindex,follow"></head>
 <body>
 <div class="container">
 <header style="margin: 30px 0;">
-<img src="logo.png" alt="AGDM Logo" class="logo" style="width:72px;">
+<picture>
+  <source srcset="logo.webp" type="image/webp">
+  <img src="logo.png" alt="AGDM Logo" class="logo" width="74" height="74">
+</picture>
 </header>
 <main>
 <section class="legal-doc">
 <a class="back-link" href="index.html">← Back to AGDM Root Checker</a>
 <h1>End-User License Agreement (EULA)</h1>
-<p class="meta"><strong>Effective Date:</strong> June 22, 2025 &middot; <strong>Last Updated:</strong> August 4, 2026</p>
+<nav class="languages"><a lang="en" hreflang="en" href="eula.html">English</a> <a lang="ru" hreflang="ru" href="ru/eula.html">Русский</a> <a lang="ar" hreflang="ar" href="https://agdm-rootchecker.com/ar/eula.html">العربية</a> <a lang="de" hreflang="de" href="https://agdm-rootchecker.com/de/eula.html">Deutsch</a> <a lang="es" hreflang="es" href="https://agdm-rootchecker.com/es/eula.html">Español</a> <a lang="fa" hreflang="fa" href="https://agdm-rootchecker.com/fa/eula.html">فارسی</a> <a lang="fr" hreflang="fr" href="https://agdm-rootchecker.com/fr/eula.html">Français</a> <a lang="hi" hreflang="hi" href="https://agdm-rootchecker.com/hi/eula.html">हिन्दी</a> <a lang="id" hreflang="id" href="https://agdm-rootchecker.com/id/eula.html">Bahasa Indonesia</a> <a lang="pt" hreflang="pt" href="https://agdm-rootchecker.com/pt/eula.html">Português</a> <a lang="tr" hreflang="tr" href="https://agdm-rootchecker.com/tr/eula.html">Türkçe</a> <a lang="vi" hreflang="vi" href="https://agdm-rootchecker.com/vi/eula.html">Tiếng Việt</a> <a lang="zh-CN" hreflang="zh-CN" href="https://agdm-rootchecker.com/zh/eula.html">简体中文</a></nav>
+<p class="meta">Last updated: <time datetime="2026-10-03" dir="ltr">2026-10-03</time></p>
 <p>By installing or using AGDM Root Checker, you agree to the following:</p>
 <ol>
-<li>The application is provided <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong>, without warranties of any kind.</li>
+<li>To the extent permitted by applicable law, the App is provided AS IS and AS AVAILABLE. This does not exclude or restrict mandatory consumer rights or guarantees.</li>
 <li>The application performs security-related checks for informational purposes and does not guarantee that a device is fully secure or fully compromised.</li>
-<li>The developer is not responsible for any direct, indirect, incidental, or consequential damages, including device issues, data loss, or service interruption.</li>
-<li>You are granted a limited, non-exclusive, non-transferable license to use the application for personal, lawful, non-commercial use unless another agreement says otherwise.</li>
+<li>Any limitation of the developer’s liability applies only to the extent permitted by applicable law. Liability that cannot lawfully be excluded or restricted remains unaffected.</li>
+<li>You are granted a limited, non-exclusive, non-transferable license for lawful personal use or internal organizational evaluation and use, subject to a valid Google Play entitlement where required. This does not authorize redistribution, resale, or a managed service for third parties.</li>
 <li>You may not reverse engineer, redistribute, resell, or misuse the application except where applicable law explicitly allows it.</li>
-<li>Optional features may read certain device information locally on your device only when you choose to use them. See the <a href="privacy-policy.html">Privacy Policy</a> for details.</li>
+<li>Most security checks run on the device. Google Play Integrity and subscription verification involve Google Play and AGDM verification services as described in the <a href="privacy-policy.html">Privacy Policy</a>. See also the <a href="data-deletion.html">data-deletion instructions</a>.</li>
+<li>Subscriptions, localized prices, renewals, cancellation, and refunds are handled through Google Play under the terms shown at purchase and applicable Google Play policies. The App has no advertising or free trial. Deleting data or uninstalling does not cancel your subscription. Manage or cancel it separately in Google Play.</li>
 <li>The developer may update the application and these terms from time to time.</li>
 <li>If you do not agree with these terms, do not install or use the application.</li>
 </ol>
+<nav><a href="privacy-policy.html">Privacy Policy</a> · <a href="data-deletion.html">Data deletion</a></nav>
 </section>
 </main>
 <footer>
-<p>© 2025–2026 AGDM Soft. All rights reserved.</p>
+<p>© 2026 AGDM Soft. All rights reserved.</p>
 <p>Contact us: agdmsoft@gmail.com</p>
 </footer>
 </div>

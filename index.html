@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050706">
+<meta name="color-scheme" content="dark">
+<title>AGDM Root Checker - Deep Android Security Analysis</title>
+<meta name="description" content="AGDM Root Checker - a powerful tool for a detailed security analysis of your Android device. Root, bootloader, SELinux, camera/mic privacy, network anomalies, app traffic, and more.">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="site.webmanifest">
+<link rel="canonical" href="https://agdm-rootchecker.com/">
+<link rel="alternate" hreflang="x-default" href="https://agdm-rootchecker.com/">
+<link rel="alternate" hreflang="en" href="https://agdm-rootchecker.com/">
+<link rel="alternate" hreflang="ru" href="https://agdm-rootchecker.com/ru/">
+<link rel="alternate" hreflang="de" href="https://agdm-rootchecker.com/de/">
+<link rel="alternate" hreflang="es" href="https://agdm-rootchecker.com/es/">
+<link rel="alternate" hreflang="fr" href="https://agdm-rootchecker.com/fr/">
+<link rel="alternate" hreflang="pt" href="https://agdm-rootchecker.com/pt/">
+<link rel="alternate" hreflang="tr" href="https://agdm-rootchecker.com/tr/">
+<link rel="alternate" hreflang="vi" href="https://agdm-rootchecker.com/vi/">
+<link rel="alternate" hreflang="id" href="https://agdm-rootchecker.com/id/">
+<link rel="alternate" hreflang="zh" href="https://agdm-rootchecker.com/zh/">
+<link rel="alternate" hreflang="ar" href="https://agdm-rootchecker.com/ar/">
+<link rel="alternate" hreflang="fa" href="https://agdm-rootchecker.com/fa/">
+<link rel="alternate" hreflang="hi" href="https://agdm-rootchecker.com/hi/">
+<meta property="og:title" content="AGDM Root Checker - Deep Android Security Analysis">
+<meta property="og:description" content="A powerful tool for deep Android security diagnostics. Core checks run on device; device integrity verified via Google Play Integrity.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://agdm-rootchecker.com/">
+<meta property="og:image" content="https://agdm-rootchecker.com/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AGDM Root Checker - Deep Android Security Analysis">
+<meta name="twitter:description" content="A powerful tool for deep Android security diagnostics. Core checks run on device; device integrity verified via Google Play Integrity.">
+<meta name="twitter:image" content="https://agdm-rootchecker.com/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AGDM Root Checker",
+  "operatingSystem": "Android",
+  "applicationCategory": "SecurityApplication",
+  "url": "https://agdm-rootchecker.com/",
+  "image": "https://agdm-rootchecker.com/logo.png",
+  "description": "Deep Android security analysis tool. Core diagnostic checks run on device; integrity verified via Google Play Integrity API.",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "2.99",
+    "highPrice": "14.99",
+    "offerCount": "2"
+  }
+}
+</script>
+<style id="agdm-app-info-style">
+.agdm-brand-motto{color:#75df94;font-weight:600;line-height:1.65;margin-block:18px}
+.agdm-film{max-width:1040px;margin:32px auto 48px;padding:20px;border:1px solid #41483f;border-radius:16px;background:#0b0e0c}
+.agdm-film video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#050706;border:1px solid #57533b;border-radius:12px;direction:ltr}
+.agdm-film p{line-height:1.65;color:#d0d5d2}.agdm-film a{display:inline-flex;align-items:center;min-height:48px;color:#e3be4b}
+.agdm-about{margin-block:48px}.agdm-about-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.agdm-info-card{min-width:0;padding:24px;border:1px solid #343c36;border-radius:14px;background:rgba(12,16,13,.94);overflow-wrap:anywhere}
+.agdm-info-card h3{margin-block:0 12px;color:#e3be4b}.agdm-info-card p{line-height:1.65;color:#d0d5d2}
+.agdm-status-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.agdm-status-grid .agdm-info-card{border-inline-start:4px solid var(--status-tone)}
+.agdm-info-details{padding:20px;border:1px solid #343c36;border-radius:14px;background:#0b0e0c;margin-block:20px}.agdm-info-details summary{min-height:48px;cursor:pointer;font-size:1.2rem;color:#e3be4b;line-height:1.5}
+.agdm-permission{padding-block:16px;border-block-start:1px solid #343c36}.agdm-permission h3{font-size:1.05rem;color:#e3be4b}.agdm-permission p{color:#d0d5d2;line-height:1.65;white-space:pre-line}
+.agdm-site-links{display:flex;flex-wrap:wrap;gap:12px}.agdm-site-links a,.lang-item{min-height:48px;box-sizing:border-box;align-items:center}.agdm-site-links a{display:inline-flex;color:#e3be4b;padding:8px 4px}
+.agdm-app-info dl{display:grid;grid-template-columns:minmax(100px,1fr) 2fr;gap:14px}.agdm-app-info dt{color:#aeb7b0}.agdm-app-info dd{margin:0;color:#f0f3f1;overflow-wrap:anywhere}
+.agdm-backup-banner{padding:16px;border:1px solid #596148;border-radius:12px;background:#101711;color:#e7e9e0}.agdm-backup-banner a{color:#e3be4b}
+[dir=rtl] .agdm-usecase-card,[dir=rtl] .agdm-usecase-heading{text-align:start}
+@media(max-width:700px){.agdm-about-grid,.agdm-status-grid{grid-template-columns:1fr}.agdm-film{padding:12px}.agdm-info-card{padding:18px}.agdm-app-info dl{grid-template-columns:1fr}.agdm-app-info dd{margin-block-end:12px}}
+</style><script src="assets/site-language.js" data-site-base="/agdm-root-checker/" data-site-languages="en,ru"></script><meta name="robots" content="noindex,follow"></head>
+<body>
+<div class="container">
+<nav class="site-top-bar" aria-label="Main Navigation">
+    <div class="site-nav-links">
+        <a href="index.html" class="nav-link active">Root Checker</a><a href="#about-app" class="nav-link">About</a><a href="#film" class="nav-link">Open the film</a>
+        <a href="https://agdm-rootchecker.com/agdm-root-lab.html" class="nav-link nav-link--lab">AGDM Root Lab <span class="nav-badge">Planned</span></a>
+    </div>
+    <details class="lang-switcher">
+        <summary>🌐 English</summary>
+        <div class="lang-menu"><a href="index.html?lang=auto" class="lang-item" data-site-lang="auto">Automatic</a><a href="index.html?lang=en" class="lang-item" data-site-lang="en">English</a><a href="ru/index.html" class="lang-item" data-site-lang="ru">Русский</a></div>
+    </details>
+</nav>
+<aside class="agdm-backup-banner">Backup website in English and Russian. Main website: <a href="https://agdm-rootchecker.com/">agdm-rootchecker.com</a></aside><header class="hero">
+    <div class="hero-grid">
+        <div class="hero-copy">
+            <div class="brand-lockup">
+                <picture>
+                    <source srcset="logo.webp" type="image/webp">
+                    <img src="logo.png" alt="AGDM Logo" class="logo" width="74" height="74">
+                </picture>
+                <div class="brand-meta">
+                    <span class="brand-kicker">ANDROID SECURITY</span>
+                    <span class="brand-version">AGDM SOFT · 2026</span>
+                </div>
+            </div>
+
+            <h1>AGDM <span>Root Checker</span></h1>
+            <p class="tagline">Root Checker helps identify signs of hidden unauthorized access to your device and checks changes to security settings.</p><p class="agdm-brand-motto">Check your device — and sleep peacefully without worrying that someone might have access to your device.</p>
+
+            <div class="hero-proof" aria-label="Product advantages">
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>On-Device Diagnostics</span>
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>No Advertising</span>
+                <span class="proof-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 16 4-5 4 3 4-7"/></svg>Comprehensive Analysis</span>
+            </div>
+
+            <div class="cta-row">
+                <a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker" class="cta-button" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.3 2.7a2 2 0 0 1 2.2.2l11.8 6.8-3.4 3.4L3.3 2.7Zm-.8 1.8v15l9.8-7.5-9.8-7.5Zm1 17 10.4-10.4 3.6 3.6-12 6.9a2 2 0 0 1-2 .1l.5-.2Zm15.2-7.7 2-1.1a1.5 1.5 0 0 0 0-2.6l-2-1.1-3.8 3.8 3.8 1Z"/></svg><span>Closed Testing on Google Play</span></a>
+                <div class="qr-card">
+                    <img src="qr-play-store.png" alt="QR code to AGDM Root Checker on Google Play">
+                    <div><div class="qr-label">Closed Testing</div><div class="qr-sub">Opens Google Play Closed Testing on your phone</div></div>
+                </div>
+            </div>
+            <p class="availability-note">Currently available to approved closed testers on Google Play. Public release follows testing qualification.</p>
+        </div>
+
+        <div class="security-visual-wrap">
+            <div class="security-console" role="img" aria-label="Overall device security level">
+                <div class="console-topbar">
+                    <div class="console-brand"><span class="status-dot"></span> AGDM SECURITY CORE</div>
+                    <div class="console-code">LOCAL / PRIVATE</div>
+                </div>
+
+                <div class="security-stage">
+                    <div class="stage-grid"></div>
+                    <div class="stage-glow"></div>
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="orbit orbit-three"></div>
+                    <div class="scan-sweep"></div>
+                    <div class="scan-line"></div>
+
+                    <div class="metric-node node-root" style="--delay: .1s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v6"/><path d="M8 7h8"/><path d="M7 11h10v9H7z"/><path d="M10 15h4"/></svg></span><span>ROOT</span><i></i></div>
+                    <div class="metric-node node-boot" style="--delay: .45s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v8"/><path d="M7 5a8 8 0 1 0 10 0"/></svg></span><span>BOOT</span><i></i></div>
+                    <div class="metric-node node-selinux" style="--delay: .8s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z"/><path d="m8 10 2 2-2 2"/><path d="M13 15h3"/></svg></span><span>SELINUX</span><i></i></div>
+                    <div class="metric-node node-privacy" style="--delay: 1.15s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span>PRIVACY</span><i></i></div>
+                    <div class="metric-node node-network" style="--delay: 1.5s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.5 16a6 6 0 0 1 7 0"/><path d="M12 20h.01"/></svg></span><span>NETWORK</span><i></i></div>
+                    <div class="metric-node node-traffic" style="--delay: 1.85s"><span class="node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17V9"/><path d="M12 17V5"/><path d="M17 17v-6"/></svg></span><span>TRAFFIC</span><i></i></div>
+
+                    <div class="security-core">
+                        <div class="core-halo"></div>
+                        <div class="core-shield"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                        <span class="core-eyebrow">AGDM ENGINE</span>
+                        <strong>DEVICE</strong>
+                        <small>SECURITY ANALYSIS</small>
+                    </div>
+
+                    <div class="telemetry telemetry-left"><span>SCAN PIPELINE</span><div class="telemetry-bars"><b></b><b></b><b></b><b></b><b></b></div></div>
+                    <div class="telemetry telemetry-right"><span>ON-DEVICE</span><strong>LOCAL</strong></div>
+                </div>
+
+                <div class="console-footer">
+                    <div><span></span><b>ROOT</b><small>MODULE</small></div>
+                    <div><span></span><b>INTEGRITY</b><small>MODULE</small></div>
+                    <div><span></span><b>PRIVACY</b><small>MODULE</small></div>
+                </div>
+            </div>
+            <p class="visual-caption">Overall device security level</p>
+        </div>
+    </div>
+</header>
+
+<main>
+<section id="film" class="agdm-film"><h2>Check your device — and sleep peacefully</h2><video controls playsinline preload="metadata" poster="assets/video/agdm-root-checker-promo-poster.jpg" aria-label="Check your device — and sleep peacefully"><source src="assets/video/agdm-root-checker-promo-1080p.mp4" type="video/mp4"><a href="assets/video/agdm-root-checker-promo-1080p.mp4">Open the film</a></video><p>An animated story about device security. Root Checker provides diagnostic findings; a scan does not itself block data transfers. Release 1 requires a subscription, with no ads or free trial.</p><a href="assets/video/agdm-root-checker-promo-1080p.mp4">Open the film · 43.7 s · 1080p</a></section>
+    <section class="agdm-usecases-v4" aria-label="What AGDM checks">
+    <div class="agdm-usecase-group agdm-usecase-group--personal">
+        <div class="agdm-usecase-heading">
+            <span class="agdm-usecase-heading__bar" aria-hidden="true"></span>
+            <h2>For personal use</h2>
+        </div>
+
+        <div class="agdm-personal-grid">
+            <article class="agdm-usecase-card agdm-usecase-card--personal">
+                <div class="agdm-usecase-art agdm-usecase-art--personal"><img src="assets/usecases/personal-online.webp" alt="A phone ordered online" loading="lazy"></div>
+                <div class="agdm-usecase-copy">
+                    <h3>A phone ordered online</h3>
+                    <p>Before signing in, review the bootloader, root, SELinux and other system signals. This can reveal signs of firmware changes or unusual configuration.</p>
+                </div>
+            </article>
+
+            <article class="agdm-usecase-card agdm-usecase-card--personal">
+                <div class="agdm-usecase-art agdm-usecase-art--personal"><img src="assets/usecases/personal-used.webp" alt="Before buying a used phone" loading="lazy"></div>
+                <div class="agdm-usecase-copy">
+                    <h3>Before buying a used phone</h3>
+                    <p>Review root, bootloader, SELinux and system signals before paying. Findings may point to modifications; they do not prove that a phone is completely factory-original.</p>
+                </div>
+            </article>
+
+            <article class="agdm-usecase-card agdm-usecase-card--personal">
+                <div class="agdm-usecase-art agdm-usecase-art--personal"><img src="assets/usecases/personal-repair.webp" alt="After repair or a firmware update" loading="lazy"></div>
+                <div class="agdm-usecase-copy">
+                    <h3>After repair or a firmware update</h3>
+                    <p>Review root, bootloader, SELinux and camera/microphone permissions after repair or updates. Compare with earlier scan results when available.</p>
+                </div>
+            </article>
+
+            <article class="agdm-usecase-card agdm-usecase-card--personal">
+                <div class="agdm-usecase-art agdm-usecase-art--personal"><img src="assets/usecases/personal-gift.webp" alt="When someone gives you a phone" loading="lazy"></div>
+                <div class="agdm-usecase-copy">
+                    <h3>When someone gives you a phone</h3>
+                    <p>Before signing in, review root, bootloader, SELinux and sensitive permissions for unusual configuration or signs of previous use.</p>
+                </div>
+            </article>
+
+            <article class="agdm-usecase-card agdm-usecase-card--personal">
+                <div class="agdm-usecase-art agdm-usecase-art--personal"><img src="assets/usecases/personal-apk.webp" alt="After installing an APK or an unfamiliar app" loading="lazy"></div>
+                <div class="agdm-usecase-copy">
+                    <h3>After installing an APK or an unfamiliar app</h3>
+                    <p>Review new permissions, network activity and device state if an installation is followed by unusual heat, battery drain or behaviour.</p>
+                </div>
+            </article>
+
+            <article class="agdm-usecase-card agdm-usecase-card--personal">
+                <div class="agdm-usecase-art agdm-usecase-art--personal"><img src="assets/usecases/personal-strange.webp" alt="When your phone behaves unusually" loading="lazy"></div>
+                <div class="agdm-usecase-copy">
+                    <h3>When your phone behaves unusually</h3>
+                    <p>Compare app activity, camera/microphone permissions, network signals and system state rather than drawing a conclusion from one symptom.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="agdm-usecase-group agdm-usecase-group--business">
+        <div class="agdm-usecase-heading">
+            <span class="agdm-usecase-heading__bar" aria-hidden="true"></span>
+            <h2>For businesses and teams</h2>
+        </div>
+
+        <div class="agdm-business-grid">
+            <article class="agdm-usecase-card agdm-business-card agdm-business-card--stacked">
+                <div class="agdm-business-card__art agdm-business-card__art--wide"><img src="assets/usecases/business-employee.webp" alt="Handing a phone to a new employee" loading="lazy"></div>
+                <div class="agdm-business-card__copy">
+                    <h3>Handing a phone to a new employee</h3>
+                    <p>Before issuing a phone to a new employee, review root, bootloader, SELinux, sensitive permissions and other system signals.</p>
+                </div>
+            </article>
+
+            <article class="agdm-usecase-card agdm-business-card agdm-business-card--right-art">
+                <div class="agdm-business-card__top">
+                    <h3>Work phones in the financial sector</h3>
+                    <div class="agdm-business-card__art"><img src="assets/usecases/business-finance.webp" alt="Work phones in the financial sector" loading="lazy"></div>
+                </div>
+                <p>Run a manual system, bootloader and permission check before opening banking apps. Opening another app does not start a scan.</p>
+            </article>
+
+            <article class="agdm-usecase-card agdm-business-card agdm-business-card--right-art">
+                <div class="agdm-business-card__top">
+                    <h3>A phone returned by a remote employee</h3>
+                    <div class="agdm-business-card__art"><img src="assets/usecases/business-remote.webp" alt="A phone returned by a remote employee" loading="lazy"></div>
+                </div>
+                <p>Before issuing the phone again, review root, an unlocked bootloader, unusual permissions, network anomalies and other changes.</p>
+            </article>
+
+            <article class="agdm-usecase-card agdm-business-card agdm-business-card--left-art">
+                <div class="agdm-business-card__top">
+                    <div class="agdm-business-card__art agdm-business-card__art--shared"><img src="assets/usecases/business-shared.webp" alt="Devices shared by a team" loading="lazy"></div>
+                    <h3>Devices shared by a team</h3>
+                </div>
+                <p>Periodic checks help a team review activity and system state on shared work devices.</p>
+            </article>
+
+            <article class="agdm-usecase-card agdm-business-card agdm-business-card--left-art">
+                <div class="agdm-business-card__top">
+                    <div class="agdm-business-card__art agdm-business-card__art--crypto"><img src="assets/usecases/business-crypto.webp" alt="Before using a crypto wallet" loading="lazy"></div>
+                    <h3>Before using a crypto wallet</h3>
+                </div>
+                <p>Before using a crypto wallet or exchange, manually review root, bootloader, SELinux, sensitive permissions and network state.</p>
+            </article>
+
+            <article class="agdm-usecase-card agdm-business-card agdm-business-card--right-art">
+                <div class="agdm-business-card__top">
+                    <h3>Before accessing company systems</h3>
+                    <div class="agdm-business-card__art"><img src="assets/usecases/business-corporate.webp" alt="Before accessing company systems" loading="lazy"></div>
+                </div>
+                <p>Review the device before adding work accounts, certificates or confidential company information.</p>
+            </article>
+        </div>
+    </div>
+
+    <div class="agdm-usecase-note">
+        <span class="agdm-usecase-note__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+        <p>A configuration or signal deserves review, but is not by itself proof of compromise. The check could not be completed, for example because required access or a service was unavailable, the connection failed, or an active VPN caused this online check to be skipped.</p>
+    </div>
+</section>
+
+    <section class="scan-cards-section">
+        <h2>All scans and checks</h2>
+        <div class="scan-grid"><article class="scan-card">
+    <div class="scan-card__anim anim-root"><div class="shield"></div><div class="key"></div><div class="pulse-ring"></div></div>
+    <h3>Root Access Check</h3>
+    <p>Detects whether root access is present, exposed, or likely active so the user can quickly assess whether the device has elevated privileges.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-boot"><div class="lock-body"></div><div class="lock-arch"></div><div class="unlock-spark"></div></div>
+    <h3>Bootloader State</h3>
+    <p>Shows whether the bootloader appears locked or unlocked — a key indicator when checking whether the device may have been modified.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-integrity"><div class="grid-cells"></div><div class="check-line"></div></div>
+    <h3>System Integrity & Properties</h3>
+    <p>Reviews key Android properties and system signals to help show whether the device configuration looks normal or suspicious.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-selinux"><div class="terminal"></div><div class="cursor"></div><div class="status-bars"></div></div>
+    <h3>SELinux Status</h3>
+    <p>Reviews available SELinux signals. Direct reads may be restricted; any indirect conclusion is distinguished from a directly read Enforcing value.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-privacy"><div class="cam"></div><div class="mic"></div><div class="privacy-wave"></div></div>
+    <h3>Camera & Microphone Privacy</h3>
+    <p>Lists apps that hold camera and microphone permissions and helps the user review sensitive access more clearly.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-network"><div class="signal-bars"></div><div class="down-arrow"></div><div class="net-dot"></div></div>
+    <h3>Network Signal & Sudden Downgrade</h3>
+    <p>Highlights abrupt signal downgrades and other quick network warning signs that may justify a closer look.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-traffic"><div class="traffic-bars"></div><div class="traffic-line"></div></div>
+    <h3>App Traffic Analysis</h3>
+    <p>Shows which installed apps used Wi‑Fi or mobile data and helps the user understand traffic consumption by app and by period.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-heat"><div class="battery"></div><div class="thermo"></div><div class="heat-wave"></div></div>
+    <h3>Idle Heat Check</h3>
+    <p>Compares battery temperature against practical thresholds and the device’s normal idle behavior to surface unusual heating.</p>
+</article>
+<article class="scan-card">
+    <div class="scan-card__anim anim-developer"><div class="gear"></div><div class="switch-panel"></div><div class="dev-dot"></div></div>
+    <h3>Developer Mode Detection</h3>
+    <p>Checks whether Android developer options appear to be enabled so the user can notice an important device configuration state.</p>
+</article></div>
+    </section>
+
+    <section class="journey-section">
+        <h2>From Uncertainty to Confidence</h2>
+        <p class="section-subtitle">A quick check that replaces guesswork with clearer evidence.</p>
+        <div class="journey-steps">
+            <div class="journey-step"><span class="journey-icon">🧩</span><h3>Not sure what's really going on</h3><p>Strange battery drain, an app you don't remember installing, a permission you never noticed you granted.</p></div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step"><span class="journey-icon">🛰️</span><h3>Run the check</h3><p>Google Play Integrity response, app recognition, device-integrity signals and the final server verdict.</p></div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step step-outcome"><span class="journey-icon">✅</span><h3>Understand what the checks found</h3><p>See clear results, stated limitations, and practical guidance for items that may need attention.</p></div>
+        </div>
+    </section>
+
+    <section id="about-app" class="agdm-about"><h2>What AGDM checks</h2><div class="agdm-about-grid"><article class="agdm-info-card"><h3>Root indicators and system</h3><p>Root-tool indicators, bootloader, Verified Boot, SELinux, debug/system properties and runtime modification indicators.</p></article><article class="agdm-info-card"><h3>Privacy</h3><p>Configuration and access signals that can affect privacy, including overlay-related review.</p></article><article class="agdm-info-card"><h3>Network</h3><p>Connectivity state, mobile-network context and optional application-traffic analysis.</p></article><article class="agdm-info-card"><h3>Google Play Integrity</h3><p>Google Play Integrity response, app recognition, device-integrity signals and the final server verdict.</p></article></div><article class="agdm-info-card" style="margin-top:20px"><h3>System snapshots</h3><p>AGDM can compare saved scan states and highlight what changed between the latest and previous scan. Snapshot changes are evidence to review, not automatically a threat.</p></article></section><section id="result-statuses" class="agdm-about"><h2>Status meaning</h2><div class="agdm-status-grid"><article class="agdm-info-card" style="--status-tone:#75df94"><h3>NO FINDING</h3><p>The completed check did not find the condition it was designed to detect.</p></article><article class="agdm-info-card" style="--status-tone:#e3be4b"><h3>ATTENTION / REVIEW</h3><p>A configuration or signal deserves review, but is not by itself proof of compromise.</p></article><article class="agdm-info-card" style="--status-tone:#7ab8ff"><h3>NOT CHECKED / UNAVAILABLE</h3><p>The check could not be completed, for example because required access or a service was unavailable, the connection failed, or an active VPN caused this online check to be skipped.</p></article><article class="agdm-info-card" style="--status-tone:#ff8f8f"><h3>THREAT</h3><p>A stronger risk indicator was detected. Open the check details or Assistant for guidance.</p></article></div></section><section id="permissions" class="agdm-about"><details class="agdm-info-details"><summary>App permissions</summary><p>Reference: what each access is used for and when it is requested</p><article class="agdm-permission"><h3>Internet</h3><p>Used for Play Integrity, AGDM backend verification and network checks. Android grants this automatically; no runtime dialog is shown.</p></article><article class="agdm-permission"><h3>Network state</h3><p>Android network/Wi-Fi state access is used to read the active connection, network validation, VPN presence and available Wi-Fi details. Android grants these state permissions automatically; no runtime permission dialog is shown for them.</p></article><article class="agdm-permission"><h3>Permission for a detailed Wi-Fi check</h3><p>For Wi-Fi details, AGDM Root Checker asks for Nearby devices on Android 13 or later, or Location on Android 12 or earlier. It reads available connection details, not location coordinates. Android may withhold the network name or security type. Skip to continue with basic network checks.</p></article><article class="agdm-permission"><h3>Phone state</h3><p>Requested only when a scan needs cellular network generation/signal context. If denied, that module is marked not checked; AGDM does not use it for SMS, call history or your phone number.</p></article><article class="agdm-permission"><h3>Usage access</h3><p>Optional special access for recorded app-traffic totals and Android-reported last-use times of apps matching known indicators. Enable it manually in Android Settings. Without it, traffic is not checked and last-use times are unavailable; other checks continue.</p></article><article class="agdm-permission"><h3>Notifications</h3><p>Requested only when the user enables scan-result notifications. It is not requested during app startup.</p></article><article class="agdm-permission"><h3>Installed apps visibility</h3><p>Used locally to read installed-app metadata, indicator matches and granted permissions. A match or granted permission does not establish how an app behaves.</p></article><article class="agdm-permission"><h3>Start after reboot</h3><p>Used only to restore the automatic scan schedule chosen by the user after a device restart.</p></article><article class="agdm-permission"><h3>Google Play Billing</h3><p>Used to purchase and restore the Root Checker monthly or yearly subscription through Google Play.</p></article></details></section><section id="app-information" class="agdm-about agdm-app-info"><h2>Application information</h2><div class="agdm-info-card"><dl><dt>Version</dt><dd>Release 1</dd><dt>Developer</dt><dd>AGDM Soft</dd><dt>Domain</dt><dd><a href="https://agdm-rootchecker.com/">agdm-rootchecker.com</a></dd></dl><div class="agdm-site-links"><a href="privacy-policy.html">Privacy Policy</a><a href="data-deletion.html">Data deletion information</a><a href="eula.html">End-User License Agreement</a><a href="mailto:agdmsoft@gmail.com">Contact Us / Feedback</a><a href="https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker">Rate the App</a></div></div><details class="agdm-info-details"><summary>Open Source Licenses</summary><p>The app uses the libraries and data sources below. Included licenses and notices are available offline in their original wording; links open the relevant license or provider terms.</p><a href="assets/licenses/notices.html">Included licenses and notices</a><h3>Open-source libraries and fonts</h3><ul><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">AndroidX Core / Lifecycle / Activity / Navigation</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">Jetpack Compose (UI, Material 3, Foundation)</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">AndroidX Room</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">AndroidX WorkManager</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">AndroidX DataStore</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">AndroidX Window</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">AndroidX Core SplashScreen</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">AndroidX Profileinstaller</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">AndroidX AppCompat</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">Dagger Hilt</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">Kotlin Coroutines</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">Kotlin Serialization</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">Material Components for Android</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">AndroidX Graphics Shapes</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">Coil</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">Retrofit / OkHttp / Okio / Gson</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">Jakarta Inject / javax.inject / JSpecify</a></li><li><a href="https://www.apache.org/licenses/LICENSE-2.0.txt" target="_blank" rel="noopener noreferrer">Guava ListenableFuture / Error Prone</a></li><li><a href="https://dejavu-fonts.github.io/License.html" target="_blank" rel="noopener noreferrer">DejaVu Sans</a></li></ul><h3>Google Play components</h3><ul><li><a href="https://developer.android.com/google/play/integrity/overview#tos" target="_blank" rel="noopener noreferrer">Google Play Integrity API</a></li><li><a href="https://developer.android.com/guide/playcore/license" target="_blank" rel="noopener noreferrer">Google Play Core Common</a></li><li><a href="https://developer.android.com/studio/terms.html" target="_blank" rel="noopener noreferrer">Google Play Billing Library</a></li><li><a href="https://developer.android.com/studio/terms.html" target="_blank" rel="noopener noreferrer">Google Play Services Base / Basement / Tasks / Location / PlaceReport</a></li></ul><h3>Data sources</h3><ul><li><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Stalkerware Indicators of Compromise — Echap / Tek / Julien Voisin</a></li><li><a href="https://github.com/AssoEchap/stalkerware-indicators" target="_blank" rel="noopener noreferrer">AssoEchap/stalkerware-indicators</a></li></ul><p>IOC data: Echap, Tek, Julien Voisin and contributors. Bundled snapshot: 2026-08-31. Selected Android package and certificate indicators were converted to JSON; network indicators were omitted. License: CC BY 4.0.</p></details></section>
+<section class="lab-section">
+        <div class="lab-card">
+            <div class="lab-badge">PLANNED WORKSTATION · UNDER DEVELOPMENT</div>
+            <h2>AGDM Root Lab</h2>
+            <p class="lab-subtitle">Dedicated desktop workstation software planned for offline partition image inspection, deep forensic extraction evaluation, and binary baseline diffing.</p>
+            <div class="lab-status-banner">
+                <div class="lab-status-indicator"></div>
+                <div><strong>Status: Planned / Under Development</strong> — Not available for download or purchase. Scheduled for development following the production release of AGDM Root Checker Release 1.</div>
+            </div>
+            <p class="lab-desc">While AGDM Root Checker operates on-device to detect live root indicators and verify Play Integrity attestation, AGDM Root Lab will provide forensic specialists with offline laboratory inspection of physical extractions and firmware artifacts.</p>
+            <div class="lab-actions">
+                <a href="https://agdm-rootchecker.com/agdm-root-lab.html" class="lab-link-btn">Explore Planned Capabilities & Limits →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="legal" class="legal-section">
+        <h2>Legal Information</h2>
+        <details>
+            <summary>Privacy Policy</summary>
+            <div class="details-content">
+                <p class="meta">Last updated: <time datetime="2026-10-04" dir="ltr">2026-10-04</time></p>
+                <p>Google Play Integrity response, app recognition, device-integrity signals and the final server verdict.</p>
+                <p><a href="privacy-policy.html">Read the full Privacy Policy →</a></p>
+                <p><a href="data-deletion.html">How to delete local data and request privacy assistance →</a></p>
+            </div>
+        </details>
+        <details>
+            <summary>End-User License Agreement (EULA)</summary>
+            <div class="details-content"><p><a href="eula.html" target="_blank" rel="noopener noreferrer">Read the full EULA →</a></p></div>
+        </details>
+    </section>
+</main>
+<footer>
+    <p>© 2026 AGDM Soft. All rights reserved.</p>
+    <p><a href="https://agdm-rootchecker.com/agdm-root-lab.html" style="color: var(--accent); font-weight: 700;">AGDM Root Lab (Planned)</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="data-deletion.html">Data deletion</a> &middot; Contact us: agdmsoft@gmail.com</p>
+</footer>
+</div>
+
+</body>
+</html>

@@ -1,39 +1,14 @@
 # AGDM Root Checker
 
-A powerful tool for a deep and detailed security analysis of your Android device.
+Main website: **https://agdm-rootchecker.com/**
 
----
+This GitHub Pages site is a maintained **English and Russian backup**, without an automatic redirect:
 
-## 🌐 Official Website & Documentation
+- English: https://agdmsoft.github.io/agdm-root-checker/?lang=en
+- Russian: https://agdmsoft.github.io/agdm-root-checker/ru/
 
-Full information about the app, as well as the Privacy Policy and End-User License Agreement (EULA), is available on our official website:
+The primary website contains all 13 supported application languages. Product, privacy, data deletion and EULA links in new materials use the primary domain. Backup legal pages mirror the primary English/Russian documents; source history remains in Git.
 
-**[https://agdmsoft.github.io/agdm-root-checker/](https://agdmsoft.github.io/agdm-root-checker/)**
+The 43.7-second 1080p promotional film is included with native playback controls. The same original file remains available at `assets/video/agdm-root-checker-promo-1080p.mp4`.
 
-_(Note: This link will become active after you enable GitHub Pages in your repository settings)._
-
-## Watch the film
-
-<video controls playsinline preload="metadata" poster="assets/video/agdm-root-checker-promo-poster.jpg" aria-label="AGDM Root Checker promotional film" style="display:block;width:100%;max-width:960px;height:auto;aspect-ratio:16/9;background:#080a09;border-radius:12px;margin:1rem 0;">
-  <source src="assets/video/agdm-root-checker-promo-1080p.mp4" type="video/mp4">
-  <a href="assets/video/agdm-root-checker-promo-1080p.mp4">Watch or download the AGDM Root Checker film</a>.
-</video>
-
-[Open the film](assets/video/agdm-root-checker-promo-1080p.mp4) · 43.7 seconds · Full HD
-
-## ✨ Key Features
-
-AGDM Root Checker provides a comprehensive security audit of your Android system, including:
-
-* **✔ Root Access:** Detection of `su`/`busybox` binaries and common root management applications (Magisk, SuperSU, etc.).
-* **✔ System Integrity:** Analysis of the firmware signature (test-keys), Verified Boot status, and system debuggable flags.
-* **✔ Bootloader & SELinux:** Verification of the bootloader's lock state and the operational mode of SELinux (Enforcing/Permissive).
-* **✔ Environment:** Analysis of Google Play Services status and a full check using the Play Integrity API.
-
-## ⬇️ Download
-
-* **[Get it on Google Play](https://play.google.com/store/apps/details?id=com.agdmsoft.agdmrootchecker)**
-
-## ✉️ Contact
-
-For any questions or suggestions, please contact us at: **agdmsoft@gmail.com**
+Release 1 uses subscriptions, without ads or a free trial. Diagnostics report available signals and limitations; a scan does not itself block data transfers. Production availability is governed by Google Play, not by website publication.
